@@ -23,6 +23,17 @@ simon = User.create(email: "simon@test.com", password: "test1234")
 carlos = User.create(email: "carlos@test.com", password: "test1234")
 harris = User.create(email: "harris@test.com", password: "test1234")
 marien = User.create(email: "marien@test.com", password: "test1234")
+john = User.create(email: "john@test.com", password: "test1234")
+sophie = User.create(email: "sophie@test.com", password: "test1234")
+marc = User.create(email: "marc@test.com", password: "test1234")
+jose = User.create(email: "jose@test.com", password: "test1234")
+anna = User.create(email: "anna@test.com", password: "test1234")
+fred = User.create(email: "fred@test.com", password: "test1234")
+paul = User.create(email: "paul@test.com", password: "test1234")
+federica = User.create(email: "federica@test.com", password: "test1234")
+tina = User.create(email: "tina@test.com", password: "test1234")
+andrea = User.create(email: "andrea@test.com", password: "test1234")
+
 
 puts "Creating profile for private users..."
 simon_profile = Profile.new(first_name: "Simon", last_name: "Hu", username: "spicysimonroll", address: "C/ del Bruc, 149, 08037 Barcelona", is_business: false)
@@ -37,6 +48,36 @@ harris_profile.save
 marien_profile = Profile.new(first_name: "Marien", last_name: "Irzykiewicz", username: "marienirzyk", address: "C/ del Bruc, 149, 08037 Barcelona", is_business: false)
 marien_profile.user = marien
 marien_profile.save
+john_profile = Profile.new(first_name: "John", last_name: "Smith", username: "johnnyS", address: "C/ del Bruc, 149, 08037 Barcelona", is_business: false)
+john_profile.user = john
+john_profile.save
+sophie_profile = Profile.new(first_name: "Sophie", last_name: "Johnson", username: "sophieee", address: "C/ del Bruc, 149, 08037 Barcelona", is_business: false)
+sophie_profile.user = sophie
+sophie_profile.save
+marc_profile = Profile.new(first_name: "Marc", last_name: "Williams", username: "marcWill", address: "C/ del Bruc, 149, 08037 Barcelona", is_business: false)
+marc_profile.user = marc
+marc_profile.save
+jose_profile = Profile.new(first_name: "Jose", last_name: "Rodriguez", username: "elRodrigo", address: "C/ del Bruc, 149, 08037 Barcelona", is_business: false)
+jose_profile.user = jose
+jose_profile.save
+anna_profile = Profile.new(first_name: "Anna", last_name: "Brown", username: "brownies", address: "C/ del Bruc, 149, 08037 Barcelona", is_business: false)
+anna_profile.user = anna
+anna_profile.save
+fred_profile = Profile.new(first_name: "Fred", last_name: "Garcia", username: "garcield", address: "C/ del Bruc, 149, 08037 Barcelona", is_business: false)
+fred_profile.user = fred
+fred_profile.save
+paul_profile = Profile.new(first_name: "Paul", last_name: "Wilson", username: "wilsoooon", address: "C/ del Bruc, 149, 08037 Barcelona", is_business: false)
+paul_profile.user = paul
+paul_profile.save
+federica_profile = Profile.new(first_name: "Federica", last_name: "Nutella", username: "nutellaLove", address: "C/ del Bruc, 149, 08037 Barcelona", is_business: false)
+federica_profile.user = federica
+federica_profile.save
+tina_profile = Profile.new(first_name: "Tina", last_name: "Pozzuoli", username: "pozzii", address: "C/ del Bruc, 149, 08037 Barcelona", is_business: false)
+tina_profile.user = tina
+tina_profile.save
+andrea_profile = Profile.new(first_name: "Andrea", last_name: "Miller", username: "theMiller", address: "C/ del Bruc, 149, 08037 Barcelona", is_business: false)
+andrea_profile.user = andrea
+andrea_profile.save
 
 puts "Creating business users..."
 business1 = User.create(email: "business1@test.com", password: "test1234")
