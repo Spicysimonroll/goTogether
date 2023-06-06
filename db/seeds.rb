@@ -342,7 +342,6 @@ friendship4 = Friendship.new
 friendship4.user = carlos
 friendship4.friend = john
 friendship4.save
-
 friendship5 = Friendship.new
 friendship5.user = carlos
 friendship5.friend = sophie
@@ -379,6 +378,102 @@ friendship13 = Friendship.new
 friendship13.user = carlos
 friendship13.friend = andrea
 friendship13.save
+
+puts "Creating groups of friends..."
+group1 = Group.create(name: "Best pals")
+group1.user = carlos
+group1.save
+group2 = Group.create(name: "Hiking friends")
+group2.user = carlos
+group2.save
+group3 = Group.create(name: "Party friends")
+group3.user = carlos
+group3.save
+group4 = Group.create(name: "Work colleagues")
+group4.user = carlos
+group4.save
+group5 = Group.create(name: "Sunday volleyball")
+group5.user = carlos
+group5.save
+
+puts "Creating group of friendships..."
+group_friendships1 = GroupFriendship.new
+group_friendships1.group = group1
+group_friendships1.friendship = friendship1
+group_friendships1.save
+group_friendships2 = GroupFriendship.new
+group_friendships2.group = group1
+group_friendships2.friendship = friendship2
+group_friendships2.save
+group_friendships3 = GroupFriendship.new
+group_friendships3.group = group1
+group_friendships3.friendship = friendship3
+group_friendships3.save
+group_friendships4 = GroupFriendship.new
+group_friendships4.group = group2
+group_friendships4.friendship = friendship4
+group_friendships4.save
+group_friendships5 = GroupFriendship.new
+group_friendships5.group = group2
+group_friendships5.friendship = friendship5
+group_friendships5.save
+group_friendships6 = GroupFriendship.new
+group_friendships6.group = group2
+group_friendships6.friendship = friendship6
+group_friendships6.save
+group_friendships7 = GroupFriendship.new
+group_friendships7.group = group3
+group_friendships7.friendship = friendship7
+group_friendships7.save
+group_friendships8 = GroupFriendship.new
+group_friendships8.group = group3
+group_friendships8.friendship = friendship8
+group_friendships8.save
+group_friendships9 = GroupFriendship.new
+group_friendships9.group = group3
+group_friendships9.friendship = friendship9
+group_friendships9.save
+group_friendships10 = GroupFriendship.new
+group_friendships10.group = group4
+group_friendships10.friendship = friendship10
+group_friendships10.save
+group_friendships11 = GroupFriendship.new
+group_friendships11.group = group4
+group_friendships11.friendship = friendship11
+group_friendships11.save
+group_friendships12 = GroupFriendship.new
+group_friendships12.group = group5
+group_friendships12.friendship = friendship12
+group_friendships12.save
+group_friendships13 = GroupFriendship.new
+group_friendships13.group = group5
+group_friendships13.friendship = friendship13
+group_friendships13.save
+
+puts "Creating bookmarks..."
+events = [public_event1, public_event2, public_event3, public_event4, public_event5, public_event6, public_event7, public_event8, public_event9, public_event10, private_event1, private_event2, private_event3, private_event4, private_event5, private_event6, private_event7, private_event8, private_event9, private_event10]
+bookmark1 = Bookmark.new
+bookmark1.user = carlos
+bookmark1.event = events[rand(0..19)]
+bookmark1.save
+bookmark2 = Bookmark.new
+bookmark2.user = carlos
+bookmark2.event = events[rand(0..19)]
+bookmark2.save
+bookmark3 = Bookmark.new
+bookmark3.user = carlos
+bookmark3.event = events[rand(0..19)]
+bookmark3.save
+bookmark4 = Bookmark.new
+bookmark4.user = carlos
+bookmark4.event = events[rand(0..19)]
+bookmark4.save
+bookmark5 = Bookmark.new
+bookmark5.user = carlos
+bookmark5.event = events[rand(0..19)]
+bookmark5.save
+
+
 
 
 puts "Done!"
