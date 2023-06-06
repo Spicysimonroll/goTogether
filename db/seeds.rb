@@ -19,8 +19,8 @@ Bookmark.destroy_all
 Invitation.destroy_all
 
 puts "Creating private users..."
-simon = User.create(email: "simon@test.com", password: "test1234")
 carlos = User.create(email: "carlos@test.com", password: "test1234")
+simon = User.create(email: "simon@test.com", password: "test1234")
 harris = User.create(email: "harris@test.com", password: "test1234")
 marien = User.create(email: "marien@test.com", password: "test1234")
 john = User.create(email: "john@test.com", password: "test1234")
@@ -36,12 +36,12 @@ andrea = User.create(email: "andrea@test.com", password: "test1234")
 
 
 puts "Creating profile for private users..."
-simon_profile = Profile.new(first_name: "Simon", last_name: "Hu", username: "spicysimonroll", address: "C/ del Bruc, 149, 08037 Barcelona", is_business: false)
-simon_profile.user = simon
-simon_profile.save
 carlos_profile = Profile.new(first_name: "Carlos", last_name: "Peña", username: "carlospa23", address: "C/ del Bruc, 149, 08037 Barcelona", is_business: false)
 carlos_profile.user = carlos
 carlos_profile.save
+simon_profile = Profile.new(first_name: "Simon", last_name: "Hu", username: "spicysimonroll", address: "C/ del Bruc, 149, 08037 Barcelona", is_business: false)
+simon_profile.user = simon
+simon_profile.save
 harris_profile = Profile.new(first_name: "Harris", last_name: "Grant", username: "harristreen", address: "C/ del Bruc, 149, 08037 Barcelona", is_business: false)
 harris_profile.user = harris
 harris_profile.save
@@ -213,7 +213,7 @@ public_event10.user = businesses[rand(0..3)]
 public_event10.save
 
 puts "Creating private events..."
-private_users = [simon, carlos, harris, marien]
+private_users = [simon, harris, marien, john, sophie, marc, jose, anna, fred, paul, federica, tina, andrea]
 private_event1 = Event.new(
   title: "Jane's Birthday Bash",
   address: "123 Main Street, Barcelona, Spain",
@@ -223,7 +223,7 @@ private_event1 = Event.new(
   end_date: "2023-06-23",
   is_private: true
 )
-private_event1.user = private_users[rand(0..3)]
+private_event1.user = private_users[rand(0..12)]
 private_event1.save
 private_event2 = Event.new(
   title: "Midsummer Night Music Festival",
@@ -234,7 +234,7 @@ private_event2 = Event.new(
   end_date: "2023-06-24",
   is_private: true
 )
-private_event2.user = private_users[rand(0..3)]
+private_event2.user = private_users[rand(0..12)]
 private_event2.save
 private_event3 = Event.new(
   title: "Barcelona Food Truck Fiesta",
@@ -245,7 +245,7 @@ private_event3 = Event.new(
   end_date: "2023-06-30",
   is_private: true
 )
-private_event3.user = private_users[rand(0..3)]
+private_event3.user = private_users[rand(0..12)]
 private_event3.save
 private_event4 = Event.new(
   title: "Barcelona Beach Volleyball Championship",
@@ -256,7 +256,7 @@ private_event4 = Event.new(
   end_date: "2023-07-09",
   is_private: true
 )
-private_event4.user = private_users[rand(0..3)]
+private_event4.user = private_users[rand(0..12)]
 private_event4.save
 private_event5 = Event.new(
   title: "Barcelona Street Art Festival",
@@ -267,7 +267,7 @@ private_event5 = Event.new(
   end_date: "2023-07-16",
   is_private: true
 )
-private_event5.user = private_users[rand(0..3)]
+private_event5.user = private_users[rand(0..12)]
 private_event5.save
 private_event6 = Event.new(
   title: "Barcelona Wine & Tapas Tour",
@@ -278,7 +278,7 @@ private_event6 = Event.new(
   end_date: "2023-07-21",
   is_private: true
 )
-private_event6.user = private_users[rand(0..3)]
+private_event6.user = private_users[rand(0..12)]
 private_event6.save
 private_event7 = Event.new(
   title: "Barcelona Electronic Music Festival",
@@ -289,7 +289,7 @@ private_event7 = Event.new(
   end_date: "2023-07-29",
   is_private: true
 )
-private_event7.user = private_users[rand(0..3)]
+private_event7.user = private_users[rand(0..12)]
 private_event7.save
 private_event8 = Event.new(
   title: "Barcelona Fashion Week",
@@ -300,7 +300,7 @@ private_event8 = Event.new(
   end_date: "2023-08-04",
   is_private: true
 )
-private_event8.user = private_users[rand(0..3)]
+private_event8.user = private_users[rand(0..12)]
 private_event8.save
 private_event9 = Event.new(
   title: "Barcelona Film Night",
@@ -311,7 +311,7 @@ private_event9 = Event.new(
   end_date: "2023-08-06",
   is_private: true
 )
-private_event9.user = private_users[rand(0..3)]
+private_event9.user = private_users[rand(0..12)]
 private_event9.save
 private_event10 = Event.new(
   title: "Barcelona Film Night",
@@ -322,6 +322,63 @@ private_event10 = Event.new(
   end_date: "2023-08-06",
   is_private: true
 )
-private_event10.user = private_users[rand(0..3)]
+private_event10.user = private_users[rand(0..12)]
 private_event10.save
+
+puts "Creating friendships..."
+friendship1 = Friendship.new
+friendship1.user = carlos
+friendship1.friend = simon
+friendship1.save
+friendship2 = Friendship.new
+friendship2.user = carlos
+friendship2.friend = harris
+friendship2.save
+friendship3 = Friendship.new
+friendship3.user = carlos
+friendship3.friend = marien
+friendship3.save
+friendship4 = Friendship.new
+friendship4.user = carlos
+friendship4.friend = john
+friendship4.save
+
+friendship5 = Friendship.new
+friendship5.user = carlos
+friendship5.friend = sophie
+friendship5.save
+friendship6 = Friendship.new
+friendship6.user = carlos
+friendship6.friend = marc
+friendship6.save
+friendship7 = Friendship.new
+friendship7.user = carlos
+friendship7.friend = jose
+friendship7.save
+friendship8 = Friendship.new
+friendship8.user = carlos
+friendship8.friend = anna
+friendship8.save
+friendship9 = Friendship.new
+friendship9.user = carlos
+friendship9.friend = fred
+friendship9.save
+friendship10 = Friendship.new
+friendship10.user = carlos
+friendship10.friend = paul
+friendship10.save
+friendship11 = Friendship.new
+friendship11.user = carlos
+friendship11.friend = federica
+friendship11.save
+friendship12 = Friendship.new
+friendship12.user = carlos
+friendship12.friend = tina
+friendship12.save
+friendship13 = Friendship.new
+friendship13.user = carlos
+friendship13.friend = andrea
+friendship13.save
+
+
 puts "Done!"
