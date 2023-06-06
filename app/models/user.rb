@@ -14,7 +14,6 @@ class User < ApplicationRecord
   has_many :groups
 
   has_many :bookmarks
-  has_many :events, through: :bookmarks
 
   has_many :comments
   has_many :events, through: :comments
