@@ -78,4 +78,3 @@ group :test do
 end
 
 gem "pg_search"
-gem 'rubocop', require: false

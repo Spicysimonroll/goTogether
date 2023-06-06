@@ -4,6 +4,7 @@
   <%= text_field_tag :query, params[:query] %>
   <%= submit_tag "Search" %>
 <% end %>
+
 <% @events.each do |event| %>
   <div class="event">
     <h2><%= event.title %></h2>
