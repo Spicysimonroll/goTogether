@@ -473,7 +473,4 @@ bookmark5.user = carlos
 bookmark5.event = events[rand(0..19)]
 bookmark5.save
 
-
-
-
 puts "Done!"
