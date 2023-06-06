@@ -1,0 +1,17 @@
+<h1>Events</h1>
+
+<%= form_with(url: events_path, method: :get, local: true) do %>
+  <%= text_field_tag :query, params[:query] %>
+  <%= submit_tag "Search" %>
+<% end %>
+
+<% @events.each do |event| %>
+  <div class="event">
+    <h2><%= event.title %></h2>
+    <p><%= event.description %></p>
+    <p>Start Date: <%= event.start_date %></p>
+    <p>End Date: <%= event.end_date %></p>
+    <p>Address: <%= event.address %></p>
+    <p>Category: <%= event.category %></p>
+  </div>
+<% end %>
