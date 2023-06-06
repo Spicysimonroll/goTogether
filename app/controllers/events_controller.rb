@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!, except: :index
+  before_action :set_event, only: :show
 
   def index
     if user_signed_in?
@@ -26,5 +27,14 @@ class EventsController < ApplicationController
         @events = Event.where(is_private: false)
       end
     end
+  end
+
+  def show
+  end
+
+  private
+
+  def set_event
+    @event = Event.find(params[:id])
   end
 end
