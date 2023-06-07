@@ -14,8 +14,12 @@
   </head>
 
   <body>
-    <%= render "shared/navbar" %>
+
+    <% unless params[:controller] == "users/registrations" %>
+      <%= render "shared/navbar" %>
+    <% end %>
     <%= render "shared/flashes" %>
+
     <%= yield %>
   </body>
 </html>
