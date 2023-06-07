@@ -1,0 +1,53 @@
+.show-event-card {
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  border-radius: 15px;
+  padding: 5px;
+  margin: 5px;
+  background-color: $pink;
+  justify-content: center;
+}
+
+.show-event-card-header {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.show-event-image {
+  display: flex;
+  background-size: cover;
+  background-position: center;
+  height: 200px;
+  position: relative;
+  margin: 5px;
+  width: 95%;
+}
+
+.show-event-card-footer {
+  margin: 5px;
+}
+
+.show-event-icons {
+  justify-content: flex-end;
+  font-size: 32px;
+  padding: 0px;
+
+  i {
+    padding-left: 5px;
+  }
+}
+
+.show-comments-card {
+  padding: 5px;
+  margin-top: 20px;
+}
+
+.current-user-comment {
+  background-color: $mainblue;
+}
+
+.other-user-comment {
+  background-color: $secondblue;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 20px;
+}
