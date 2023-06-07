@@ -1,1 +1,33 @@
 // Specific CSS for your home-page
+#banner {
+  position: relative;
+  p {
+    position: absolute;
+    top: 20px;
+    color: white;
+    margin-left: 14px;
+    top: 8px;
+  }
+}
+
+
+
+#homepage-img {
+  // height: 275px;
+  width: 100%;
+  object-fit: cover;
+}
+
+
+
+.phrase {
+  color: #3860ED;
+  margin: 18px 18px;
+}
+
+#btn-homepage {
+  margin: 0 auto;
+  display: block;
+  width: 285px;
+  text-align: center;
+}
