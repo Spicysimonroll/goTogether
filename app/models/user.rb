@@ -8,6 +8,8 @@ class User < ApplicationRecord
 
   has_many :events
 
+  has_many :friendships
+
   has_many :bookings
   has_many :events, through: :bookings
 

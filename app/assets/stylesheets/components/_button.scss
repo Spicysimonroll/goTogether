@@ -1,0 +1,42 @@
+
+// To use the buttons, follow this code:
+// <%= link_to "Press me", "#", class: "button-primary" %>
+// <%= link_to "Secondary button", "#", class: "button-secondary" %>
+// Use #heading-main and #heading-secondary to style headings
+
+
+
+.button-primary {
+  background-color: #3860ED;
+  color: #ffffff;
+  width: 130px;
+  padding: 12px 28px;
+  font-size: 17px;
+  text-decoration: none;
+  border-radius: 20px;
+}
+
+.button-secondary {
+  background-color: #ffffff;
+  color: #3860ED;
+  width: 130px;
+  padding: 12px 28px;
+  font-size: 17px;
+  text-decoration: none;
+  border-radius: 20px;
+  transition: background-color 0.1s;
+  border: 2px solid #3860ED
+}
+
+
+#heading-main {
+  padding-top: 50px;
+  color: #3860ED;
+  font-size: 32px;
+}
+
+#heading-secondary {
+  padding-top: 10px;
+  color: #3860ED;
+  font-size: 24px;
+}
