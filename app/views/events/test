@@ -1,0 +1,40 @@
+  <% @public_events.each do |event| %>
+    <div class="custom-card">
+      <div class="card-body">
+        <h5 class="card-title"><%= event.title %></h5>
+        <p class="card-text"><%= event.description.truncate(80) %></p>
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="button-primary">
+            <%= link_to 'Show', event, class: 'button-primary' %>
+          </div>
+            Start: <%= event.start_date.strftime('%d/%m/%Y') %> <br>
+            End: <%= event.end_date.strftime('%d/%m/%Y') %> <br>
+            Address: <%= event.address %> <br>
+            Category: <%= event.category %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="type-of-event">
+    <br>
+    <p>    My upcoming events</p>
+   </div>
+
+  <% @booked_events.each do |event| %>
+    <div class="custom-card">
+      <div class="card-body">
+        <h5 class="card-title"><%= event.title %></h5>
+        <p class="card-text"><%= event.description.truncate(80) %></p>
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="button-primary">
+            <%= link_to 'Show', event, class: 'button-primary' %>
+          </div>
+            Start: <%= event.start_date.strftime('%d/%m/%Y') %> <br>
+            End: <%= event.end_date.strftime('%d/%m/%Y') %> <br>
+            Address: <%= event.address %> <br>
+            Category: <%= event.category %>
+
+        </div>
+      </div>
+  </div>
