@@ -1,16 +1,18 @@
-<div class="container">
-  <h1>Pages#home</h1>
-
-  <h2>Hola Harris</h2>
-  <%= link_to "Primary button", "#", class: "button-primary" %>
-  <br>
-  <br>
-  <%= link_to "Secondary button", "#", class: "button-secondary" %>
-
-  <div id="heading-main">
-    <p>Heading 1</p>
-  </div>
-  <div id="heading-secondary">
-    <p>Heading 2</p>
-  </div>
+<div id="banner">
+  <%= image_tag "concert2.jpeg", id: "homepage-img" %>
+  <p>Share, enjoy, feel alive.</p>
 </div>
+
+<div>
+  <p class="phrase">Changing the way people connect.</p>
+</div>
+
+<div style="padding: 20px;">
+  <%= link_to "Find your next experience", events_path, class: "button-primary", id: "btn-homepage" %>
+</div>
+
+<div>
+  <p class="phrase">Don't miss these top-events!</p>
+</div>
+
+<%= "Several event-cards bellow" %>
