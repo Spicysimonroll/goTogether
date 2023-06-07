@@ -8,7 +8,7 @@
 
 .button-primary {
   background-color: #3860ED;
-  color: white;
+  color: #ffffff;
   width: 130px;
   padding: 12px 28px;
   font-size: 17px;
@@ -17,14 +17,15 @@
 }
 
 .button-secondary {
-  background-color: #D6E2EA;
-  color: #454646;
+  background-color: #ffffff;
+  color: #3860ED;
   width: 130px;
   padding: 12px 28px;
   font-size: 17px;
   text-decoration: none;
   border-radius: 20px;
   transition: background-color 0.1s;
+  border: 2px solid #3860ED
 }
 
 
