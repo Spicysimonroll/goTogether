@@ -1,16 +1,21 @@
-<div class="event-card-show">
+<div class="container event-card-show">
   <div>
     <h2><%= @event.title %></h2>
     <p><%= "#{@event.start_date} - #{@event.start_date}" %></p>
     <p><%= @event.address %></p>
     <p><%= @event.description%></p>
-    <div>INSERT AVATAR & NAME OF OWNER</div>
+    <div> <%= image_tag('https://st3.depositphotos.com/4111759/13425/v/450/depositphotos_134255626-stock-illustration-avatar-male-profile-gray-person.jpg', class: "avatar") %></div>
   </div>
   <div >EVENT IMAGE</div>
-  <div>ICONS</div>
-</div>
+  <div>
+    <i class="fa-solid fa-plus"></i>
+    <i class="fa-solid fa-user-group"></i>
+    <!-- Insert if statement to change bookmark icon styling if event added or already in users bookmarks -->
+    <i class="fa-regular fa-heart"></i><i class="fa-solid fa-heart"></i>
+    <i class="fa-regular fa-comment"></i>
 
-
-<div>
-  <h2>Comments</h2>
+  </div>
+  <div>
+    <h2>Comments</h2>
+  </div>
 </div>
