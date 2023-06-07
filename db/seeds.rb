@@ -215,23 +215,23 @@ public_event10.save
 puts "Creating private events..."
 private_users = [simon, harris, marien, john, sophie, marc, jose, anna, fred, paul, federica, tina, andrea]
 private_event1 = Event.new(
-  title: "Jane's Birthday Bash",
-  address: "123 Main Street, Barcelona, Spain",
-  description: "Join us for a night of celebration as we honor Jane's birthday! There will be music, dancing, and lots of fun.",
-  category: "Birthday Party",
-  start_date: "2023-06-23",
-  end_date: "2023-06-23",
-  is_private: true
-)
-private_event1.user = private_users[rand(0..12)]
-private_event1.save
-private_event2 = Event.new(
   title: "Midsummer Night Music Festival",
   address: "Plaça del Fòrum, Barcelona, Spain",
   description: "Celebrate the enchanting Midsummer Night with a music festival under the starry sky. Enjoy performances by renowned artists, mesmerizing light shows, and a magical atmosphere.",
   category: "Music Festival",
   start_date: "2023-06-21",
   end_date: "2023-06-24",
+  is_private: true
+)
+private_event1.user = private_users[rand(0..12)]
+private_event1.save
+private_event2 = Event.new(
+  title: "Jane's Birthday Bash",
+  address: "123 Main Street, Barcelona, Spain",
+  description: "Join us for a night of celebration as we honor Jane's birthday! There will be music, dancing, and lots of fun.",
+  category: "Birthday Party",
+  start_date: "2023-06-23",
+  end_date: "2023-06-23",
   is_private: true
 )
 private_event2.user = private_users[rand(0..12)]
@@ -314,12 +314,12 @@ private_event9 = Event.new(
 private_event9.user = private_users[rand(0..12)]
 private_event9.save
 private_event10 = Event.new(
-  title: "Barcelona Film Night",
-  address: "Cinema Comedia, Barcelona, Spain",
-  description: "Enjoy a night of cinema under the stars at Barcelona Film Night. Watch classic and contemporary films in an open-air setting, surrounded by the city's vibrant atmosphere.",
-  category: "Film Screening",
-  start_date: "2023-08-06",
-  end_date: "2023-08-06",
+  title: "Ruby Meetup",
+  address: "123 Main Street, City, State",
+  description: "Join us for an evening of Ruby programming discussions and networking. Whether you're a beginner or an experienced Ruby developer, this meetup is a great opportunity to learn, share ideas, and meet fellow Ruby enthusiasts. We'll have guest speakers, lightning talks, and plenty of time for Q&A. Don't forget to bring your laptops and questions!",
+  category: "Technology",
+  start_date: "2023-06-28",
+  end_date: "2023-06-30",
   is_private: true
 )
 private_event10.user = private_users[rand(0..12)]
@@ -472,5 +472,59 @@ bookmark5 = Bookmark.new
 bookmark5.user = carlos
 bookmark5.event = events[rand(0..19)]
 bookmark5.save
+
+puts "Creating comments..."
+comment1 = Comment.new(content: "Awesome, let's go together!")
+comment1.event = private_event1
+comment1.user = sophie
+comment1.save
+comment2 = Comment.new(content: "As a music lover, yes!!!")
+comment2.event = private_event1
+comment2.user = marc
+comment2.save
+
+puts "Creating bookings..."
+booking1 = Booking.new(status: "Looking for a buddy")
+booking1.event = private_event1
+booking1.user = carlos
+booking1.save
+booking2 = Booking.new(status: "Going")
+booking2.event = private_event2
+booking2.user = carlos
+booking2.save
+booking3 = Booking.new(status: "Going")
+booking3.event = private_event10
+booking3.user = carlos
+booking3.save
+booking4 = Booking.new(status: "Going")
+booking4.event = private_event3
+booking4.user = carlos
+booking4.save
+booking5 = Booking.new(status: "Looking for a buddy")
+booking5.event = private_event5
+booking5.user = carlos
+booking5.save
+
+puts "Creating invitations..."
+invitation1 = Invitation.new
+invitation1.event = private_event1
+invitation1.friendship = friendship5
+invitation1.save
+invitation2 = Invitation.new
+invitation2.event = private_event1
+invitation2.friendship = friendship6
+invitation2.save
+invitation3 = Invitation.new
+invitation3.event = private_event5
+invitation3.friendship = friendship1
+invitation3.save
+invitation4 = Invitation.new
+invitation4.event = private_event5
+invitation4.friendship = friendship2
+invitation4.save
+invitation5 = Invitation.new
+invitation5.event = private_event5
+invitation5.friendship = friendship3
+invitation5.save
 
 puts "Done!"
