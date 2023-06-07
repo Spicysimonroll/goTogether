@@ -1,16 +1,54 @@
-<div class="event-card-show">
-  <div>
-    <h2><%= @event.title %></h2>
-    <p><%= "#{@event.start_date} - #{@event.start_date}" %></p>
-    <p><%= @event.address %></p>
-    <p><%= @event.description%></p>
-    <div>INSERT AVATAR & NAME OF OWNER</div>
+<div class="container">
+  <div class="show-event-card row">
+    <div class="show-event-card-header d-flex">
+      <h2 class="m-0"><%= @event.title %></h2>
+      <%= image_tag('https://st3.depositphotos.com/4111759/13425/v/450/depositphotos_134255626-stock-illustration-avatar-male-profile-gray-person.jpg', class: "avatar") %>
+    </div>
+    <div class>
+      <% if @event.user.profile.is_business %>
+        <h3><%= @event.user.profile.username%></h3>
+      <% else %>
+        <h3><%= @event.user.profile.first_name%></h3>
+      <% end %>
+        <p><%= "Starts: #{@event.start_date}" %></p>
+        <p><%= "Ends: #{@event.start_date}" %></p>
+        <p><%= @event.address %></p>
+        <p><%= @event.description%></p>
+    </div>
+    <div class="row show-event-image" style="background-image: url(<%= image_path('Placeholder.png') %>)">
+    </div>
+    <div class="row show-event-card-footer">
+      <!-- Update link when bookings route is created -->
+      <% if Booking.find_by(user: current_user, event: @event) %>
+        <%= link_to "Join Event", root_path, class: 'button-primary d-block', style: 'width: 150px' %>
+      <% else %>
+        <%= link_to "Remove Event", root_path, class: 'button-primary d-block', style: 'width: 180px' %>
+      <% end %>
+      <div class="col show-event-icons d-flex">
+        <% if !@event.user.profile.is_business %>
+          <%= link_to '<i class="fa-regular fa-comment"></i>'.html_safe, root_path %>
+        <% end %>
+        <!-- Insert if statement to change bookmark icon styling if event added or already in users bookmarks -->
+          <% if Bookmark.find_by(user: current_user, event: @event) %>
+            <%= link_to '<i class="fa-solid fa-bookmark"></i>'.html_safe, root_path %>
+          <% else %>
+            <%= link_to '<i class="fa-regular fa-bookmark"></i>'.html_safe, root_path %>
+          <% end %>
+      </div>
+    </div>
   </div>
-  <div >EVENT IMAGE</div>
-  <div>ICONS</div>
-</div>
-
-
-<div>
-  <h2>Comments</h2>
+  <!-- Insert if statement to so comments don't show for business events -->
+  <% if !@event.user.profile.is_business %>
+    <div class="show-comments-card">
+      <h2>Comments</h2>
+      <div>
+        <% @event.comments.each do |comment| %>
+          <% if current_user == comment.user %>
+            <div class="current-user-comment"><b><%= current_user.profile.first_name %>:</b><%= comment.content %></div>
+          <% else %>
+            <div class="other-user-comment"><b><%= comment.user.profile.first_name %>:</b> <%= comment.content %></div>
+          <% end %>
+        <% end %>
+    </div>
+  <% end %>
 </div>
