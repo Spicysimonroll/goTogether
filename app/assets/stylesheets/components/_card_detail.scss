@@ -28,25 +28,31 @@
 
 .show-event-icons {
   justify-content: flex-end;
-  font-size: 32px;
+  font-size: 26px;
   padding: 0px;
 
   i {
-    padding-left: 5px;
+    padding-left: 20px;
+    color: $black;
   }
 }
 
 .show-comments-card {
   padding: 5px;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 .current-user-comment {
   background-color: $mainblue;
+  color: $black;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 20px;
 }
 
 .other-user-comment {
   background-color: $secondblue;
+  color: $white;
   padding: 10px;
   margin-top: 10px;
   border-radius: 20px;

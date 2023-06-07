@@ -5,15 +5,19 @@
       <%= image_tag('https://st3.depositphotos.com/4111759/13425/v/450/depositphotos_134255626-stock-illustration-avatar-male-profile-gray-person.jpg', class: "avatar") %>
     </div>
     <div class>
-      <h3><%= @event.user.profile.username%></h3>
-      <p><%= "Starts: #{@event.start_date}" %></p>
-      <p><%= "Ends: #{@event.start_date}" %></p>
-      <p><%= @event.address %></p>
-      <p><%= @event.description%></p>
+      <% if @event.user.profile.is_business %>
+        <h3><%= @event.user.profile.username%></h3>
+      <% else %>
+        <h3><%= @event.user.profile.first_name%></h3>
+      <% end %>
+        <p><%= "Starts: #{@event.start_date}" %></p>
+        <p><%= "Ends: #{@event.start_date}" %></p>
+        <p><%= @event.address %></p>
+        <p><%= @event.description%></p>
     </div>
     <div class="row show-event-image" style="background-image: url(<%= image_path('Placeholder.png') %>)">
     </div>
-    <div class="row show-event-card-footer>">
+    <div class="row show-event-card-footer">
       <!-- Update link when bookings route is created -->
       <% if Booking.find_by(user: current_user, event: @event) %>
         <%= link_to "Join Event", root_path, class: 'button-primary d-block', style: 'width: 150px' %>
