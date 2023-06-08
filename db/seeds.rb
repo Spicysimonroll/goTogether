@@ -223,7 +223,7 @@ private_event1 = Event.new(
   end_date: "2023-06-24",
   is_private: true
 )
-private_event1.user = private_users[rand(0..12)]
+private_event1.user = carlos
 private_event1.save
 private_event2 = Event.new(
   title: "Jane's Birthday Bash",
@@ -485,7 +485,7 @@ comment2.save
 
 puts "Creating bookings..."
 booking1 = Booking.new(status: "Looking for a buddy")
-booking1.event = private_event1
+booking1.event = private_event4
 booking1.user = carlos
 booking1.save
 booking2 = Booking.new(status: "Going")

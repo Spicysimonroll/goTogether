@@ -1,2 +1,11 @@
-<h1>My profile</h1>
+
+<%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar" %>
+<p>Friends <%= current_user.friendships.count %></p>
 <%= current_user.profile.description %>
+
+<h2>My upcoming events</h2>
+<% @all.each do |event| %>
+  <p><%= event.title %></p>
+  <p><%= event.start_date %></p>
+
+<% end %>
