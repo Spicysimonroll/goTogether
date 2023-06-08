@@ -27,6 +27,9 @@
                     required: true,
                     input_html: { autocomplete: "new-password" } %>
         <%= f.fields_for :profile do |profile_subform| %>
+          <%= profile_subform.input :username,
+                                    label: false,
+                                    placeholder: "Username" %>
           <%= profile_subform.input :first_name,
                                     label: false,
                                     placeholder: "First name" %>
@@ -36,9 +39,6 @@
           <%= profile_subform.input :address,
                                     label: false,
                                     placeholder: "Address" %>
-          <%= profile_subform.input :username,
-                                    label: false,
-                                    placeholder: "Username" %>
           <%= profile_subform.input :is_business, label: "Business account", type: "checkbox", html: { class: "text-white" } %>
         <% end %>
       </div>
