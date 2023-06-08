@@ -6,7 +6,8 @@
     top: 20px;
     color: white;
     margin-left: 14px;
-    top: 8px;
+    top: 220px;
+    font-weight: bold;
   }
 }
 
@@ -30,4 +31,13 @@
   display: block;
   width: 285px;
   text-align: center;
+}
+
+#navbar-icons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  i {
+    padding: 0 10px;
+  }
 }
