@@ -36,16 +36,22 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
-    authorize @event
     @event.user = current_user
+    event_params[:is_private] == "0" ? @event.is_private == false : @event.is_private == true
+    authorize @event
     if @event.save
-      redirect_to event_path(@event), notice: 'Event was successfully created.'
+      if event_params[:is_private] == false
+        redirect_to event_path(@event)
+      else
+        redirect_to root_path
+      end
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
   private
+
   def event_params
     params.require(:event).permit(:title, :address, :start_date, :end_date, :description, :category, :is_private)
   end

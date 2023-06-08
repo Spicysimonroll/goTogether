@@ -378,6 +378,10 @@ friendship13 = Friendship.new
 friendship13.user = carlos
 friendship13.friend = andrea
 friendship13.save
+friendship14 = Friendship.new
+friendship14.user = sophie
+friendship14.friend = carlos
+friendship14.save
 
 puts "Creating groups of friends..."
 group1 = Group.create(name: "Best pals")
@@ -526,5 +530,9 @@ invitation5 = Invitation.new
 invitation5.event = private_event5
 invitation5.friendship = friendship3
 invitation5.save
+invitation6 = Invitation.new
+invitation6.event = private_event1
+invitation6.friendship = friendship14
+invitation6.save
 
 puts "Done!"
