@@ -1,14 +1,37 @@
-<div class="form container">
-  <%= simple_form_for (@event) do |f| %>
-    <%= f.input :title %>
-    <%= f.input :address %>
-    <%= f.input :start_date %>
-    <%= f.input :end_date %>
-    <%= f.input :description %>
-    <%= f.input :category %>
-    <%= f.input :photo, as: :file %>
-    <%= f.input :is_private %>
-    <%= f.submit "submit", class: "button-primary" %>
-  <% end %>
-  <div id="back"><%= link_to "Back", root_path, class: "button-secondary" %></div>
+<div class="container">
+  <div class="back-icon"><%= link_to "<i class='fa-solid fa-chevron-left'></i>".html_safe, events_path %></div>
+  <div class="form">
+    <%= simple_form_for (@event) do |f| %>
+      <%= f.input :title,
+                  required: true,
+                  label: false,
+                  placeholder: "Title",
+                  autofocus: true,
+                  input_html: { autocomplete: "title" }%>
+      <%= f.input :address,
+                  required: true,
+                  label: false,
+                  placeholder: "Address",
+                  autofocus: true,
+                  input_html: { autocomplete: "address" }%>
+      <%= f.input :start_date %>
+      <%= f.input :end_date %>
+      <%= f.input :description,
+                  required: true,
+                  label: false,
+                  placeholder: "Description",
+                  autofocus: true,
+                  input_html: { autocomplete: "description" }%>
+      <%= f.input :category,
+                  required: true,
+                  label: false,
+                  placeholder: "Category",
+                  autofocus: true,
+                  input_html: { autocomplete: "category" }%>
+      <%= f.input :photo, as: :file %>
+      <%= f.input :is_private,
+                  label: "Make private?" %>
+      <%= f.submit "submit", class: "button-primary" %>
+    <% end %>
+  </div>
 </div>
