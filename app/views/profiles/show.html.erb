@@ -1,9 +1,16 @@
+<div class="user-profile p-4 border-bottom">
+  <div class="d-flex align-items-center">
+    <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar ms-2 me-2" %>
+      <div class="p-2">
+        <%= current_user.profile.first_name %> <%= current_user.profile.last_name %> <span id="username" class="ms-1">@<%= current_user.profile.username %></span>
+      </div>
+  </div>
+  <div class="mt-2 p-1 ps-3 pe-3">
+    <%= current_user.profile.description %>
+  </div>
+</div>
 
-<%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar" %>
-<p>Friends <%= current_user.friendships.count %></p>
-<%= current_user.profile.description %>
-
-<div class="event-container">
+<div class="event-container mt-3">
   <h2>My upcoming events</h2>
   <% @all.each do |event| %>
     <%= link_to event_path(event) do  %>
