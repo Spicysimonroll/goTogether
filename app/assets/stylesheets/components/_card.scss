@@ -1,4 +1,4 @@
-.event-card{
+.event-card {
 height: 200px;
 width: 100%;
 border-radius: 20px;
@@ -6,16 +6,14 @@ margin-bottom: 20px;
 box-shadow: 20px 10px 19px grey;
 }
 
-
-.event-card-left{
+.event-card-left {
 width: 40%;
 flex-shrink: 0;
 border-radius: 20px 0 0 20px
 
 }
 
-
-.event-card-right{
+.event-card-right {
 padding: 20px
 
 }
@@ -24,19 +22,76 @@ padding: 20px
 color: rgb(60, 37, 194);
 }
 
-.event-right-info{
+.event-right-info {
   color: black;
-
-
 }
 
-.type-of-event{
+.type-of-event {
   color: rgb(37, 126, 194);
   font-weight:bold
-
 }
 
-.buttonsearch{
+.buttonsearch {
   width: 30%;
   border-radius: 20px
+}
+
+.show-event-card {
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  border-radius: 15px;
+  padding: 5px;
+  margin: 5px;
+  background-color: $pink;
+  justify-content: center;
+}
+
+.show-event-card-header {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.show-event-image {
+  display: flex;
+  background-size: cover;
+  background-position: center;
+  height: 200px;
+  position: relative;
+  margin: 5px;
+  width: 95%;
+}
+
+.show-event-card-footer {
+  margin: 5px;
+}
+
+.show-event-icons {
+  justify-content: flex-end;
+  font-size: 26px;
+  padding: 0px;
+
+  i {
+    padding-left: 20px;
+    color: $black;
+  }
+}
+
+.show-comments-card {
+  padding: 5px;
+  margin-top: 30px;
+}
+
+.current-user-comment {
+  background-color: $mainblue;
+  color: $black;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 20px;
+}
+
+.other-user-comment {
+  background-color: $secondblue;
+  color: $white;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 20px;
 }

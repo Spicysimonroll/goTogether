@@ -3,9 +3,21 @@
 <p>Friends <%= current_user.friendships.count %></p>
 <%= current_user.profile.description %>
 
-<h2>My upcoming events</h2>
-<% @all.each do |event| %>
-  <p><%= event.title %></p>
-  <p><%= event.start_date %></p>
-
-<% end %>
+<div class="event-container">
+  <h2>My upcoming events</h2>
+  <% @all.each do |event| %>
+    <%= link_to event_path(event) do  %>
+      <div class="event-card d-flex">
+        <div class="event-card-left" style="background-image: url('<%= asset_path('placeholderimage.jpeg') %>')"></div>
+        <div class="event-card-right">
+          <h5 class="card-title"><%= event.title %></h5>
+          <div class="event-right-info">
+              <%= event.start_date.strftime('%e %B %Y') %>
+              <br>
+              <%= event.address %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
