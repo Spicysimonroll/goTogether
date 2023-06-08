@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   Rails.application.routes.draw do
-    resources :events, only: [:index, :show, :create]
+    resources :events, only: [:index, :show, :new, :create]
     get "/invitations", to: "invitations#index"
     patch '/invitations/:id/accept', to: 'invitations#accept', as: 'accept_invitation'
     patch '/invitations/:id/reject', to: 'invitations#reject', as: 'reject_invitation'
@@ -13,5 +13,4 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   # Defines the root path route ("/")
   # root "articles#index"
-
 end

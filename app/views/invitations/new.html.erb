@@ -1,0 +1,16 @@
+<div class="form container">
+      <% friend_groups = []%>
+      <% friend_groups = current_user.groups.each do |group| %>
+        <% friend_groups << group.name %>
+      <% end %>
+      <%= f.input :category,
+                  collection: friend_groups,
+                  label: false,
+                  placeholder: "Invite some friends!",
+                  autofocus: true,
+                  input_html: { autocomplete: "category" }%>
+    </div>
+    <%= f.submit "Invite", class: "button-primary" %>
+  <% end %>
+  <div id="back"><%= link_to "Back", root_path, class: "button-secondary" %></div>
+</div>
