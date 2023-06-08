@@ -43,8 +43,12 @@ class ApplicationPolicy
     end
 
     def resolve
-      raise NotImplementedError, "You must define #resolve in #{self.class}"
+      scope.where(user: user)  # This ensures that a user can only see their own invitations
+      # I had to add the line above and put in comment the line below.
+     # raise NotImplementedError, "You must define #resolve in #{self.class}"
     end
+
+ 
 
     private
 

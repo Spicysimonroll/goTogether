@@ -10,6 +10,7 @@ class User < ApplicationRecord
 
   has_many :friendships
 
+
   has_many :bookings
   has_many :events, through: :bookings
 
@@ -19,4 +20,8 @@ class User < ApplicationRecord
 
   has_many :comments
   has_many :events, through: :comments
+  has_many :invitations
+  has_many :invitations, through: :friendships
+
+
 end

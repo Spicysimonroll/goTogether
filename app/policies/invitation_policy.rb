@@ -1,8 +1,15 @@
 class InvitationPolicy < ApplicationPolicy
+  def accept?
+   @record.friendship.friend == @user
+  end
+
+  def reject?
+    @record.friendship.friend == @user
+  end
+
   class Scope < Scope
-    # NOTE: Be explicit about which records you allow access to!
-    # def resolve
-    #   scope.all
-    # end
+    def resolve
+      scope.where(friendship: Friendship.where(friend: user))
+    end
   end
 end
