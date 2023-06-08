@@ -36,46 +36,46 @@ andrea = User.create(email: "andrea@test.com", password: "test1234")
 
 
 puts "Creating profile for private users..."
-carlos_profile = Profile.new(first_name: "Carlos", last_name: "Peña", username: "carlospa23", address: "C/ del Bruc, 149, 08037 Barcelona", is_business: false)
+carlos_profile = Profile.new(first_name: "Carlos", last_name: "Peña", username: "carlospa23", address: "C/ del Bruc, 149, 08037 Barcelona", description: "I love playing beach volley, outdoor enthusiast, coding eager learner", is_business: false)
 carlos_profile.user = carlos
 carlos_profile.save
-simon_profile = Profile.new(first_name: "Simon", last_name: "Hu", username: "spicysimonroll", address: "C/ del Bruc, 149, 08037 Barcelona", is_business: false)
+simon_profile = Profile.new(first_name: "Simon", last_name: "Hu", username: "spicysimonroll", address: "C/ del Bruc, 149, 08037 Barcelona", description: "Passionate adventurer seeking thrilling experiences around the world", is_business: false)
 simon_profile.user = simon
 simon_profile.save
-harris_profile = Profile.new(first_name: "Harris", last_name: "Grant", username: "harristreen", address: "C/ del Bruc, 149, 08037 Barcelona", is_business: false)
+harris_profile = Profile.new(first_name: "Harris", last_name: "Grant", username: "harristreen", address: "C/ del Bruc, 149, 08037 Barcelona", description: "Creative problem solver with a knack for innovative solutions", is_business: false)
 harris_profile.user = harris
 harris_profile.save
-marien_profile = Profile.new(first_name: "Marien", last_name: "Irzykiewicz", username: "marienirzyk", address: "C/ del Bruc, 149, 08037 Barcelona", is_business: false)
+marien_profile = Profile.new(first_name: "Marien", last_name: "Irzykiewicz", username: "marienirzyk", address: "C/ del Bruc, 149, 08037 Barcelona", description: "Crypto enthusiast dedicated to exploring the latest advancements in the industry.", is_business: false)
 marien_profile.user = marien
 marien_profile.save
-john_profile = Profile.new(first_name: "John", last_name: "Smith", username: "johnnyS", address: "C/ del Bruc, 149, 08037 Barcelona", is_business: false)
+john_profile = Profile.new(first_name: "John", last_name: "Smith", username: "johnnyS", address: "C/ del Bruc, 149, 08037 Barcelona", description: "Nature lover and environmental advocate striving to protect our planet", is_business: false)
 john_profile.user = john
 john_profile.save
-sophie_profile = Profile.new(first_name: "Sophie", last_name: "Johnson", username: "sophieee", address: "C/ del Bruc, 149, 08037 Barcelona", is_business: false)
+sophie_profile = Profile.new(first_name: "Sophie", last_name: "Johnson", username: "sophieee", address: "C/ del Bruc, 149, 08037 Barcelona", description: "Curious mind with a passion for unraveling the mysteries of the universe", is_business: false)
 sophie_profile.user = sophie
 sophie_profile.save
-marc_profile = Profile.new(first_name: "Marc", last_name: "Williams", username: "marcWill", address: "C/ del Bruc, 149, 08037 Barcelona", is_business: false)
+marc_profile = Profile.new(first_name: "Marc", last_name: "Williams", username: "marcWill", address: "C/ del Bruc, 149, 08037 Barcelona", description: "Empathetic listener and compassionate soul, ready to lend an ear", is_business: false)
 marc_profile.user = marc
 marc_profile.save
-jose_profile = Profile.new(first_name: "Jose", last_name: "Rodriguez", username: "elRodrigo", address: "C/ del Bruc, 149, 08037 Barcelona", is_business: false)
+jose_profile = Profile.new(first_name: "Jose", last_name: "Rodriguez", username: "elRodrigo", address: "C/ del Bruc, 149, 08037 Barcelona", description: "Fitness enthusiast committed to helping others achieve their wellness goals", is_business: false)
 jose_profile.user = jose
 jose_profile.save
-anna_profile = Profile.new(first_name: "Anna", last_name: "Brown", username: "brownies", address: "C/ del Bruc, 149, 08037 Barcelona", is_business: false)
+anna_profile = Profile.new(first_name: "Anna", last_name: "Brown", username: "brownies", address: "C/ del Bruc, 149, 08037 Barcelona", description: "Wordsmith and storyteller, weaving tales to captivate hearts and minds", is_business: false)
 anna_profile.user = anna
 anna_profile.save
-fred_profile = Profile.new(first_name: "Fred", last_name: "Garcia", username: "garcield", address: "C/ del Bruc, 149, 08037 Barcelona", is_business: false)
+fred_profile = Profile.new(first_name: "Fred", last_name: "Garcia", username: "garcield", address: "C/ del Bruc, 149, 08037 Barcelona", description: "Social justice advocate striving for equality and positive change", is_business: false)
 fred_profile.user = fred
 fred_profile.save
-paul_profile = Profile.new(first_name: "Paul", last_name: "Wilson", username: "wilsoooon", address: "C/ del Bruc, 149, 08037 Barcelona", is_business: false)
+paul_profile = Profile.new(first_name: "Paul", last_name: "Wilson", username: "wilsoooon", address: "C/ del Bruc, 149, 08037 Barcelona", description: "Food connoisseur with an insatiable appetite for culinary adventures", is_business: false)
 paul_profile.user = paul
 paul_profile.save
-federica_profile = Profile.new(first_name: "Federica", last_name: "Nutella", username: "nutellaLove", address: "C/ del Bruc, 149, 08037 Barcelona", is_business: false)
+federica_profile = Profile.new(first_name: "Federica", last_name: "Nutella", username: "nutellaLove", address: "C/ del Bruc, 149, 08037 Barcelona", description: "Artistic soul expressing emotions and narratives through various mediums", is_business: false)
 federica_profile.user = federica
 federica_profile.save
-tina_profile = Profile.new(first_name: "Tina", last_name: "Pozzuoli", username: "pozzii", address: "C/ del Bruc, 149, 08037 Barcelona", is_business: false)
+tina_profile = Profile.new(first_name: "Tina", last_name: "Pozzuoli", username: "pozzii", address: "C/ del Bruc, 149, 08037 Barcelona", description: "Lifelong learner passionate about personal growth and expanding horizons", is_business: false)
 tina_profile.user = tina
 tina_profile.save
-andrea_profile = Profile.new(first_name: "Andrea", last_name: "Miller", username: "theMiller", address: "C/ del Bruc, 149, 08037 Barcelona", is_business: false)
+andrea_profile = Profile.new(first_name: "Andrea", last_name: "Miller", username: "theMiller", address: "C/ del Bruc, 149, 08037 Barcelona", description: "Aspiring entrepreneur fueled by ambition and driven to create a lasting impact in the business world", is_business: false)
 andrea_profile.user = andrea
 andrea_profile.save
 
