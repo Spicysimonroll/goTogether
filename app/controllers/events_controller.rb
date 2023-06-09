@@ -43,7 +43,7 @@ class EventsController < ApplicationController
       if event_params[:is_private] == false
         redirect_to event_path(@event)
       else
-        redirect_to root_path
+        redirect_to invitations_new_path @event
       end
     else
       render :new, status: :unprocessable_entity
