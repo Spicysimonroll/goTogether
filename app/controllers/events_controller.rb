@@ -30,6 +30,7 @@ class EventsController < ApplicationController
   end
 
   def show
+    @booking = Booking.find_by(user: current_user, event: @event)
     authorize @event
   end
 

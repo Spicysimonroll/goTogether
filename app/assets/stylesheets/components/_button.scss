@@ -9,21 +9,24 @@
 .button-primary {
   background-color: #3860ED;
   color: #ffffff;
-  width: 130px;
-  padding: 12px 28px;
+  width: 110px;
+  padding: 12px 19px;
   font-size: 17px;
   text-decoration: none;
   border-radius: 20px;
+  border: 2px solid;
+  text-align: center;
 }
 
 .button-secondary {
   background-color: #ffffff;
   color: #3860ED;
-  width: 130px;
-  padding: 12px 28px;
+  width: 110px;
+  padding: 12px 19px;
   font-size: 17px;
   text-decoration: none;
   border-radius: 20px;
   transition: background-color 0.1s;
-  border: 2px solid #3860ED
+  border: 2px solid #3860ED;
+  text-align: center;
 }

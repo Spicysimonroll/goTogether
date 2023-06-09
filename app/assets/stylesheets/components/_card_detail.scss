@@ -44,7 +44,7 @@
 
 .current-user-comment {
   background-color: $mainblue;
-  color: $black;
+  color: $white;
   padding: 10px;
   margin-top: 10px;
   border-radius: 20px;
@@ -56,4 +56,12 @@
   padding: 10px;
   margin-top: 10px;
   border-radius: 20px;
+}
+
+.fa-chevron-left::before {
+  margin-left: 12px;
+}
+
+.back-icon {
+  margin-bottom: 10px;
 }
