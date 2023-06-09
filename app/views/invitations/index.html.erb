@@ -1,0 +1,19 @@
+<h1>Invitations</h1>
+
+
+<% @invitations.each do |invitation| %>
+  <div>
+    <h2><%= invitation.event.title %></h2>
+    <p>Invited by: <%= invitation.friendship.friend.profile.first_name %></p>
+
+    <%= form_with url: accept_invitation_path(invitation), method: :patch do |form| %>
+      <%= form.submit 'Accept Invitation' %>
+    <% end %>
+
+    <%= form_with url: reject_invitation_path(invitation), method: :patch do |form| %>
+  <%= form.submit 'Reject Invitation' %>
+<% end %>
+
+
+  </div>
+<% end %>

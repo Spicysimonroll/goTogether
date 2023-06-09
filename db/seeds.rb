@@ -378,6 +378,10 @@ friendship13 = Friendship.new
 friendship13.user = carlos
 friendship13.friend = andrea
 friendship13.save
+friendship14 = Friendship.new
+friendship14.user = sophie
+friendship14.friend = carlos
+friendship14.save
 
 puts "Creating groups of friends..."
 group1 = Group.create(name: "Best pals")
@@ -484,23 +488,23 @@ comment2.user = marc
 comment2.save
 
 puts "Creating bookings..."
-booking1 = Booking.new(status: "Looking for a buddy")
-booking1.event = private_event4
+booking1 = Booking.new(status: 1)
+booking1.event = private_event1
 booking1.user = carlos
 booking1.save
-booking2 = Booking.new(status: "Going")
+booking2 = Booking.new(status: 0)
 booking2.event = private_event2
 booking2.user = carlos
 booking2.save
-booking3 = Booking.new(status: "Going")
+booking3 = Booking.new(status: 0)
 booking3.event = private_event10
 booking3.user = carlos
 booking3.save
-booking4 = Booking.new(status: "Going")
+booking4 = Booking.new(status: 0)
 booking4.event = private_event3
 booking4.user = carlos
 booking4.save
-booking5 = Booking.new(status: "Looking for a buddy")
+booking5 = Booking.new(status: 1)
 booking5.event = private_event5
 booking5.user = carlos
 booking5.save
@@ -526,5 +530,9 @@ invitation5 = Invitation.new
 invitation5.event = private_event5
 invitation5.friendship = friendship3
 invitation5.save
+invitation6 = Invitation.new
+invitation6.event = private_event1
+invitation6.friendship = friendship14
+invitation6.save
 
 puts "Done!"

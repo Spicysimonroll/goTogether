@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="back-icon"><%= link_to "<i class='fa-solid fa-chevron-left'></i>".html_safe, events_path %></div>
+  <div class="form container">
+    <% friend_groups = []%>
+    <% friend_groups = current_user.groups.each do |group| %>
+      <% friend_groups << group.name %>
+    <% end %>
+    <%= simple_form_for ([@event, @invitation]) do |f| %>
+      <%= f.input :friendship_id,
+                  collection: friend_groups,
+                  label: false,
+                  placeholder: "Invite some friends!",
+                  autofocus: true,
+                  input_html: { autocomplete: "friendship_id" }%>
+      <%= f.submit "Invite", class: "button-primary" %>
+    <% end %>
+  </div>
+</div>
