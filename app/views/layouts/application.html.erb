@@ -16,7 +16,10 @@
   <body>
 
     <% unless params[:controller] == "users/registrations" || params[:controller] == "devise/sessions" %>
-      <%= render "shared/navbar" %>
+      <%= render "shared/navbar_top" %>
+
+        <%= render "shared/navbar_bottom" %>
+
     <% end %>
     <%= render "shared/flashes" %>
 

@@ -9,4 +9,8 @@ class Event < ApplicationRecord
 
   include PgSearch::Model
   pg_search_scope :search_by_title_and_category, against: [:title, :category]
+
+  def start_time
+    self.start_date
+  end
 end

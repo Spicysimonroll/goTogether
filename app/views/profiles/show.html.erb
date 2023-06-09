@@ -10,6 +10,18 @@
   </div>
 </div>
 
+<div class="container">
+  <%#= week_calendar(number_of_weeks: 4) do |date| %>
+    <%#= date.day %>
+  <%# end %>
+  <%= month_calendar(events: @all) do |date, events| %>
+    <%= date.day %>
+    <% events.each do |event| %>
+      <%= event.title %>
+    <% end %>
+  <% end %>
+</div>
+
 <div class="event-container mt-3">
   <h2>My upcoming events</h2>
   <% @all.each do |event| %>
