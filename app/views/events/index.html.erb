@@ -1,57 +1,53 @@
-<div class="event-container">
+<div class="event-container mt-4 ms-1 me-1">
 
+  <h1 class="text-center">Events</h1>
 
-<h1>Events</h1>
-
-<div class="row">
-  <div class="col-12">
-    <%= form_with(url: events_path, method: :get, local: true, class: "form-inline my-2 my-lg-0") do %>
-      <%= text_field_tag :query, params[:query], placeholder: "Search events", class: "form-control mr-sm-2" %>
-      <div class="row justify-content-center">
-        <%= submit_tag "Search", class: "btn btn-primary buttonsearch" %>
-      </div>
-    <% end %>
-  </div>
-</div>
-
-<div class="type-of-event">
-  <p>Popular near you</p>
-</div>
-
-<% @public_events.each do |event| %>
-  <%= link_to event_path(event) do  %>
-    <div class="event-card d-flex">
-      <div class="event-card-left" style="background-image: url('<%= asset_path('placeholderimage.jpeg') %>')"></div>
-      <div class="event-card-right">
-        <h5 class="card-title"><%= event.title %></h5>
-        <div class="event-right-info">
-            <%= event.start_date.strftime('%e %B %Y') %>
-            <br>
-            <%= event.address %>
-        </div>
-      </div>
+  <div class="row">
+    <div class="col-12">
+      <%= form_with(url: events_path, method: :get, local: true, class: "form-inline my-2 my-lg-0") do %>
+        <%= text_field_tag :query, params[:query], placeholder: "Search events", class: "form-control mr-sm-2" %>
+      <% end %>
     </div>
-  <% end %>
-<% end %>
+  </div>
 
   <div class="type-of-event">
-    <p> My upcoming events</p>
+    <p class="pt-4 pb-4 text-center">Popular near you</p>
   </div>
 
- <% @booked_events.each do |event| %>
- <%= link_to event_path(event) do  %>
+  <% @public_events.each do |event| %>
+    <%= link_to event_path(event) do  %>
+      <div class="event-card d-flex">
+        <div class="event-card-left" style="background-image: url('<%= asset_path('placeholderimage.jpeg') %>')"></div>
+        <div class="event-card-right">
+          <h5 class="card-title"><%= event.title %></h5>
+          <div class="event-right-info">
+              <%= event.start_date.strftime('%e %B %Y') %>
+              <br>
+              <%= event.address %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+
+    <div class="type-of-event">
+      <p class="pt-4 pb-4 text-center"> My upcoming events</p>
+    </div>
+
+  <% @booked_events.each do |event| %>
+  <%= link_to event_path(event) do  %>
   <div class="event-card d-flex">
     <div class="event-card-left" style="background-image: url('<%= asset_path('placeholderimage.jpeg') %>')"></div>
     <div class="event-card-right">
       <h5 class="card-title"><%= event.title %></h5>
       <div class="event-right-info">
-         <%= event.start_date.strftime('%e %B %Y') %>
-         <br>
-         <%= event.address %>
+          <%= event.start_date.strftime('%e %B %Y') %>
+          <br>
+          <%= event.address %>
       </div>
     </div>
   </div>
-   <% end %>
- <% end %>
+    <% end %>
+  <% end %>
 
 </div>

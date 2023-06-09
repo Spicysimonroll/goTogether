@@ -1,13 +1,23 @@
 <div class="user-profile p-4 border-bottom">
   <div class="d-flex align-items-center">
-    <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar ms-2 me-2" %>
-      <div class="p-2">
+    <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar-large ms-2 me-2" %>
+      <div class="p-2 user-info">
         <%= current_user.profile.first_name %> <%= current_user.profile.last_name %> <span id="username" class="ms-1">@<%= current_user.profile.username %></span>
       </div>
   </div>
   <div class="mt-2 p-1 ps-3 pe-3">
     <%= current_user.profile.description %>
   </div>
+</div>
+
+<div class="d-flex justify-content-center mt-4">
+  <%= month_calendar(events: @all) do |date, events| %>
+    <%= date.day %>
+    <% events.each do |event| %>
+      <%#= event.title %>
+      <div style="height: 5px; width: 18px; background-color: green; "></div>
+    <% end %>
+  <% end %>
 </div>
 
 <div class="event-container mt-3">

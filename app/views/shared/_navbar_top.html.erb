@@ -1,6 +1,6 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon sticky-top border-bottom">
   <div class="container-fluid" id="navbar-div">
-    <%= link_to "#", class: "navbar-brand" do %>
+    <%= link_to "/", class: "navbar-brand ms-2" do %>
       <%= image_tag "logo.png", id: "logo" %>
     <% end %>
 
@@ -8,19 +8,16 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <div id="navbar-icons">
-            <li class="nav-item active">
-              <i class="fa-solid fa-gear"></i>
-            </li>
             <li class="nav-item">
               <i class="fa-solid fa-bell"></i>
             </li>
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown ms-2">
             <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar", alt: "dropdown menu" %>
+              <i class="fa-solid fa-gear text-black"></i>
             </a>
               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <%= link_to "My profile", user_profile_path , class: "dropdown-item" %>
-                <%= link_to "Another action", "#", class: "dropdown-item" %>
+                <%= link_to "Settings", edit_user_registration_path , class: "dropdown-item" %>
+                <%#= link_to "Another action", "#", class: "dropdown-item" %>
                 <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
               </div>
             </li>

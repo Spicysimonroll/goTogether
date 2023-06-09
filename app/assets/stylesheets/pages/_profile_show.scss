@@ -1,3 +1,16 @@
 #username {
   font-size: 10px;
 }
+
+.simple-calendar {
+  width: 90vw;
+
+  .day {
+    height: 60px;
+  }
+
+  .calendar-heading {
+    display: flex;
+    justify-content: space-around
+  }
+}
