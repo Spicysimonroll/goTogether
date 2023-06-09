@@ -90,6 +90,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_08_124723) do
     t.bigint "friendship_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "status"
     t.index ["event_id"], name: "index_invitations_on_event_id"
     t.index ["friendship_id"], name: "index_invitations_on_friendship_id"
   end
@@ -103,6 +104,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_08_124723) do
     t.string "username"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "description"
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 

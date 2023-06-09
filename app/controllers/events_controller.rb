@@ -1,30 +1,26 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!, except: :index
   before_action :set_event, only: :show
+  skip_after_action :verify_policy_scoped, only: :index
+
 
   def index
-    if user_signed_in?
-      # Get all friend_ids for the current user from the friendships table
-      friend_ids = current_user.friendships.pluck(:friend_id)
-      # Get all user_ids where the current user is the friend
-      user_ids_as_friend = Friendship.where(friend_id: current_user.id).pluck(:user_id)
-      # Combine these two to get a full list of friends
-      all_friend_ids = friend_ids + user_ids_as_friend
-
-      if params[:query].present?
-        # Public events and friends' events that match the query
-        @events = Event.search_by_title_and_category(params[:query])
-                      .where("is_private = ? OR user_id IN (?)", false, all_friend_ids)
+    if params[:query].present?
+      @public_events = Event.search_by_title_and_category(params[:query])
+                            .where(is_private: false)
+      if user_signed_in?
+        event_ids = current_user.bookings.pluck(:event_id)
+        @booked_events = Event.search_by_title_and_category(params[:query])
+                              .where(id: event_ids)
       else
-        # Public events and friends' events
-        @events = Event.where("is_private = ? OR user_id IN (?)", false, all_friend_ids)
+        @booked_events = []
       end
     else
-      # For non-authenticated users, show only public events
-      if params[:query].present?
-        @events = Event.search_by_title_and_category(params[:query]).where(is_private: false)
+      @public_events = Event.where(is_private: false)
+      if user_signed_in?
+        @booked_events = current_user.bookings.includes(:event).map(&:event)
       else
-        @events = Event.where(is_private: false)
+        @booked_events = []
       end
     end
   end
@@ -34,7 +30,32 @@ class EventsController < ApplicationController
     authorize @event
   end
 
+  def new
+    @event = Event.new
+    authorize @event
+  end
+
+  def create
+    @event = Event.new(event_params)
+    @event.user = current_user
+    event_params[:is_private] == "0" ? @event.is_private == false : @event.is_private == true
+    authorize @event
+    if @event.save
+      if event_params[:is_private] == false
+        redirect_to event_path(@event)
+      else
+        redirect_to invitations_new_path @event
+      end
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
   private
+
+  def event_params
+    params.require(:event).permit(:title, :address, :start_date, :end_date, :description, :category, :is_private)
+  end
 
   def set_event
     @event = Event.find(params[:id])

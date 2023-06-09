@@ -1,3 +1,41 @@
+.event-card {
+height: 200px;
+width: 100%;
+border-radius: 20px;
+margin-bottom: 20px;
+box-shadow: 20px 10px 19px grey;
+}
+
+.event-card-left {
+width: 40%;
+flex-shrink: 0;
+border-radius: 20px 0 0 20px
+
+}
+
+.event-card-right {
+padding: 20px
+
+}
+
+.card-title{
+color: rgb(60, 37, 194);
+}
+
+.event-right-info {
+  color: black;
+}
+
+.type-of-event {
+  color: rgb(37, 126, 194);
+  font-weight:bold
+}
+
+.buttonsearch {
+  width: 30%;
+  border-radius: 20px
+}
+
 .show-event-card {
   box-shadow: 0 0 5px rgba(0,0,0,0.2);
   border-radius: 15px;
