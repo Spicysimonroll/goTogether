@@ -1,0 +1,4 @@
+<%= form_with(model: Comment.new, url: event_comments_path(event), remote: true, id: "comment-form") do |form| %>
+  <%= form.text_area :content, placeholder: "Write your comment here...", rows: 4, required: true %>
+  <%= form.submit "Submit", class: "button-primary" %>
+<% end %>

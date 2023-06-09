@@ -18,7 +18,7 @@ class User < ApplicationRecord
 
   has_many :bookmarks
 
-  has_many :comments
+  has_many :comments, dependent: :destroy
   has_many :events, through: :comments
   has_many :invitations
   has_many :invitations, through: :friendships
