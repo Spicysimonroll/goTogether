@@ -1,16 +1,16 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations' }
   root to: "pages#home"
-  
-  Rails.application.routes.draw do
-    resources :events, only: [:index, :show, :new, :create]
-    get "/myprofile", to: "profiles#show", as: "user_profile"
-    get "/invitations", to: "invitations#index"
-    patch '/invitations/:id/accept', to: 'invitations#accept', as: 'accept_invitation'
-    patch '/invitations/:id/reject', to: 'invitations#reject', as: 'reject_invitation'
+  resources :events, only: [:index, :show, :new, :create]
 
-    # other routes...
-  end
+
+  get "/myprofile", to: "profiles#show", as: "user_profile"
+  get "/invitations", to: "invitations#index"
+  get "events/:event_id/invitations/new", to: "invitations#new", as: "invitations_new"
+  post "/events/:event_id/invitations/", to: "invitations#create", as: "event_invitations"
+  patch '/invitations/:id/accept', to: 'invitations#accept', as: 'accept_invitation'
+  patch '/invitations/:id/reject', to: 'invitations#reject', as: 'reject_invitation'
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   # Defines the root path route ("/")
   # root "articles#index"
