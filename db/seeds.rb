@@ -488,23 +488,23 @@ comment2.user = marc
 comment2.save
 
 puts "Creating bookings..."
-booking1 = Booking.new(status: "Looking for a buddy")
-booking1.event = private_event4
+booking1 = Booking.new(status: 1)
+booking1.event = private_event1
 booking1.user = carlos
 booking1.save
-booking2 = Booking.new(status: "Going")
+booking2 = Booking.new(status: 0)
 booking2.event = private_event2
 booking2.user = carlos
 booking2.save
-booking3 = Booking.new(status: "Going")
+booking3 = Booking.new(status: 0)
 booking3.event = private_event10
 booking3.user = carlos
 booking3.save
-booking4 = Booking.new(status: "Going")
+booking4 = Booking.new(status: 0)
 booking4.event = private_event3
 booking4.user = carlos
 booking4.save
-booking5 = Booking.new(status: "Looking for a buddy")
+booking5 = Booking.new(status: 1)
 booking5.event = private_event5
 booking5.user = carlos
 booking5.save
