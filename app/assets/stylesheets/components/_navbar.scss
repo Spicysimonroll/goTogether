@@ -2,6 +2,14 @@
   justify-content: space-between;
   background: white;
   margin: 0;
+
+  a {
+    color: $black;
+  }
+
+  .fa-solid {
+    font-size: 22px;
+  }
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -13,12 +21,8 @@
 }
 
 .navbar #logo {
-  width: 122px;
-  height: 40px;
-}
-
-.nav-item #login {
-  color: #3860ED;
+  width: 140px;
+  height: 30px;
 }
 
 #navbar-div {
@@ -34,4 +38,8 @@
   background-color: $white;
   height: 50px;
   font-size: 22px;
+
+  a {
+    color: $black;
+  }
 }

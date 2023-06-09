@@ -1,7 +1,7 @@
-<div class="navbar-bottom d-flex justify-content-around align-items-center fixed-bottom">
-  <i class="fa-solid fa-house"></i>
+<div class="navbar-bottom d-flex justify-content-around align-items-center border-top pt-1 fixed-bottom">
+  <%= link_to '<i class="fa-solid fa-house"></i>'.html_safe, events_path %>
   <i class="fa-solid fa-magnifying-glass"></i>
   <i class="fa-regular fa-square-plus"></i>
   <i class="fa-solid fa-user-group"></i>
-  <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar" %>
+  <a href="/myprofile"><%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar" %></a>
 </div>
