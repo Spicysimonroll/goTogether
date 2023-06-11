@@ -22,32 +22,34 @@
       <p class="text-center"><i class="fa-solid fa-location-dot p-2"></i> <%= @event.address %></p>
     </div>
 
-    <div class="d-flex show-event-card-footer">
+    <div class="d-flex justify-content-between show-event-card-footer">
 
-      <% if @event.user.profile.is_business %>
-        <% if @booking && @booking.status == "going" %>
-          <%= link_to '<i class="fa-solid fa-xmark"></i>'.html_safe, booking_path(@booking), class: 'button-secondary flex-grow-1', data: {turbo_method: :delete}, id: "button-unnatend" %>
-          <%= link_to '<i class="fa-solid fa-people-pulling"></i>'.html_safe, booking_path(@booking, status: :looking_for_a_buddy), data: {turbo_method: :patch}, class: 'button-primary flex-grow-1 d-block' %>
-        <% elsif @booking && @booking.status == "looking_for_a_buddy" %>
-          <%= link_to '<i class="fa-solid fa-check"></i>'.html_safe, booking_path(@booking, status: :going), data: {turbo_method: :patch}, class: 'button-primary d-block flex-grow-1' %>
-          <%= link_to '<i class="fa-solid fa-person-walking"></i>'.html_safe, booking_path(@booking), data: {turbo_method: :delete}, class: 'button-secondary flex-grow-1 d-block' %>
-        <% else %>
-          <%= link_to '<i class="fa-solid fa-check"></i>'.html_safe, event_bookings_path(@event, status: :going), data: {turbo_method: :post}, class: 'button-primary d-block flex-grow-1' %>
-          <%= link_to '<i class="fa-solid fa-people-pulling"></i>'.html_safe, event_bookings_path(@event, status: :looking_for_a_buddy), data: {turbo_method: :post}, class: 'button-primary d-block flex-grow-1' %>
-        <% end %>
+      <div class="d-flex">
+        <% if @event.user.profile.is_business %>
+          <% if @booking && @booking.status == "going" %>
+            <%= link_to '<i class="fa-solid fa-xmark"></i>'.html_safe, booking_path(@booking), class: 'button-secondary', data: {turbo_method: :delete}, id: "button-unattend" %>
+            <%= link_to '<i class="fa-solid fa-people-pulling"></i>'.html_safe, booking_path(@booking, status: :looking_for_a_buddy), data: {turbo_method: :patch}, class: 'button-primary' %>
+          <% elsif @booking && @booking.status == "looking_for_a_buddy" %>
+            <%= link_to '<i class="fa-solid fa-check"></i>'.html_safe, booking_path(@booking, status: :going), data: {turbo_method: :patch}, class: 'button-primary' %>
+            <%= link_to '<i class="fa-solid fa-person-walking"></i>'.html_safe, booking_path(@booking), data: {turbo_method: :delete}, class: 'button-secondary' %>
+          <% else %>
+            <%= link_to '<i class="fa-solid fa-check"></i>'.html_safe, event_bookings_path(@event, status: :going), data: {turbo_method: :post}, class: 'button-primary' %>
+            <%= link_to '<i class="fa-solid fa-people-pulling"></i>'.html_safe, event_bookings_path(@event, status: :looking_for_a_buddy), data: {turbo_method: :post}, class: 'button-primary' %>
+          <% end %>
 
-      <% else %>
-        <% if @booking && @booking.status == "going" %>
-          <%= link_to '<i class="fa-solid fa-xmark"></i>'.html_safe, booking_path(@booking), class: 'button-secondary d-block flex-grow-1', data: {turbo_method: :delete} %>
-          <%= link_to '<i class="fa-solid fa-people-pulling"></i>'.html_safe, booking_path(@booking, status: :looking_for_a_buddy), data: {turbo_method: :patch}, class: 'button-primary d-block flex-grow-1' %>
-        <% elsif @booking && @booking.status == "looking_for_a_buddy" %>
-          <%= link_to '<i class="fa-solid fa-check"></i>'.html_safe, booking_path(@booking, status: :going), data: {turbo_method: :patch}, class: 'button-primary d-block flex-grow-1' %>
-          <%= link_to '<i class="fa-solid fa-person-walking"></i>'.html_safe, booking_path(@booking), data: {turbo_method: :delete}, class: 'button-secondary d-block flex-grow-1' %>
         <% else %>
-          <%= link_to '<i class="fa-solid fa-check"></i>'.html_safe, event_bookings_path(@event, status: :going), data: {turbo_method: :post}, class: 'button-primary d-block flex-grow-1' %>
-          <%= link_to '<i class="fa-solid fa-people-pulling"></i>'.html_safe, event_bookings_path(@event, status: :looking_for_a_buddy), data: {turbo_method: :post}, class: 'button-primary d-block flex-grow-1' %>
+          <% if @booking && @booking.status == "going" %>
+            <%= link_to '<i class="fa-solid fa-xmark"></i>'.html_safe, booking_path(@booking), class: 'button-secondary', data: {turbo_method: :delete} %>
+            <%= link_to '<i class="fa-solid fa-people-pulling"></i>'.html_safe, booking_path(@booking, status: :looking_for_a_buddy), data: {turbo_method: :patch}, class: 'button-primary' %>
+          <% elsif @booking && @booking.status == "looking_for_a_buddy" %>
+            <%= link_to '<i class="fa-solid fa-check"></i>'.html_safe, booking_path(@booking, status: :going), data: {turbo_method: :patch}, class: 'button-primary' %>
+            <%= link_to '<i class="fa-solid fa-person-walking"></i>'.html_safe, booking_path(@booking), data: {turbo_method: :delete}, class: 'button-secondary' %>
+          <% else %>
+            <%= link_to '<i class="fa-solid fa-check"></i>'.html_safe, event_bookings_path(@event, status: :going), data: {turbo_method: :post}, class: 'button-primary' %>
+            <%= link_to '<i class="fa-solid fa-people-pulling"></i>'.html_safe, event_bookings_path(@event, status: :looking_for_a_buddy), data: {turbo_method: :post}, class: 'button-primary' %>
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
 
       <div class="show-event-icons d-flex">
         <% if !@event.user.profile.is_business %>
@@ -59,6 +61,7 @@
           <%= link_to '<i class="fa-regular fa-bookmark p-0"></i>'.html_safe, root_path, class:"d-flex align-items-center p-2" %>
         <% end %>
       </div>
+
     </div>
   </div>
 
