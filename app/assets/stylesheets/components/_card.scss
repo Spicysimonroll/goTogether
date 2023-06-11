@@ -92,10 +92,10 @@
   margin-top: 30px;
 }
 
-.current-user-comment {
+.current-user-comment, .other-user-comment {
   background-color: $mainblue;
   color: $white;
-  padding: 10px;
+  padding: 10px 20px;
   margin-top: 10px;
   border-radius: 20px;
 }
@@ -103,9 +103,6 @@
 .other-user-comment {
   background-color: $secondblue;
   color: $white;
-  padding: 10px;
-  margin-top: 10px;
-  border-radius: 20px;
 }
 
 .fa-chevron-left::before {
