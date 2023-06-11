@@ -37,7 +37,7 @@
 
 .type-of-event {
   color: rgb(37, 126, 194);
-  font-weight:bold
+  font-weight: bold;
 }
 
 .buttonsearch {
@@ -66,11 +66,6 @@
     }
   }
 }
-
-// .show-card-owner-info {
-//   font-size: 10px;
-//   width: 50px;
-// }
 
 .show-event-image {
   display: flex;
@@ -124,4 +119,8 @@
 
 .back-icon {
   margin-bottom: 10px;
+}
+
+.fa-bookmark, .fa-comment {
+  font-size: 30px;
 }
