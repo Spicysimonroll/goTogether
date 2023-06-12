@@ -3,6 +3,17 @@ class EventsController < ApplicationController
   before_action :set_event, only: :show
   skip_after_action :verify_policy_scoped, only: :index
 
+  def search_cities
+    if params[:query].present?
+      @cities = Event.where('city ILIKE ?', "#{params[:query]}%").pluck(:city).uniq
+    else
+      @cities = Event.pluck(:city).uniq
+    end
+
+    respond_to do |format|
+      format.json { render json: @cities }
+    end
+  end
 
   def index
     if params[:query].present?
