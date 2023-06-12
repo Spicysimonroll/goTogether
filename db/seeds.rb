@@ -514,25 +514,5 @@ invitation1 = Invitation.new
 invitation1.event = private_event1
 invitation1.friendship = friendship5
 invitation1.save
-invitation2 = Invitation.new
-invitation2.event = private_event1
-invitation2.friendship = friendship6
-invitation2.save
-invitation3 = Invitation.new
-invitation3.event = private_event5
-invitation3.friendship = friendship1
-invitation3.save
-invitation4 = Invitation.new
-invitation4.event = private_event5
-invitation4.friendship = friendship2
-invitation4.save
-invitation5 = Invitation.new
-invitation5.event = private_event5
-invitation5.friendship = friendship3
-invitation5.save
-invitation6 = Invitation.new
-invitation6.event = private_event1
-invitation6.friendship = friendship14
-invitation6.save
 
 puts "Done!"

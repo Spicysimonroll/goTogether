@@ -4,11 +4,15 @@
     <% if invite.status == "pending" %>
       <%= link_to event_path(invite.event_id) do  %>
       <div class="event-card d-flex">
-        <div class="event-card-left" style="background-image: url('https://images.pexels.com/photos/976866/pexels-photo-976866.jpg'); background-size: cover;"></div>
+        <div class="event-card-left" style="background-image: url('https://images.pexels.com/photos/976866/pexels-photo-976866.jpg'); background-size: cover;">
+          <div class="card-profile-box">
+              <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar" %>
+              <p><%= invite.friendship.friend.profile.username %></p>
+          </div>
+        </div>
         <div class="event-card-right">
           <h5 class="card-title"><%= invite.event.title %></h5>
           <div class="event-right-info">
-            <p class="mt-2 mb-2"><i class="fa-solid fa-user me-2"></i><%= invite.event.user.profile.username %></p>
             <p class="mt-2 mb-2"><i class="fa-solid fa-calendar-days me-2"></i><%= invite.event.start_date.strftime('%e %B %Y') %></p>
             <p class="m-0 d-flex"><i class="fa-solid fa-location-dot me-2 pt-1"></i><span class="event-address"><%= invite.event.address %></span></p>
           </div>
