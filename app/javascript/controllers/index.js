@@ -10,6 +10,9 @@ application.register("address-autocomplete", AddressAutocompleteController)
 import EventFormController from "./event_form_controller"
 application.register("event-form", EventFormController)
 
+import EventShowpageController from "./event_showpage_controller"
+application.register("event-showpage", EventShowpageController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
