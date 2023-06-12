@@ -14,7 +14,11 @@
 
   </head>
 
-  <body>
+  <body
+    <% if current_user %>
+      <%= "style=padding-bottom:50px;" %>
+    <% end %>
+  >
 
     <% unless params[:controller] == "users/registrations" || params[:controller] == "devise/sessions" %>
       <%= render "shared/navbar_top" %>
