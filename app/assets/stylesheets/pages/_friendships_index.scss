@@ -1,3 +1,20 @@
 .friendships-card {
   display: flex;
+  margin: 40px 20px;
+
+  .friendships-details {
+    padding-left: 10px;
+  }
+
+  #friendship-username {
+    margin-bottom: 6px;
+  }
+
+  #friendship-details-bold {
+    font-weight: bold;
+  }
+}
+
+#friends-title {
+  margin: 30px 30px;
 }
