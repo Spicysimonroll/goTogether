@@ -11,4 +11,9 @@ export default class extends Controller {
   toggleMap() {
     this.locationTarget.classList.toggle("d-none")
   }
+
+  commentPost(event) {
+    event.preventDefault()
+    console.log("Hi");
+  }
 }

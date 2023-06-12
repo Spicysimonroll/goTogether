@@ -80,7 +80,6 @@
     </div>
   </div>
 
-
   <% if !@event.user.profile.is_business %>
 
     <div class="comments-section mb-2">
@@ -100,7 +99,7 @@
 
       <%= form_with(model: [ @event, Comment.new ], url: event_comments_path(@event), remote: true, class:"d-flex align-items-center mt-2 ms-1 me-1") do |form| %>
         <%= form.text_area :content, placeholder: "Comment here...", rows: 1, required: true, class:"p-1 flex-grow-1" %>
-        <%= form.submit "Post", class: "button-primary" %>
+        <%= form.submit "Post", class: "button-primary", data: { action:"submit->event-showpage#commentPost" } %>
       <% end %>
 
     </div>

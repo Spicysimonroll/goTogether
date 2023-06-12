@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
     authorize @comment
 
     if @comment.save
-      redirect_to event_path(@event), notice: 'Comment was successfully created.'
+      redirect_to event_path(@event)
     else
       # Handle comment creation failure
     end
