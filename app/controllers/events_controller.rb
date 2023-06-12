@@ -15,17 +15,16 @@ class EventsController < ApplicationController
       scope = scope.where("title ILIKE ? OR category ILIKE ?", query, query)
     end
 
-    # Apply privacy filter
-    @public_events = scope.where(is_private: false)
-
     if user_signed_in?
+      @public_events = scope.where(is_private: false)
       event_ids = current_user.bookings.pluck(:event_id)
       @booked_events = scope.where(id: event_ids)
     else
+      @public_events = scope.where(is_private: false)
       @booked_events = []
     end
 
-    @cities = Event.pluck(:address).map { |address| extract_city_from_address(address) }.uniq.sort
+    @cities = Event.pluck(:address).map { |address| extract_city_from_address(address) }.compact.uniq.sort
   end
 
   def show
@@ -69,8 +68,9 @@ class EventsController < ApplicationController
   end
 
   def extract_city_from_address(address)
-    city = address.split(',').last.strip
-    city
+    city = address.split(",").last.strip.split(" ").map(&:capitalize).join(" ")
+    city.gsub!(/\b\d{5}\b/, '') # Remove the postcode
+    city.strip
   end
 
 end
