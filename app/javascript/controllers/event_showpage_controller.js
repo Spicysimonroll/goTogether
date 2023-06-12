@@ -12,8 +12,4 @@ export default class extends Controller {
     this.locationTarget.classList.toggle("d-none")
   }
 
-  commentPost(event) {
-    event.preventDefault()
-    console.log("Hi");
-  }
 }
