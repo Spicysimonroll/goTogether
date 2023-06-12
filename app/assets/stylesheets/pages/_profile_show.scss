@@ -7,7 +7,9 @@
 }
 
 .simple-calendar {
-  width: 90vw;
+  width: 85vw;
+  height: 383px;
+  border: 1px solid $black;
 
   .day {
     height: 60px;
@@ -15,6 +17,23 @@
 
   .calendar-heading {
     display: flex;
-    justify-content: space-around
+    justify-content: space-around;
+    padding: 10px;
+    background-color: $mainblue;
+    color: $white;
+
+    a {
+      color: $white;
+    }
+  }
+
+  .table {
+    th, td {
+      text-align: center;
+    }
+
+    td {
+      overflow: hidden;
+    }
   }
 }
