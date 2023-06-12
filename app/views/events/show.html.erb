@@ -67,12 +67,7 @@
 
   <% if !@event.user.profile.is_business %>
 
-    <div class="show-comments-card">
-
-      <%= form_with(model: [ @event, Comment.new ], url: event_comments_path(@event), remote: true) do |form| %>
-        <%= form.text_area :content, placeholder: "Write your comment here...", rows: 3, required: true %>
-        <%= form.submit "Submit", class: "button-primary" %>
-      <% end %>
+    <div class="comments-section">
 
       <div class="show-comments-card">
         <h2>Comments</h2>
@@ -86,6 +81,11 @@
           <% end %>
         </div>
       </div>
+
+      <%= form_with(model: [ @event, Comment.new ], url: event_comments_path(@event), remote: true) do |form| %>
+        <%= form.text_area :content, placeholder: "Write your comment here...", rows: 1, required: true %>
+        <%= form.submit "Post", class: "button-primary" %>
+      <% end %>
 
     </div>
 
