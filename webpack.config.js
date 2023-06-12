@@ -1,5 +1,5 @@
-const path    = require("path")
-const webpack = require("webpack")
+const path = require("path");
+const webpack = require("webpack");
 
 module.exports = {
   mode: "production",
@@ -13,8 +13,18 @@ module.exports = {
     path: path.resolve(__dirname, "app/assets/builds"),
   },
   plugins: [
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery',
+      'window.jQuery': 'jquery'
+    }),
     new webpack.optimize.LimitChunkCountPlugin({
       maxChunks: 1
     })
-  ]
-}
+  ],
+  resolve: {
+    alias: {
+      jquery: path.join(__dirname, 'node_modules/jquery/dist/jquery'),
+    },
+  },
+};
