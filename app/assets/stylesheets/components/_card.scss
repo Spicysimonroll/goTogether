@@ -4,7 +4,7 @@
   border-radius: 20px;
   margin-bottom: 20px;
   box-shadow: 10px 10px 30px rgba(0,0,0,0.4);
-  background-color: #FEF7F7;
+  background-color: #FFF4F4;
 }
 
 .event-card-left {
@@ -15,25 +15,29 @@
 }
 
 .event-card-right {
-  padding: 20px;
+  padding: 15px;
+
+  .event-right-info {
+    color: $black;
+    height: 110px;
+
+    .event-address {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+  }
 }
 
 .card-title{
   color: rgb(60, 37, 194);
 }
 
-.event-right-info {
-  color: black;
-}
-
 .type-of-event {
   color: rgb(37, 126, 194);
-  font-weight:bold
-}
-
-.buttonsearch {
-  width: 30%;
-  border-radius: 20px
+  font-weight: bold;
 }
 
 .show-event-card {
@@ -46,8 +50,16 @@
 }
 
 .show-event-card-header {
-  justify-content: space-between;
   align-items: center;
+
+  .header-info-box {
+    height: 70px;
+    width: 215px;
+
+    h2 {
+      font-size: 20px;
+    }
+  }
 }
 
 .show-event-image {
@@ -56,8 +68,8 @@
   background-position: center;
   height: 200px;
   position: relative;
-  margin: 5px;
-  width: 95%;
+  margin: 0 auto;
+
 }
 
 .show-event-card-footer {
@@ -80,10 +92,10 @@
   margin-top: 30px;
 }
 
-.current-user-comment {
+.current-user-comment, .other-user-comment {
   background-color: $mainblue;
   color: $white;
-  padding: 10px;
+  padding: 10px 20px;
   margin-top: 10px;
   border-radius: 20px;
 }
@@ -91,9 +103,6 @@
 .other-user-comment {
   background-color: $secondblue;
   color: $white;
-  padding: 10px;
-  margin-top: 10px;
-  border-radius: 20px;
 }
 
 .fa-chevron-left::before {
@@ -102,4 +111,8 @@
 
 .back-icon {
   margin-bottom: 10px;
+}
+
+.fa-bookmark, .fa-comment {
+  font-size: 30px;
 }

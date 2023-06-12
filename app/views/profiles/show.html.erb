@@ -1,6 +1,6 @@
 <div class="user-profile p-4 border-bottom">
   <div class="d-flex align-items-center">
-    <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar-large ms-2 me-2" %>
+    <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar-medium ms-2 me-2" %>
       <div class="p-2 user-info">
         <%= current_user.profile.first_name %> <%= current_user.profile.last_name %> <span id="username" class="ms-1">@<%= current_user.profile.username %></span>
       </div>
@@ -21,7 +21,7 @@
 </div>
 
 <div class="event-container mt-3">
-  <h2>My upcoming events</h2>
+  <h2 class="mb-4 text-center">My upcoming events</h2>
   <% @all.each do |event| %>
     <%= link_to event_path(event) do  %>
       <div class="event-card d-flex">
@@ -29,9 +29,8 @@
         <div class="event-card-right">
           <h5 class="card-title"><%= event.title %></h5>
           <div class="event-right-info">
-              <%= event.start_date.strftime('%e %B %Y') %>
-              <br>
-              <%= event.address %>
+            <p class="mt-2 mb-2"><i class="fa-solid fa-calendar-days me-2"></i><%= event.start_date.strftime('%e %B %Y') %></p>
+            <p class="m-0 d-flex"><i class="fa-solid fa-location-dot me-2 pt-1"></i><span class="event-address"><%= event.address %></span></p>
           </div>
         </div>
       </div>

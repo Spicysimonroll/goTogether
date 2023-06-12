@@ -3,18 +3,25 @@
   <p>Share, enjoy, feel alive.</p>
 </div>
 
-<div>
-  <%# <p class="phrase">Changing the way people connect.</p> %>
+<%# <p class="phrase">Changing the way people connect.</p> %>
+
+<h2 class="phrase text-center mt-5">Don't miss these top-events!</h2>
+
+<%= link_to "Find your next experience", events_path, class: "button-primary mt-4 mb-4", id: "btn-homepage" %>
+
+<div class="event-container mt-4 ms-1 me-1">
+  <% @public_events.first(5).each do |event| %>
+    <%= link_to event_path(event) do  %>
+      <div class="event-card d-flex">
+        <div class="event-card-left" style="background-image: url('https://images.pexels.com/photos/976866/pexels-photo-976866.jpg'); background-size: cover;"></div>
+        <div class="event-card-right">
+          <h5 class="card-title"><%= event.title %></h5>
+          <div class="event-right-info">
+            <p class="mt-2 mb-2"><i class="fa-solid fa-calendar-days me-2"></i><%= event.start_date.strftime('%e %B %Y') %></p>
+            <p class="m-0 d-flex"><i class="fa-solid fa-location-dot me-2 pt-1"></i><span class="event-address"><%= event.address %></span></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
 </div>
-
-<div style="padding: 20px;">
-  <%= link_to "Find your next experience", events_path, class: "button-primary", id: "btn-homepage" %>
-</div>
-
-<div>
-  <p class="phrase">Don't miss these top-events!</p>
-</div>
-
-<%= "Several event-cards bellow" %>
-
-<%#comment%>

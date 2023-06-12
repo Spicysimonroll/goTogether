@@ -21,9 +21,8 @@
         <div class="event-card-right">
           <h5 class="card-title"><%= event.title %></h5>
           <div class="event-right-info">
-              <%= event.start_date.strftime('%e %B %Y') %>
-              <br>
-              <%= event.address %>
+            <p class="mt-2 mb-2"><i class="fa-solid fa-calendar-days me-2"></i><%= event.start_date.strftime('%e %B %Y') %></p>
+            <p class="m-0 d-flex"><i class="fa-solid fa-location-dot me-2 pt-1"></i><span class="event-address"><%= event.address %></span></p>
           </div>
         </div>
       </div>
@@ -37,13 +36,12 @@
   <% @booked_events.each do |event| %>
   <%= link_to event_path(event) do  %>
   <div class="event-card d-flex">
-    <div class="event-card-left" style="background-image: url('https://images.pexels.com/photos/2608517/pexels-photo-2608517.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'); background-size: cover;"></div>
+    <div class="event-card-left" style="background-image: url('https://images.pexels.com/photos/976866/pexels-photo-976866.jpg'); background-size: cover;"></div>
     <div class="event-card-right">
       <h5 class="card-title"><%= event.title %></h5>
       <div class="event-right-info">
-          <%= event.start_date.strftime('%e %B %Y') %>
-          <br>
-          <%= event.address %>
+        <p class="mt-2 mb-2"><i class="fa-solid fa-calendar-days me-2"></i><%= event.start_date.strftime('%e %B %Y') %></p>
+        <p class="m-0 d-flex"><i class="fa-solid fa-location-dot me-2 pt-1"></i><span class="event-address"><%= event.address %></span></p>
       </div>
     </div>
   </div>
