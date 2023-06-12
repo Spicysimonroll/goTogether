@@ -1,9 +1,13 @@
 <h1>Friends</h1>
 
 <% @friendships.each do |friendship| %>
-  <div><%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar-medium ms-2 me-2" %>
+  <div class="friendships-card">
+    <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar-medium ms-2 me-2" %>
+    <div>
     <p>@<%= friendship.friend.profile.username %></p>
     <%= friendship.friend.profile.first_name %>
-  <%= friendship.friend.profile.last_name %></div>
+    <%= friendship.friend.profile.last_name %>
+    </div>
+  </div>
   <%= link_to "Delete" %>
 <% end %>
