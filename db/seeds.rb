@@ -103,8 +103,8 @@ puts "Creating public events..."
 businesses = [business1, business2, business3, business4]
 public_event1 = Event.new(
   title: "Summer Music Festival",
-  address: "Plaça del Fòrum 1, Barcelona",
-  description: "Join us for a lively music festival celebrating the summer vibes. Enjoy performances by local bands and DJs, food stalls, and a vibrant atmosphere.",
+  address: "Plaça del Fòrum 1, Torino",
+  description: "Italien fiesta.",
   category: "Music",
   start_date: "2023-07-15",
   end_date: "2023-07-17",
@@ -114,8 +114,8 @@ public_event1.user = businesses[rand(0..3)]
 public_event1.save
 public_event2 = Event.new(
   title: "Gastronomy Fair",
-  address: "Avinguda de la Reina Maria Cristina, Barcelona",
-  description: "Discover the flavors of Barcelona at the Gastronomy Fair. Indulge in delicious tapas, local wines, and culinary delights from renowned chefs.",
+  address: "Avinguda de la Reina Maria Cristina, Bilbao",
+  description: "tapas tour in Bilbao center.",
   category: "Food",
   start_date: "2023-06-15",
   end_date: "2023-06-20",
