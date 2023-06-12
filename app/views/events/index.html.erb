@@ -17,7 +17,7 @@
   <% @public_events.each do |event| %>
     <%= link_to event_path(event) do  %>
       <div class="event-card d-flex">
-        <div class="event-card-left" style="background-image: url('<%= asset_path('placeholderimage.jpg') %>'); background-size: cover;"></div>
+        <div class="event-card-left" style="background-image: url('https://images.pexels.com/photos/976866/pexels-photo-976866.jpg'); background-size: cover;"></div>
         <div class="event-card-right">
           <h5 class="card-title"><%= event.title %></h5>
           <div class="event-right-info">
@@ -36,7 +36,7 @@
   <% @booked_events.each do |event| %>
   <%= link_to event_path(event) do  %>
   <div class="event-card d-flex">
-    <div class="event-card-left" style="background-image: url('<%= asset_path('placeholderimage.jpg') %>'); background-size: cover;"></div>
+    <div class="event-card-left" style="background-image: url('https://images.pexels.com/photos/976866/pexels-photo-976866.jpg'); background-size: cover;"></div>
     <div class="event-card-right">
       <h5 class="card-title"><%= event.title %></h5>
       <div class="event-right-info">
