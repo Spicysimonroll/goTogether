@@ -14,6 +14,12 @@ Rails.application.routes.draw do
   patch '/invitations/:id/accept', to: 'invitations#accept', as: 'accept_invitation'
   patch '/invitations/:id/reject', to: 'invitations#reject', as: 'reject_invitation'
   resources :bookings, only: [:destroy, :update]
+  resources :events do
+    collection do
+      get :search_cities
+    end
+  end
+
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   # Defines the root path route ("/")

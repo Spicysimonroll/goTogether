@@ -102,24 +102,25 @@ business4_profile.save
 puts "Creating public events..."
 businesses = [business1, business2, business3, business4]
 public_event1 = Event.new(
-  title: "Summer Music Festival",
-  address: "Plaça del Fòrum 1, Barcelona",
-  description: "Join us for a lively music festival celebrating the summer vibes. Enjoy performances by local bands and DJs, food stalls, and a vibrant atmosphere.",
+  title: "Torino festival",
+  address: "Via Montebello 15, Torino ",
+  description: "Big party in Torino center.",
   category: "Music",
   start_date: "2023-07-15",
   end_date: "2023-07-17",
+  city: "Torino",
   is_private: false
 )
 public_event1.user = businesses[rand(0..3)]
 public_event1.save
 public_event2 = Event.new(
-  title: "Gastronomy Fair",
-  address: "Avinguda de la Reina Maria Cristina, Barcelona",
-  description: "Discover the flavors of Barcelona at the Gastronomy Fair. Indulge in delicious tapas, local wines, and culinary delights from renowned chefs.",
+  title: "Pays Basques best food",
+  address: "Calle Arechaga 6, Bilbao",
+  description: " lets eat some tapas in the center of Bilbao.",
   category: "Food",
   start_date: "2023-06-15",
   end_date: "2023-06-20",
-  city: "barcelona",
+  city: "Bilbao",
   is_private: false
 )
 public_event2.user = businesses[rand(0..3)]
@@ -131,7 +132,7 @@ public_event3 = Event.new(
   category: "Art",
   start_date: "2023-07-05",
   end_date: "2023-07-31",
-  city: "barcelona",
+  city: "Barcelona",
   is_private: false
 )
 public_event3.user = businesses[rand(0..3)]
@@ -143,7 +144,7 @@ public_event4 = Event.new(
   category: "Fashion",
   start_date: "2023-07-15",
   end_date: "2023-07-15",
-  city: "barcelona",
+  city: "Barcelona",
   is_private: false
 )
 public_event4.user = businesses[rand(0..3)]
@@ -155,7 +156,7 @@ public_event5 = Event.new(
   category: "Sports",
   start_date: "2023-07-15",
   end_date: "2023-07-15",
-  city: "barcelona",
+  city: "Barcelona",
   is_private: false
 )
 public_event5.user = businesses[rand(0..3)]
@@ -167,7 +168,7 @@ public_event6 = Event.new(
   category: "Film",
   start_date: "2023-07-28",
   end_date: "2023-07-30",
-  city: "barcelona",
+  city: "Barcelona",
   is_private: false
 )
 public_event6.user = businesses[rand(0..3)]
@@ -179,7 +180,7 @@ public_event7 = Event.new(
   category: "Technology",
   start_date: "2023-06-20",
   end_date: "2023-06-25",
-  city: "barcelona",
+  city: "Barcelona",
   is_private: false
 )
 public_event7.user = businesses[rand(0..3)]
@@ -191,7 +192,7 @@ public_event8 = Event.new(
   category: "Dance",
   start_date: "2023-06-20",
   end_date: "2023-07-31",
-  city: "barcelona",
+  city: "Barcelona",
   is_private: false
 )
 public_event8.user = businesses[rand(0..3)]
@@ -203,7 +204,7 @@ public_event9 = Event.new(
   category: "Food & Drink",
   start_date: "2023-07-15",
   end_date: "2023-07-31",
-  city: "barcelona",
+  city: "Barcelona",
   is_private: false
 )
 public_event9.user = businesses[rand(0..3)]
@@ -215,7 +216,7 @@ public_event10 = Event.new(
   category: "Wellness",
   start_date: "2023-07-03",
   end_date: "2023-07-05",
-  city: "barcelona",
+  city: "Barcelona",
   is_private: false
 )
 public_event10.user = businesses[rand(0..3)]
@@ -266,7 +267,7 @@ private_event4 = Event.new(
   category: "Sports Event",
   start_date: "2023-07-05",
   end_date: "2023-07-09",
-  city: "barcelona",
+  city: "Barcelona",
   is_private: true
 )
 private_event4.user = private_users[rand(0..12)]
@@ -278,7 +279,7 @@ private_event5 = Event.new(
   category: "Art Festival",
   start_date: "2023-07-10",
   end_date: "2023-07-16",
-  city: "barcelona",
+  city: "Barcelona",
   is_private: true
 )
 private_event5.user = private_users[rand(0..12)]
@@ -290,7 +291,7 @@ private_event6 = Event.new(
   category: "Food & Drink",
   start_date: "2023-07-18",
   end_date: "2023-07-21",
-  city: "barcelona",
+  city: "Barcelona",
   is_private: true
 )
 private_event6.user = private_users[rand(0..12)]
@@ -302,7 +303,7 @@ private_event7 = Event.new(
   category: "Music Festival",
   start_date: "2023-07-25",
   end_date: "2023-07-29",
-  city: "barcelona",
+  city: "Barcelona",
   is_private: true
 )
 private_event7.user = private_users[rand(0..12)]
@@ -314,7 +315,7 @@ private_event8 = Event.new(
   category: "Fashion Event",
   start_date: "2023-07-31",
   end_date: "2023-08-04",
-  city: "barcelona",
+  city: "Barcelona",
   is_private: true
 )
 private_event8.user = private_users[rand(0..12)]
@@ -326,7 +327,7 @@ private_event9 = Event.new(
   category: "Film Screening",
   start_date: "2023-08-06",
   end_date: "2023-08-06",
-  city: "barcelona",
+  city: "Barcelona",
   is_private: true
 )
 private_event9.user = private_users[rand(0..12)]
@@ -338,7 +339,7 @@ private_event10 = Event.new(
   category: "Technology",
   start_date: "2023-06-28",
   end_date: "2023-06-30",
-  city: "barcelona",
+  city: "Barcelona",
   is_private: true
 )
 private_event10.user = private_users[rand(0..12)]
