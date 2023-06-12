@@ -4,13 +4,12 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_one :profile
+  has_one :profile, dependent: :destroy
   accepts_nested_attributes_for :profile
 
   has_many :events
 
   has_many :friendships
-
 
   has_many :bookings
 
@@ -22,6 +21,4 @@ class User < ApplicationRecord
   has_many :events, through: :comments
   has_many :invitations
   has_many :invitations, through: :friendships
-
-
 end
