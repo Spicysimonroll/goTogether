@@ -28,6 +28,10 @@ class EventsController < ApplicationController
   def show
     @booking = Booking.find_by(user: current_user, event: @event)
     authorize @event
+    @markers = [{
+      lat: @event.latitude,
+      lng: @event.longitude
+    }]
   end
 
   def new
