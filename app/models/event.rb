@@ -6,14 +6,9 @@ class Event < ApplicationRecord
   has_many :invitations
   has_many :bookmarks
   has_many :comments, dependent: :destroy
-
+  
   include PgSearch::Model
-  pg_search_scope :search_by_title_and_category,
-                  against: [:title, :category],
-                  using: {
-                    tsearch: { prefix: true } # enables prefix searching
-                  }
-
+  pg_search_scope :search_by_title_and_category, against: [:title, :category]
 
   def start_time
     self.start_date
