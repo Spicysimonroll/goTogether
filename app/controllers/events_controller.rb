@@ -15,6 +15,12 @@ class EventsController < ApplicationController
       scope = scope.where("title ILIKE ? OR category ILIKE ?", query, query)
     end
 
+    if params[:start_date].present? && params[:end_date].present?
+      start_date = Date.parse(params[:start_date])
+      end_date = Date.parse(params[:end_date])
+      scope = scope.where("(start_date >= ? AND end_date <= ?) OR (start_date < ? AND end_date > ?) OR (start_date < ? AND end_date > ?) OR (start_date < ? AND end_date >= ?)", start_date, end_date, start_date, start_date, end_date, end_date, start_date, end_date)
+    end
+
     if user_signed_in?
       @public_events = scope.where(is_private: false)
       event_ids = current_user.bookings.pluck(:event_id)
@@ -26,6 +32,11 @@ class EventsController < ApplicationController
 
     @cities = Event.pluck(:address).map { |address| extract_city_from_address(address) }.compact.uniq.sort
   end
+
+
+
+
+
 
   def show
     @booking = Booking.find_by(user: current_user, event: @event)
