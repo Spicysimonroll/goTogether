@@ -103,7 +103,7 @@ puts "Creating public events..."
 businesses = [business1, business2, business3, business4]
 public_event1 = Event.new(
   title: "Summer Music Festival",
-  address: "Plaça del Fòrum, 1, 08019 Barcelona, Spain",
+  address: "Plaça del Fòrum 1, Barcelona",
   description: "Join us for a lively music festival celebrating the summer vibes. Enjoy performances by local bands and DJs, food stalls, and a vibrant atmosphere.",
   category: "Music",
   start_date: "2023-07-15",
@@ -114,7 +114,7 @@ public_event1.user = businesses[rand(0..3)]
 public_event1.save
 public_event2 = Event.new(
   title: "Gastronomy Fair",
-  address: "Avinguda de la Reina Maria Cristina, 08004 Barcelona, Spain",
+  address: "Avinguda de la Reina Maria Cristina, Barcelona",
   description: "Discover the flavors of Barcelona at the Gastronomy Fair. Indulge in delicious tapas, local wines, and culinary delights from renowned chefs.",
   category: "Food",
   start_date: "2023-06-15",
@@ -125,7 +125,7 @@ public_event2.user = businesses[rand(0..3)]
 public_event2.save
 public_event3 = Event.new(
   title: "Art Exhibition: Urban Perspectives",
-  address: "Carrer de Montcada, 15, 08003 Barcelona, Spain",
+  address: "Carrer de Montcada 15, Barcelona",
   description: "Explore the vibrant urban art scene at our exhibition. Immerse yourself in a collection of thought-provoking artworks created by local and international artists.",
   category: "Art",
   start_date: "2023-07-05",
@@ -136,7 +136,7 @@ public_event3.user = businesses[rand(0..3)]
 public_event3.save
 public_event4 = Event.new(
   title: "Barcelona Fashion Week",
-  address: "Recinte Modernista de Sant Pau, Carrer de Sant Quintí, 08041 Barcelona, Spain",
+  address: "Recinte Modernista de Sant Pau, Carrer de Sant Quintí, Barcelona",
   description: "Experience the latest trends and styles at Barcelona Fashion Week. Get inspired by runway shows, designer showcases, and fashion talks by industry experts.",
   category: "Fashion",
   start_date: "2023-07-15",
@@ -147,7 +147,7 @@ public_event4.user = businesses[rand(0..3)]
 public_event4.save
 public_event5 = Event.new(
   title: "Sports Charity Run",
-  address: "Parc de la Ciutadella, 08003 Barcelona, Spain",
+  address: "Parc de la Ciutadella, Barcelona",
   description: "Participate in a charity run to support local sports initiatives. Lace up your running shoes and join us for a fun-filled day of fitness and community spirit.",
   category: "Sports",
   start_date: "2023-07-15",
@@ -158,7 +158,7 @@ public_event5.user = businesses[rand(0..3)]
 public_event5.save
 public_event6 = Event.new(
   title: "Cinema Under the Stars",
-  address: "Plaça dels Àngels, 1, 08001 Barcelona, Spain",
+  address: "Plaça dels Àngels, 1, Barcelona",
   description: "Enjoy classic movies under the starry sky. Grab your blankets and popcorn, and immerse yourself in the magic of cinema in a unique open-air setting.",
   category: "Film",
   start_date: "2023-07-28",
@@ -169,7 +169,7 @@ public_event6.user = businesses[rand(0..3)]
 public_event6.save
 public_event7 = Event.new(
   title: "Tech Conference: Innovate Barcelona",
-  address: "Fira Barcelona Montjuïc, Av. de la Reina Maria Cristina, 08004 Barcelona, Spain",
+  address: "Fira Barcelona Montjuïc, Barcelona",
   description: "Join industry leaders, innovators, and tech enthusiasts at Innovate Barcelona. Explore the latest trends, attend insightful talks, and network with like-minded individuals.",
   category: "Technology",
   start_date: "2023-06-20",
@@ -180,7 +180,7 @@ public_event7.user = businesses[rand(0..3)]
 public_event7.save
 public_event8 = Event.new(
   title: "Dance Workshop: Salsa Fiesta",
-  address: "Carrer de Balmes, 08007 Barcelona, Spain",
+  address: "Carrer de Balmes, Barcelona",
   description: "Put on your dancing shoes and join us for an exciting salsa workshop. Learn new moves, enjoy energetic music, and dance the night away with fellow enthusiasts.",
   category: "Dance",
   start_date: "2023-06-20",
@@ -191,7 +191,7 @@ public_event8.user = businesses[rand(0..3)]
 public_event8.save
 public_event9 = Event.new(
   title: "Wine Tasting Evening",
-  address: "Carrer de Roger de Llúria, 08009 Barcelona, Spain",
+  address: "Carrer de Roger de Llúria, Barcelona",
   description: "Experience a delightful evening of wine tasting. Discover a variety of local and international wines, learn about different flavors, and indulge in gourmet pairings.",
   category: "Food & Drink",
   start_date: "2023-07-15",
@@ -202,7 +202,7 @@ public_event9.user = businesses[rand(0..3)]
 public_event9.save
 public_event10 = Event.new(
   title: "Yoga Retreat: Mindful Escapes",
-  address: "Carrer del Rosselló, 08029 Barcelona, Spain",
+  address: "Carrer del Rosselló 56, Barcelona",
   description: "Embark on a rejuvenating yoga retreat in the heart of Barcelona. Relax your mind, nourish your body, and find inner peace through yoga, meditation, and wellness activities.",
   category: "Wellness",
   start_date: "2023-07-03",
@@ -216,7 +216,7 @@ puts "Creating private events..."
 private_users = [simon, harris, marien, john, sophie, marc, jose, anna, fred, paul, federica, tina, andrea]
 private_event1 = Event.new(
   title: "Midsummer Night Music Festival",
-  address: "Plaça del Fòrum, Barcelona, Spain",
+  address: "Plaça del Fòrum, Barcelona",
   description: "Celebrate the enchanting Midsummer Night with a music festival under the starry sky. Enjoy performances by renowned artists, mesmerizing light shows, and a magical atmosphere.",
   category: "Music Festival",
   start_date: "2023-06-21",
@@ -227,7 +227,7 @@ private_event1.user = carlos
 private_event1.save
 private_event2 = Event.new(
   title: "Jane's Birthday Bash",
-  address: "123 Main Street, Barcelona, Spain",
+  address: "Carrer d'Aribau 145, Barcelona",
   description: "Join us for a night of celebration as we honor Jane's birthday! There will be music, dancing, and lots of fun.",
   category: "Birthday Party",
   start_date: "2023-06-23",
@@ -238,7 +238,7 @@ private_event2.user = private_users[rand(0..12)]
 private_event2.save
 private_event3 = Event.new(
   title: "Barcelona Food Truck Fiesta",
-  address: "Parc de la Ciutadella, Barcelona, Spain",
+  address: "Parc de la Ciutadella, Barcelona",
   description: "Indulge in a culinary adventure at the Food Truck Fiesta. Discover a variety of mouth-watering cuisines from food trucks, enjoy live music, and soak in the vibrant ambiance.",
   category: "Food Festival",
   start_date: "2023-06-27",
@@ -249,7 +249,7 @@ private_event3.user = private_users[rand(0..12)]
 private_event3.save
 private_event4 = Event.new(
   title: "Barcelona Beach Volleyball Championship",
-  address: "Nova Icaria Beach, Barcelona, Spain",
+  address: "Nova Icaria Beach, Barcelona",
   description: "Witness the thrilling Barcelona Beach Volleyball Championship as top teams compete for glory on the sandy shores. Cheer for your favorites and soak up the beach vibes.",
   category: "Sports Event",
   start_date: "2023-07-05",
@@ -260,7 +260,7 @@ private_event4.user = private_users[rand(0..12)]
 private_event4.save
 private_event5 = Event.new(
   title: "Barcelona Street Art Festival",
-  address: "Various Locations, Barcelona, Spain",
+  address: "Various Locations, Barcelona",
   description: "Experience the vibrant street art scene at the Barcelona Street Art Festival. Discover stunning murals, live art performances, workshops, and immerse yourself in creativity.",
   category: "Art Festival",
   start_date: "2023-07-10",
@@ -271,7 +271,7 @@ private_event5.user = private_users[rand(0..12)]
 private_event5.save
 private_event6 = Event.new(
   title: "Barcelona Wine & Tapas Tour",
-  address: "Various Venues, Barcelona, Spain",
+  address: "Various Venues, Barcelona",
   description: "Embark on a gastronomic adventure through the Barcelona Wine & Tapas Tour. Explore the city's culinary delights with a curated selection of wines and tapas pairings.",
   category: "Food & Drink",
   start_date: "2023-07-18",
@@ -282,7 +282,7 @@ private_event6.user = private_users[rand(0..12)]
 private_event6.save
 private_event7 = Event.new(
   title: "Barcelona Electronic Music Festival",
-  address: "Poble Espanyol, Barcelona, Spain",
+  address: "Poble Espanyol, Barcelona",
   description: "Immerse yourself in the world of electronic music at the Barcelona Electronic Music Festival. Experience electrifying DJ sets, immersive light shows, and dance all night long.",
   category: "Music Festival",
   start_date: "2023-07-25",
@@ -293,7 +293,7 @@ private_event7.user = private_users[rand(0..12)]
 private_event7.save
 private_event8 = Event.new(
   title: "Barcelona Fashion Week",
-  address: "Fira Barcelona Montjuïc, Barcelona, Spain",
+  address: "Fira Barcelona Montjuïc, Barcelona",
   description: "Discover the latest trends and styles at Barcelona Fashion Week. Experience captivating runway shows, designer exhibitions, and be inspired by the world of fashion.",
   category: "Fashion Event",
   start_date: "2023-07-31",
@@ -304,7 +304,7 @@ private_event8.user = private_users[rand(0..12)]
 private_event8.save
 private_event9 = Event.new(
   title: "Barcelona Film Night",
-  address: "Cinema Comedia, Barcelona, Spain",
+  address: "Cinema Comedia, Barcelona",
   description: "Enjoy a night of cinema under the stars at Barcelona Film Night. Watch classic and contemporary films in an open-air setting, surrounded by the city's vibrant atmosphere.",
   category: "Film Screening",
   start_date: "2023-08-06",
@@ -315,7 +315,7 @@ private_event9.user = private_users[rand(0..12)]
 private_event9.save
 private_event10 = Event.new(
   title: "Ruby Meetup",
-  address: "123 Main Street, City, State",
+  address: "Carrer del Bruc 149, Barcelona",
   description: "Join us for an evening of Ruby programming discussions and networking. Whether you're a beginner or an experienced Ruby developer, this meetup is a great opportunity to learn, share ideas, and meet fellow Ruby enthusiasts. We'll have guest speakers, lightning talks, and plenty of time for Q&A. Don't forget to bring your laptops and questions!",
   category: "Technology",
   start_date: "2023-06-28",

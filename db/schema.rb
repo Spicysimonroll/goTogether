@@ -11,6 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2023_06_08_131425) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -46,8 +47,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_08_131425) do
   create_table "events", force: :cascade do |t|
     t.string "title"
     t.string "address"
-    t.date "start_date"
-    t.date "end_date"
+    t.datetime "start_date"
+    t.datetime "end_date"
     t.string "description"
     t.string "category"
     t.boolean "is_private"
