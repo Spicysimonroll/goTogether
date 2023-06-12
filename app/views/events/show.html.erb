@@ -1,4 +1,7 @@
-<div class="container" data-controller="event-showpage">
+<div class="container"
+     data-controller="event-showpage map"
+     data-map-markers-value="<%= @markers.to_json %>"
+     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
 
   <div class="back-icon"><%= link_to "<i class='fa-solid fa-chevron-left'></i>".html_safe, events_path %></div>
 
@@ -21,7 +24,7 @@
         <p class="text-center mt-3 mb-2 ms-3 me-3"><%= "From: #{@event.start_date.strftime('%e %B %Y, %H:%M')}" %> <br> <%= "To: #{@event.start_date.strftime('%e %B %Y, %H:%M')}" %></p>
       </div>
 
-      <div class="d-flex align-items-center justify-content-center" data-action="click->event-showpage#toggleMap">
+      <div class="d-flex align-items-center justify-content-center" data-action="click->event-showpage#toggleMap click->map#resize">
         <i class="fa-solid fa-location-dot p-2 m-1"></i>
         <p class="text-center m-1 "><%= @event.address %></p>
       </div>
@@ -29,9 +32,7 @@
       <div
         class="border d-none"
         style="width: 100%; height: 300px;"
-        data-controller="map"
-        data-map-markers-value="<%= @markers.to_json %>"
-        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+        data-map-target="map"
         data-event-showpage-target="location">
       </div>
     </div>
