@@ -88,14 +88,18 @@
         <h2 class="mb-3">Comments</h2>
         <div id="comments">
           <% @event.comments.order(created_at: :asc).each do |comment| %>
-            <%= render "comments/comment", comment: comment %>
+            <% if current_user == comment.user %>
+              <div class="current-user-comment"><b><%= current_user.profile.username %>: </b><%= comment.content %></div>
+            <% else %>
+              <div class="other-user-comment"><b><%= comment.user.profile.username %>: </b> <%= comment.content %></div>
+            <% end %>
           <% end %>
         </div>
       </div>
 
-      <%= simple_form_for [@event, Comment.new], class:"d-flex align-items-center mt-2 ms-1 me-1" do |form| %>
-        <%= form.text_area :content, placeholder: "Comment here...", rows: 1, required: true, class:"p-1 flex-grow-1" %>
-        <%= form.submit "Post", class: "button-primary" %>
+      <%= simple_form_for([@event, Comment.new], class:"d-flex align-items-center mt-2 ms-1 me-1") do |f| %>
+        <%= f.text_area :content, placeholder: "Comment here...", rows: 1, required: true, class:"p-1 flex-grow-1" %>
+        <%= f.submit "Post", class: "button-primary" %>
       <% end %>
 
     </div>
