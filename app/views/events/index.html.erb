@@ -2,17 +2,25 @@
 
   <h1 class="text-center">Events</h1>
 
-  <div class="row">
-    <div class="col-12">
-      <%= form_with(url: events_path, method: :get, local: true, class: "form-inline my-2 my-lg-0") do |form| %>
-        <%= form.select :city, options_for_select(@cities, params[:city]), { include_blank: "Select city" }, class: "form-control" %>
-        <%= form.text_field :query, placeholder: "Search events", class: "form-control mr-sm-2" %>
-        <%= form.date_field :start_date, placeholder: "Start date", class: "form-control mr-sm-2" %>
-        <%= form.date_field :end_date, placeholder: "End date", class: "form-control mr-sm-2" %>
+<div class="row">
+  <div class="col-12">
+    <%= form_with(url: events_path, method: :get, local: true, class: "form-inline my-2 my-lg-0", data: { controller: 'flatpickr' }) do |form| %>
+      <%= form.text_field :query, placeholder: "Search events", value: params[:query], class: "form-control mr-sm-2 Searchbar"  %>
+
+      <div class="form-group flex-container">
+        <%= form.select :city, options_for_select([["Select city", ""]] + @cities, params[:city]), {}, { class: "form-control" } %>
+        <%= form.text_field :dates, as: :string, placeholder: "Pick a date", value: params[:dates], data: { flatpickr_target: "dates" } , class: "form-control" %>
+      </div>
+       <div class="text-center">
         <%= form.submit "Search", class: "button-primary" %>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   </div>
+</div>
+
+
+
+
 
   <div class="type-of-event">
     <p class="pt-4 pb-4 text-center">Popular near you</p>
@@ -27,7 +35,7 @@
           <div class="event-right-info">
             <p class="mt-2 mb-2">
               <i class="fa-solid fa-calendar-days me-2"></i>
-              From: <%= event.start_date.strftime('%e %B %Y, %H:%M') %>
+               <%= event.start_date.strftime('%e %B %Y') %>
             </p>
             <p class="m-0 d-flex"><i class="fa-solid fa-location-dot me-2 pt-1"></i><span class="event-address"><%= event.address %></span></p>
           </div>
