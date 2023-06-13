@@ -33,11 +33,6 @@ class EventsController < ApplicationController
     @cities = Event.pluck(:address).map { |address| extract_city_from_address(address) }.compact.uniq.sort
   end
 
-
-
-
-
-
   def show
     @booking = Booking.find_by(user: current_user, event: @event)
     authorize @event

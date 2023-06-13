@@ -7,10 +7,14 @@ class CommentsController < ApplicationController
 
     authorize @comment
 
-    if @comment.save
-      redirect_to event_path(@event), notice: 'Comment was successfully created.'
-    else
-      # Handle comment creation failure
+    respond_to do |format|
+      if @comment.save
+        format.html { redirect_to event_path(@event) }
+        format.json
+      else
+        format.html { render "events/show", status: :unprocessable_entity }
+        format.json
+      end
     end
   end
 
