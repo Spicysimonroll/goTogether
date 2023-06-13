@@ -1,7 +1,7 @@
 <div class="container">
 <h1>Invitations</h1>
   <% current_user.invitations.each do |invite| %>
-    <% if invite.status == "pending" %>
+    <% if @event %>
       <%= link_to event_path(invite.event_id) do  %>
       <div class="event-card d-flex">
         <div class="event-card-left" style="background-image: url('https://images.pexels.com/photos/976866/pexels-photo-976866.jpg'); background-size: cover;">
