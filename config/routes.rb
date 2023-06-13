@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   resources :events, only: [:index, :show, :new, :create] do
     resources :comments, only: [:create]
     resources :bookings, only: [:new, :create]
+    collection do
+      get :search_cities
+    end
   end
 
   get "/myprofile", to: "profiles#show", as: "user_profile"
@@ -15,9 +18,4 @@ Rails.application.routes.draw do
   patch '/invitations/:id/reject', to: 'invitations#reject', as: 'reject_invitation'
   resources :bookings, only: [:destroy, :update]
   resources :friendships, only: [:index]
-
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  # Defines the root path route ("/")
-  # root "articles#index"
-
 end
