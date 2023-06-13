@@ -15,7 +15,14 @@
 </div>
 
 
+<div>
+  <div class="type-of-event">
+    <p class="pt-4 pb-4 text-center">Friends looking for a buddy</p>
+  </div>
 
+  <%= @friendships.each do |friendship| %>
+    <%= friendship.friend.profile.first_name %>
+  <% end %>
 
 
 
