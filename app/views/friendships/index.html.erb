@@ -3,21 +3,23 @@
 </div>
 
 <% @friendships.each do |friendship| %>
-  <div class="friendships-card">
-    <div class="d-flex">
-      <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar-medium ms-2 me-2" %>
-      <div class="friendship-details">
-        <p id="friendship-username">@<%= friendship.friend.profile.username %></p>
-        <div id="friendship-details-bold">
-          <%= friendship.friend.profile.first_name %>
-          <%= friendship.friend.profile.last_name %>
+  <%= link_to user_profile_path(friendship.friend) do  %>
+    <div class="friendships-card">
+      <div class="d-flex">
+        <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar-medium ms-2 me-2" %>
+        <div class="friendship-details">
+          <p id="friendship-username">@<%= friendship.friend.profile.username %></p>
+          <div id="friendship-details-bold">
+            <%= friendship.friend.profile.first_name %>
+            <%= friendship.friend.profile.last_name %>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="d-flex justify-content-end align-items-center flex-grow-1">
-      <%# Needed to add the link to friendships#destroy bellow %>
-      <%= link_to "Unfollow", "#", class: "button-secondary" %>
+      <div class="d-flex justify-content-end align-items-center flex-grow-1">
+        <%# Needed to add links to friendships#destroy bellow %>
+        <%= link_to "Unfollow", "#", class: "button-secondary" %>
+      </div>
     </div>
-  </div>
+  <% end %>
 <% end %>
