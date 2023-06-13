@@ -29,7 +29,7 @@
         <p class="text-center m-1 "><%= @event.address %></p>
       </div>
 
-      <p id="show-map-btn" class="mb-2" data-action="click->event-showpage#toggleMap click->map#resize">Map <i class="fa-solid fa-caret-down"></i></p>
+      <p id="show-map-btn" class="mb-2" data-action="click->event-showpage#toggleMap click->map#resize">Map <i class="fa-solid fa-caret-up"></i></p>
 
       <div
         class="border d-none mb-1"
@@ -87,8 +87,8 @@
     <div class="comments-section mb-2">
 
       <div class="show-comments-card">
-        <h2 class="mb-3">Comments</h2>
-        <div id="comments" data-event-showpage-target="comment">
+        <h2 class="mb-3" data-action="click->event-showpage#toggleComments">Comments <i class="fa-solid fa-caret-up"></i></h2>
+        <div data-event-showpage-target="comment">
           <% @event.comments.order(created_at: :asc).each do |comment| %>
             <%= render "comment", comment: comment %>
           <% end %>

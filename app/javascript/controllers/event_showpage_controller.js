@@ -15,7 +15,6 @@ export default class extends Controller {
     } else if (event.currentTarget.innerHTML === 'Map <i class="fa-solid fa-caret-up"></i>') {
       event.currentTarget.innerHTML = 'Map <i class="fa-solid fa-caret-down"></i>'
     }
-
   }
 
   sendComment(event) {
@@ -32,7 +31,17 @@ export default class extends Controller {
           this.commentTarget.insertAdjacentHTML("beforeend", data.inserted_item)
         }
         this.formTarget.outerHTML = data.form
+        window.scrollTo(0, document.body.scrollHeight);
       })
   }
 
+  toggleComments(event) {
+    // console.log(this.commentTarget);
+    // console.log(event.currentTarget.innerHTML);
+    if (event.currentTarget.innerHTML === 'Comments <i class="fa-solid fa-caret-down"></i>') {
+      event.currentTarget.innerHTML = 'Comments <i class="fa-solid fa-caret-up"></i>'
+    } else if (event.currentTarget.innerHTML === 'Comments <i class="fa-solid fa-caret-up"></i>') {
+      event.currentTarget.innerHTML = 'Comments <i class="fa-solid fa-caret-down"></i>'
+    }
+  }
 }

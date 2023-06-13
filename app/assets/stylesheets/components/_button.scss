@@ -38,4 +38,11 @@
   margin: 0 auto;
   font-size: 14px;
   color: grey;
+  position: relative;
+
+  .fa-caret-up {
+    position: absolute;
+    top: 4px;
+    right: 1px;
+  }
 }
