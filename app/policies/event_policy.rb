@@ -11,11 +11,10 @@ class EventPolicy < ApplicationPolicy
   end
 
   def show?
-    if (record.is_private && (user.invitations.find_by(event: record) || record.user == user)) || !record.is_private
-      true
+    if record.is_private
+      user.invitations.find_by(event: record) || record.user == user
     else
-      false
+      true
     end
   end
-
 end

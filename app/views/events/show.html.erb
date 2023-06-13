@@ -53,16 +53,20 @@
           <% end %>
 
         <% else %>
-          <% if @booking.nil? %>
-              <%= link_to '<i class="fa-solid fa-calendar-plus"></i>'.html_safe, event_bookings_path(@event, status: "going"), data: {turbo_method: :post}, class: 'button-secondary' %>
-              <%= link_to '<i class="fa-solid fa-calendar-xmark"></i>'.html_safe, delete_invitation_path(current_user.invitations.find_by(event: @event)),  data: {turbo_method: :delete}, class: 'button-secondary' %>
-          <% else %>
-            <% if @booking && @booking.status == "going" %>
-              <%= link_to '<i class="fa-solid fa-calendar-xmark"></i>'.html_safe, booking_path(@booking), data: {turbo_method: :delete}, class: 'button-secondary' %>
+          <% if @event.user == current_user %>
+              <p>delete event or edit event</p>
+          <%else%>
+            <% if @booking.nil? %>
+                <%= link_to '<i class="fa-solid fa-calendar-plus"></i>'.html_safe, event_bookings_path(@event, status: "going"), data: {turbo_method: :post}, class: 'button-secondary' %>
+                <%= link_to '<i class="fa-solid fa-calendar-xmark"></i>'.html_safe, delete_invitation_path(current_user.invitations.find_by(event: @event)),  data: {turbo_method: :delete}, class: 'button-secondary' %>
             <% else %>
-              <%= link_to '<i class="fa-solid fa-calendar-plus"></i>'.html_safe, event_bookings_path(@event, status: "going"), data: {turbo_method: :post}, class: 'button-secondary' %>
+              <% if @booking && @booking.status == "going" %>
+                <%= link_to '<i class="fa-solid fa-calendar-xmark"></i>'.html_safe, booking_path(@booking), data: {turbo_method: :delete}, class: 'button-secondary' %>
+              <% else %>
+                <%= link_to '<i class="fa-solid fa-calendar-plus"></i>'.html_safe, event_bookings_path(@event, status: "going"), data: {turbo_method: :post}, class: 'button-secondary' %>
+              <% end %>
             <% end %>
-          <% end %>
+          <% end%>
         <% end %>
       </div>
 
