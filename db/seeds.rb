@@ -487,24 +487,6 @@ comment2.event = private_event1
 comment2.user = marc
 comment2.save
 
-puts "Creating bookings..."
-booking2 = Booking.new(status: 0)
-booking2.event = private_event2
-booking2.user = carlos
-booking2.save
-booking3 = Booking.new(status: 0)
-booking3.event = private_event10
-booking3.user = carlos
-booking3.save
-booking4 = Booking.new(status: 0)
-booking4.event = private_event3
-booking4.user = carlos
-booking4.save
-booking5 = Booking.new(status: 1)
-booking5.event = private_event5
-booking5.user = carlos
-booking5.save
-
 puts "Creating invitations..."
 invitation1 = Invitation.new
 invitation1.event = private_event1
@@ -513,22 +495,23 @@ invitation1.save
 
 invitation2 = Invitation.new
 invitation2.event = private_event2
-invitation2.friendship = Friendship.find(friend: private_event2.user)
+invitation2.friendship = friendship10
 invitation2.save
 
 invitation3 = Invitation.new
 invitation3.event = private_event3
-invitation3.friendship = Friendship.find(friend: private_event3.user)
+invitation3.friendship = friendship8
 invitation3.save
 
-invitation4 = Invitation.new
-invitation4.event = private_event4
-invitation4.friendship = Friendship.find(friend: private_event4.user)
-invitation4.save
+invitation3 = Invitation.new
+invitation3.event = private_event6
+invitation3.friendship = friendship3
+invitation3.save
 
-invitation5 = Invitation.new
-invitation5.event = private_event4
-invitation5.friendship = Friendship.find(friend: private_event5.user)
-invitation5.save
+# puts "Creating bookings..."
+# booking1 = Booking.new(status: 0)
+# booking1.event = private_event1
+# booking1.user = carlos
+# booking1.save
 
 puts "Done!"

@@ -15,7 +15,6 @@ class BookingsController < ApplicationController
 
   def update
     @booking = Booking.find(params[:id])
-    raise
     @booking.status = params[:status]
     authorize @booking
     @booking.save
@@ -25,6 +24,9 @@ class BookingsController < ApplicationController
   def destroy
     @booking = Booking.find(params[:id])
     authorize @booking
+    if current_user.invitations.find_by(event: @booking.event)
+      current_user.invitations.find_by(event: @booking.event).destroy
+    end
     @booking.destroy
     redirect_to event_path(@booking.event), status: :see_other
   end
