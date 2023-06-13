@@ -8,8 +8,14 @@ export default class extends Controller {
     console.log("event showpage controller connected!");
   }
 
-  toggleMap() {
+  toggleMap(event) {
     this.locationTarget.classList.toggle("d-none");
+    if (event.currentTarget.innerHTML === 'Map <i class="fa-solid fa-caret-down"></i>') {
+      event.currentTarget.innerHTML = 'Map <i class="fa-solid fa-caret-up"></i>'
+    } else if (event.currentTarget.innerHTML === 'Map <i class="fa-solid fa-caret-up"></i>') {
+      event.currentTarget.innerHTML = 'Map <i class="fa-solid fa-caret-down"></i>'
+    }
+
   }
 
   sendComment(event) {
