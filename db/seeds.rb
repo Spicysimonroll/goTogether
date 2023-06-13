@@ -103,8 +103,8 @@ puts "Creating public events..."
 businesses = [business1, business2, business3, business4]
 public_event1 = Event.new(
   title: "Summer Music Festival",
-  address: "Plaça del Fòrum 1, Barcelona",
-  description: "Join us for a lively music festival celebrating the summer vibes. Enjoy performances by local bands and DJs, food stalls, and a vibrant atmosphere.",
+  address: "Plaça del Fòrum 1, Torino",
+  description: "Italien fiesta.",
   category: "Music",
   start_date: "2023-07-15",
   end_date: "2023-07-17",
@@ -114,8 +114,8 @@ public_event1.user = businesses[rand(0..3)]
 public_event1.save
 public_event2 = Event.new(
   title: "Gastronomy Fair",
-  address: "Avinguda de la Reina Maria Cristina, Barcelona",
-  description: "Discover the flavors of Barcelona at the Gastronomy Fair. Indulge in delicious tapas, local wines, and culinary delights from renowned chefs.",
+  address: "Avinguda de la Reina Maria Cristina, Bilbao",
+  description: "tapas tour in Bilbao center.",
   category: "Food",
   start_date: "2023-06-15",
   end_date: "2023-06-20",
@@ -259,13 +259,13 @@ private_event4 = Event.new(
 private_event4.user = private_users[rand(0..12)]
 private_event4.save
 private_event5 = Event.new(
-  title: "Barcelona Street Art Festival",
-  address: "Various Locations, Barcelona",
+  title: "Monte carlo Street Art Festival",
+  address: "Various Locations, 08906 Monte carlo",
   description: "Experience the vibrant street art scene at the Barcelona Street Art Festival. Discover stunning murals, live art performances, workshops, and immerse yourself in creativity.",
   category: "Art Festival",
   start_date: "2023-07-10",
   end_date: "2023-07-16",
-  is_private: true
+  is_private: false
 )
 private_event5.user = private_users[rand(0..12)]
 private_event5.save
@@ -303,13 +303,13 @@ private_event8 = Event.new(
 private_event8.user = private_users[rand(0..12)]
 private_event8.save
 private_event9 = Event.new(
-  title: "Barcelona Film Night",
-  address: "Cinema Comedia, Barcelona",
-  description: "Enjoy a night of cinema under the stars at Barcelona Film Night. Watch classic and contemporary films in an open-air setting, surrounded by the city's vibrant atmosphere.",
+  title: "monaco Film Night",
+  address: "Cinema Comedia, Monte carlo",
+  description: "Cinema monaco.",
   category: "Film Screening",
   start_date: "2023-08-06",
   end_date: "2023-08-06",
-  is_private: true
+  is_private: false
 )
 private_event9.user = private_users[rand(0..12)]
 private_event9.save
