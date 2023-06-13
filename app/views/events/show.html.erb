@@ -29,17 +29,17 @@
         <p class="text-center m-1 "><%= @event.address %></p>
       </div>
 
-      <p id="show-map-btn" data-action="click->event-showpage#toggleMap click->map#resize">Map <i class="fa-solid fa-caret-down"></i></p>
+      <p id="show-map-btn" class="mb-2" data-action="click->event-showpage#toggleMap click->map#resize">Map <i class="fa-solid fa-caret-down"></i></p>
 
       <div
-        class="border d-none"
+        class="border d-none mb-1"
         style="width: 100%; height: 300px;"
         data-map-target="map"
         data-event-showpage-target="location">
       </div>
     </div>
 
-    <div class="d-flex justify-content-between show-event-card-footer mt-3">
+    <div class="d-flex justify-content-between show-event-card-footer mt-2">
 
       <div class="d-flex align-items-center">
         <% if @event.user.profile.is_business %>
