@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="event-showpage"
 export default class extends Controller {
-  static targets = ["location", "comment", "form"]
+  static targets = ["location", "comment_section", "form", "comment"]
 
   connect() {
     console.log("event showpage controller connected!");
@@ -28,7 +28,7 @@ export default class extends Controller {
       .then(response => response.json())
       .then((data) => {
         if (data.inserted_item) {
-          this.commentTarget.insertAdjacentHTML("beforeend", data.inserted_item)
+          this.comment_sectionTarget.insertAdjacentHTML("beforeend", data.inserted_item)
         }
         this.formTarget.outerHTML = data.form
         window.scrollTo(0, document.body.scrollHeight);
@@ -36,12 +36,15 @@ export default class extends Controller {
   }
 
   toggleComments(event) {
-    // console.log(this.commentTarget);
-    // console.log(event.currentTarget.innerHTML);
     if (event.currentTarget.innerHTML === 'Comments <i class="fa-solid fa-caret-down"></i>') {
       event.currentTarget.innerHTML = 'Comments <i class="fa-solid fa-caret-up"></i>'
     } else if (event.currentTarget.innerHTML === 'Comments <i class="fa-solid fa-caret-up"></i>') {
       event.currentTarget.innerHTML = 'Comments <i class="fa-solid fa-caret-down"></i>'
     }
+    // console.log(this.commentTargets);
+    this.commentTargets.forEach( (target) => {
+      target.classList.toggle("d-none")
+      // console.log(target);
+    })
   }
 }

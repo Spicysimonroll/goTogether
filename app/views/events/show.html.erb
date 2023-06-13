@@ -88,9 +88,10 @@
 
       <div class="show-comments-card">
         <h2 class="mb-3" data-action="click->event-showpage#toggleComments">Comments <i class="fa-solid fa-caret-up"></i></h2>
-        <div data-event-showpage-target="comment">
-          <% @event.comments.order(created_at: :asc).each do |comment| %>
-            <%= render "comment", comment: comment %>
+        <div data-event-showpage-target="comment_section">
+          <% comments_count = @event.comments.count %>
+          <% @event.comments.order(created_at: :asc).each_with_index do |comment, index| %>
+            <%= render "comment", comment: comment, index: index, count: comments_count %>
           <% end %>
         </div>
       </div>
