@@ -1,0 +1,4 @@
+<%= simple_form_for([@event, Comment.new], data: { event_showpage_target: "form", action: "submit->event-showpage#sendComment" }, class:"d-flex align-items-center mt-2 ms-1 me-1") do |f| %>
+  <%= f.text_area :content, placeholder: "Comment here...", rows: 1, required: true, class:"p-1 flex-grow-1" %>
+  <%= f.submit "Post", class: "button-primary" %>
+<% end %>

@@ -7,12 +7,14 @@ class CommentsController < ApplicationController
 
     authorize @comment
 
-    if @comment.save
-      respond_to do |format|
-        format.js { render "create", locals: { comment: @comment } }
+    respond_to do |format|
+      if @comment.save
+        format.html { redirect_to event_path(@event) }
+        format.json
+      else
+        format.html { render "events/show", status: :unprocessable_entity }
+        format.json
       end
-    else
-      # Handle comment creation failure
     end
   end
 
