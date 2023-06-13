@@ -17,8 +17,8 @@
             <p class="m-0 d-flex"><i class="fa-solid fa-location-dot me-2 pt-1"></i><span class="event-address"><%= invitation.event.address %></span></p>
           </div>
           <div class ="booking-icons">
-          <%= link_to '<i class="fa-solid fa-check"></i>'.html_safe, event_bookings_path(invitation.event, status: "going"), data: {turbo_method: :post}, class: 'button-primary' %>
-          <%= link_to '<i class="fa-solid fa-xmark"></i>'.html_safe, event_bookings_path(invitation.event, status: "not_going"), data: {turbo_method: :post}, class: 'button-primary' %>
+          <%= link_to '<i class="fa-solid fa-calendar-plus"></i>'.html_safe, event_bookings_path(invitation.event, status: "going"), data: {turbo_method: :post}, class: 'button-primary' %>
+          <%= link_to '<i class="fa-solid fa-calendar-xmark"></i>'.html_safe, delete_invitation_path(invitation),  data: {turbo_method: :delete}, class: 'button-secondary' %>
           </div>
         </div>
       </div>
