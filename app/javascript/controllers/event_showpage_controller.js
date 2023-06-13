@@ -12,6 +12,7 @@ export default class extends Controller {
     this.locationTarget.classList.toggle("d-none");
     if (event.currentTarget.innerHTML === 'Map <i class="fa-solid fa-caret-down"></i>') {
       event.currentTarget.innerHTML = 'Map <i class="fa-solid fa-caret-up"></i>'
+      window.scrollTo(0, this.locationTarget.scrollHeight)
     } else if (event.currentTarget.innerHTML === 'Map <i class="fa-solid fa-caret-up"></i>') {
       event.currentTarget.innerHTML = 'Map <i class="fa-solid fa-caret-down"></i>'
     }
@@ -36,10 +37,10 @@ export default class extends Controller {
   }
 
   toggleComments(event) {
-    if (event.currentTarget.innerHTML === 'Comments <i class="fa-solid fa-caret-down"></i>') {
-      event.currentTarget.innerHTML = 'Comments <i class="fa-solid fa-caret-up"></i>'
-    } else if (event.currentTarget.innerHTML === 'Comments <i class="fa-solid fa-caret-up"></i>') {
-      event.currentTarget.innerHTML = 'Comments <i class="fa-solid fa-caret-down"></i>'
+    if (event.currentTarget.innerHTML === 'See less <i class="fa-solid fa-caret-up"></i>') {
+      event.currentTarget.innerHTML = 'See more <i class="fa-solid fa-caret-down"></i>'
+    } else if (event.currentTarget.innerHTML === 'See more <i class="fa-solid fa-caret-down"></i>') {
+      event.currentTarget.innerHTML = 'See less <i class="fa-solid fa-caret-up"></i>'
     }
     // console.log(this.commentTargets);
     this.commentTargets.forEach( (target) => {
