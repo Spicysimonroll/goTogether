@@ -1,4 +1,7 @@
-<div class="container">
+<div class="container"
+     data-controller="event-showpage map"
+     data-map-markers-value="<%= @markers.to_json %>"
+     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
 
   <div class="back-icon"><%= link_to "<i class='fa-solid fa-chevron-left'></i>".html_safe, events_path %></div>
 
@@ -15,14 +18,26 @@
 
     <div>
       <div class="row show-event-image" style="background-image: url(<%= image_path('Placeholder.png') %>)"></div>
+
       <div class="d-flex align-items-center justify-content-center">
         <i class="fa-solid fa-calendar-days p-2"></i>
         <p class="text-center mt-3 mb-2 ms-3 me-3"><%= "From: #{@event.start_date.strftime('%e %B %Y, %H:%M')}" %> <br> <%= "To: #{@event.end_date.strftime('%e %B %Y, %H:%M')}" %></p>
       </div>
-      <p class="text-center"><i class="fa-solid fa-location-dot p-2"></i> <%= @event.address %></p>
+
+      <div class="d-flex align-items-center justify-content-center" data-action="click->event-showpage#toggleMap click->map#resize">
+        <i class="fa-solid fa-location-dot p-2 m-1"></i>
+        <p class="text-center m-1 "><%= @event.address %></p>
+      </div>
+
+      <div
+        class="border d-none"
+        style="width: 100%; height: 300px;"
+        data-map-target="map"
+        data-event-showpage-target="location">
+      </div>
     </div>
 
-    <div class="d-flex justify-content-between show-event-card-footer">
+    <div class="d-flex justify-content-between show-event-card-footer mt-3">
 
       <div class="d-flex align-items-center">
         <% if @event.user.profile.is_business %>
@@ -53,7 +68,7 @@
 
       <div class="show-event-icons d-flex">
         <% if !@event.user.profile.is_business %>
-          <%= link_to '<i class="fa-regular fa-comment p-0"></i>'.html_safe, root_path, class:"d-flex align-items-center p-2" %>
+          <div class="d-flex align-items-center p-2"><i class="fa-regular fa-comment p-0"></i></div>
         <% end %>
         <% if Bookmark.find_by(user: current_user, event: @event) %>
           <%= link_to '<i class="fa-solid fa-bookmark p-0"></i>'.html_safe, root_path, class:"d-flex align-items-center p-2" %>
@@ -71,29 +86,17 @@
 
       <div class="show-comments-card">
         <h2 class="mb-3">Comments</h2>
-        <div>
+        <div id="comments" data-event-showpage-target="comment">
           <% @event.comments.order(created_at: :asc).each do |comment| %>
-            <% if current_user == comment.user %>
-              <div class="current-user-comment"><b><%= current_user.profile.username %>: </b><%= comment.content %></div>
-            <% else %>
-              <div class="other-user-comment"><b><%= comment.user.profile.username %>: </b> <%= comment.content %></div>
-            <% end %>
+            <%= render "comment", comment: comment %>
           <% end %>
         </div>
       </div>
 
-      <%= form_with(model: [ @event, Comment.new ], url: event_comments_path(@event), remote: true, class:"d-flex align-items-center mt-2 ms-1 me-1") do |form| %>
-        <%= form.text_area :content, placeholder: "Comment here...", rows: 1, required: true, class:"p-1 flex-grow-1" %>
-        <%= form.submit "Post", class: "button-primary" %>
-      <% end %>
+      <%= render "comments/form" %>
 
     </div>
 
   <% end %>
-  <div
-  style="width: 100%; height: 300px;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
+
 </div>
