@@ -1,0 +1,5 @@
+<% if current_user == comment.user %>
+  <div class="current-user-comment"><b><%= current_user.profile.username %>: </b><%= comment.content %></div>
+<% else %>
+  <div class="other-user-comment"><b><%= comment.user.profile.username %>: </b> <%= comment.content %></div>
+<% end %>

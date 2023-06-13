@@ -8,7 +8,9 @@ class CommentsController < ApplicationController
     authorize @comment
 
     if @comment.save
-      redirect_to event_path(@event, anchor: "comments")
+      respond_to do |format|
+        format.js { render "create", locals: { comment: @comment } }
+      end
     else
       # Handle comment creation failure
     end

@@ -1,0 +1,2 @@
+
+      <%= simple_form_for(model: [ @event, Comment.new ], url: event_comments_path(@event), data: { turbo: true }, class:"d-flex align-items-center mt-2 ms-1 me-1") do |form| %>
