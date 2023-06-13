@@ -15,6 +15,7 @@ class BookingsController < ApplicationController
 
   def update
     @booking = Booking.find(params[:id])
+    raise
     @booking.status = params[:status]
     authorize @booking
     @booking.save

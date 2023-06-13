@@ -1,7 +1,7 @@
 <div class="container">
-<h1>Invitations</h1>
+  <h2>Pending event invitations 🗓️</h2>
   <% current_user.invitations.each do |invitation| %>
-    <% if current_user.bookings.where(event_id: invitation.event_id).exists? %>
+    <% if !current_user.bookings.where(event_id: invitation.event_id).exists? %>
       <%= link_to event_path(invitation.event_id) do  %>
       <div class="event-card d-flex">
         <div class="event-card-left" style="background-image: url('https://images.pexels.com/photos/976866/pexels-photo-976866.jpg'); background-size: cover;">

@@ -488,10 +488,6 @@ comment2.user = marc
 comment2.save
 
 puts "Creating bookings..."
-booking1 = Booking.new(status: 1)
-booking1.event = private_event1
-booking1.user = carlos
-booking1.save
 booking2 = Booking.new(status: 0)
 booking2.event = private_event2
 booking2.user = carlos
