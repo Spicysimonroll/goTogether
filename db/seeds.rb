@@ -270,9 +270,9 @@ private_event1 = Event.new(
 private_event1.user = martin
 private_event1.save
 private_event2 = Event.new(
-  title: "Jane's Birthday Bash",
+  title: "Giac's Birthday Bash",
   address: "Carrer d'Aribau 145, Barcelona",
-  description: "Join us for a night of celebration as we honor Jane's birthday! There will be music, dancing, and lots of fun.",
+  description: "Join us for a night of celebration as we honor me! There will be music, dancing, and lots of fun.",
   category: "Birthday Party",
   start_date: "2023-06-23",
   end_date: "2023-06-23",
@@ -303,7 +303,7 @@ private_event4 = Event.new(
 private_event4.user = carlos
 private_event4.save
 private_event5 = Event.new(
-  title: "Monte carlo Street Art Festival",
+  title: "Street Art Festival",
   address: "Various Locations, 08906 Monte carlo",
   description: "Experience the vibrant street art scene at the Barcelona Street Art Festival. Discover stunning murals, live art performances, workshops, and immerse yourself in creativity.",
   category: "Art Festival",
@@ -314,7 +314,7 @@ private_event5 = Event.new(
 private_event5.user = harris
 private_event5.save
 private_event6 = Event.new(
-  title: "Barcelona Wine & Tapas Tour",
+  title: "Wine & Tapas Tour",
   address: "Various Venues, Barcelona",
   description: "Embark on a gastronomic adventure through the Barcelona Wine & Tapas Tour. Explore the city's culinary delights with a curated selection of wines and tapas pairings.",
   category: "Food & Drink",
@@ -482,7 +482,18 @@ friendship28 = Friendship.new
 friendship28.user = lewagonbcn
 friendship28.friend = filip
 friendship28.save
-
+friendship29 = Friendship.new
+friendship29.user = simon
+friendship29.friend = carlos
+friendship29.save
+friendship30 = Friendship.new
+friendship30.user = marien
+friendship30.friend = carlos
+friendship30.save
+friendship31 = Friendship.new
+friendship31.user = harris
+friendship31.friend = carlos
+friendship31.save
 
 puts "Creating groups of friends..."
 group1 = Group.create(name: "Best pals")
@@ -650,23 +661,23 @@ comment2.save
 puts "Creating invitations..."
 invitation1 = Invitation.new
 invitation1.event = private_event1
-invitation1.friendship = friendship5
+invitation1.friendship = friendship14
 invitation1.save
 
 invitation2 = Invitation.new
-invitation2.event = private_event2
-invitation2.friendship = friendship10
+invitation2.event = private_event6
+invitation2.friendship = friendship30
 invitation2.save
 
 invitation3 = Invitation.new
-invitation3.event = private_event3
-invitation3.friendship = friendship8
+invitation3.event = private_event8
+invitation3.friendship = friendship31
 invitation3.save
 
-invitation3 = Invitation.new
-invitation3.event = private_event6
-invitation3.friendship = friendship3
-invitation3.save
+invitation4 = Invitation.new
+invitation4.event = private_event10
+invitation4.friendship = friendship29
+invitation4.save
 
 # puts "Creating bookings..."
 # booking1 = Booking.new(status: 0)
