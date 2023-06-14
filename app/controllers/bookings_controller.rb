@@ -11,7 +11,8 @@ class BookingsController < ApplicationController
     authorize @booking
     @booking.save
     redirect_to user_profile_path, status: :see_other
-  end
+  endus
+  
 
   def update
     @booking = Booking.find(params[:id])
