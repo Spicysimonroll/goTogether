@@ -6,6 +6,10 @@ class EventsController < ApplicationController
   def index
     scope = Event.all
 
+    if params[:redirect] == "true"
+      @session_redirect = session[:redirect].nil? ? session[:redirect] = "true" : session[:redirect] = nil
+    end
+
     if params[:city].present?
       scope = scope.where("address ILIKE ?", "%#{params[:city]}%")
     end
