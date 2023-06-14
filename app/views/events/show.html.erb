@@ -7,7 +7,7 @@
     <div class="show-event-card-header d-flex mt-3 mb-3 pt-2 pb-2">
       <%= cl_image_tag @event.user.profile.photo.key, class: "avatar-large ms-2 me-3" %>
       <div class="header-info-box">
-        <p class="m-0">@<%= @event.user.profile.username %></p>
+        <p class="m-0"><%= @event.user.profile.username %></p>
         <h2 class="m-0 mt-2"><%= @event.title %></h2>
       </div>
     </div>
