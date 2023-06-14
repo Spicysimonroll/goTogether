@@ -1,13 +1,13 @@
 <div class="container">
   <h2>Pending event invitations 🗓️</h2>
-  <% current_user.invitations.each do |invitation| %>
-    <% if !current_user.bookings.where(event_id: invitation.event_id).exists? %>
+  <% current_user.received_invitations.each do |invitation| %>
+    <% if current_user != invitation.event.user && !current_user.bookings.where(event: invitation.event).exists? %>
       <%= link_to event_path(invitation.event_id) do  %>
       <div class="event-card d-flex">
         <div class="event-card-left" style="background-image: url('https://images.pexels.com/photos/976866/pexels-photo-976866.jpg'); background-size: cover;">
           <div class="card-profile-box">
-              <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar" %>
-              <p><%= invitation.friendship.friend.profile.username %></p>
+              <%= cl_image_tag invitation.event.user.profile.photo.key, class: "avatar" %>
+              <p><%= invitation.friendship.user.profile.username %></p>
           </div>
         </div>
         <div class="event-card-right">

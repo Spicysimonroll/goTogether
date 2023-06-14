@@ -1,4 +1,23 @@
+.form-control {
+  height: 50px;
+}
+
 .event-container {
-  padding-left: 20px;
-  padding-right: 20px;
+  padding: 0 15px;
+
+  .carousel {
+    .carousel-inner {
+      width: 102%
+    }
+
+    .carousel-item {
+      width: 98%;
+    }
+
+    button {
+      height: 50px;
+      margin: 12px 0;
+      color: #257ec2;
+    }
+  }
 }

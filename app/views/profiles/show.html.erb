@@ -1,12 +1,12 @@
 <div class="user-profile p-4 border-bottom">
   <div class="d-flex align-items-center">
-    <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar-medium ms-2 me-2" %>
+    <%= cl_image_tag @user.profile.photo.key, class: "avatar-medium ms-2 me-2" %>
       <div class="p-2 user-info">
-        <%= current_user.profile.first_name %> <%= current_user.profile.last_name %> <span id="username" class="ms-1">@<%= current_user.profile.username %></span>
+        <%= @user.profile.first_name %> <%= @user.profile.last_name %> <span id="username" class="ms-1">@<%= @user.profile.username %></span>
       </div>
   </div>
   <div class="mt-2 p-1 ps-3 pe-3">
-    <%= current_user.profile.description %>
+    <%= @user.profile.description %>
   </div>
 </div>
 
@@ -21,18 +21,15 @@
   <% end %>
 </div>
 
-<div class="event-container mt-3">
+<div class="event-container mt-3 ms-1 me-1">
   <h2 class="mb-4 text-center">My upcoming events</h2>
   <% @all.each do |event| %>
     <%= link_to event_path(event) do  %>
-      <div class="event-card d-flex">
-        <div class="event-card-left" style="background-image: url('https://images.pexels.com/photos/976866/pexels-photo-976866.jpeg'); background-size: cover;"></div>
-        <div class="event-card-right">
-          <h5 class="card-title"><%= event.title %></h5>
-          <div class="event-right-info">
-            <p class="mt-2 mb-2"><i class="fa-solid fa-calendar-days me-2"></i><%= event.start_date.strftime('%e %B %Y') %></p>
-            <p class="m-0 d-flex"><i class="fa-solid fa-location-dot me-2 pt-1"></i><span class="event-address"><%= event.address %></span></p>
-          </div>
+      <div class="event-card d-flex align-items-center justify-content-center mb-4">
+        <div class="card-info d-flex flex-column align-items-center justify-content-around">
+          <p class="event-date mt-2 mb-2 text-center"><i class="fa-solid fa-calendar-days me-2"></i><%= event.start_date.strftime('%e %B %Y') %> - <%= event.end_date.strftime('%e %B %Y') %></p>
+          <h2 class="event-title text-center"><%= event.title %></h2>
+          <p class="event-address m-0 d-flex justify-content-center"><span class="address text-center"><i class="fa-solid fa-location-dot"></i> <%= event.address %></span></p>
         </div>
       </div>
     <% end %>

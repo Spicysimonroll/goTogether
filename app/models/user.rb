@@ -19,6 +19,12 @@ class User < ApplicationRecord
 
   has_many :comments, dependent: :destroy
   has_many :events, through: :comments
-  has_many :invitations
-  has_many :invitations, through: :friendships
+  has_many :invitations, through: :events
+
+  def received_invitations
+    # all frienships where user is a friend
+    friendships = Friendship.where(friend: self)
+    # all invitations for those frienships
+    Invitation.where(friendship: friendships)
+  end
 end

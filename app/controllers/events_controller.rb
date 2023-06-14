@@ -6,6 +6,10 @@ class EventsController < ApplicationController
   def index
     scope = Event.all
 
+    if params[:redirect] == "true"
+      @session_redirect = session[:redirect].nil? ? session[:redirect] = "true" : session[:redirect] = nil
+    end
+
     if params[:city].present?
       scope = scope.where("address ILIKE ?", "%#{params[:city]}%")
     end
@@ -41,8 +45,6 @@ class EventsController < ApplicationController
       @booked_events = []
     end
 
-
-
     @cities = Event.pluck(:address).map { |address| extract_city_from_address(address) }.compact.uniq.sort
   end
 
@@ -53,6 +55,8 @@ class EventsController < ApplicationController
       lat: @event.latitude,
       lng: @event.longitude
     }]
+
+    @profiles = @event.bookings.includes(user: :profile).where(status: 'going').map { |booking| booking.user.profile }
   end
 
   def new
@@ -79,7 +83,7 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:title, :address, :start_date, :end_date, :description, :category, :is_private)
+    params.require(:event).permit(:title, :address, :start_date, :end_date, :description, :category, :photo, :is_private)
   end
 
   def set_event

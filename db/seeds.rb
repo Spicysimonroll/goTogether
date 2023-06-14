@@ -6,8 +6,9 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
+require "open-uri"
+
 puts "Cleaning database..."
-User.destroy_all
 Profile.destroy_all
 Event.destroy_all
 Friendship.destroy_all
@@ -17,86 +18,129 @@ Comment.destroy_all
 Booking.destroy_all
 Bookmark.destroy_all
 Invitation.destroy_all
+User.destroy_all
 
 puts "Creating private users..."
 carlos = User.create(email: "carlos@test.com", password: "test1234")
 simon = User.create(email: "simon@test.com", password: "test1234")
 harris = User.create(email: "harris@test.com", password: "test1234")
 marien = User.create(email: "marien@test.com", password: "test1234")
-john = User.create(email: "john@test.com", password: "test1234")
-sophie = User.create(email: "sophie@test.com", password: "test1234")
-marc = User.create(email: "marc@test.com", password: "test1234")
-jose = User.create(email: "jose@test.com", password: "test1234")
-anna = User.create(email: "anna@test.com", password: "test1234")
-fred = User.create(email: "fred@test.com", password: "test1234")
-paul = User.create(email: "paul@test.com", password: "test1234")
-federica = User.create(email: "federica@test.com", password: "test1234")
-tina = User.create(email: "tina@test.com", password: "test1234")
-andrea = User.create(email: "andrea@test.com", password: "test1234")
+florian = User.create(email: "florian@test.com", password: "test1234")
+martin = User.create(email: "martin@test.com", password: "test1234")
+pablo = User.create(email: "pablo@test.com", password: "test1234")
+ade = User.create(email: "ade@test.com", password: "test1234")
+laure = User.create(email: "laure@test.com", password: "test1234")
+nestor = User.create(email: "nestor@test.com", password: "test1234")
+giacomo = User.create(email: "giacomo@test.com", password: "test1234")
+pato = User.create(email: "pato@test.com", password: "test1234")
+ben = User.create(email: "ben@test.com", password: "test1234")
+filip = User.create(email: "filip@test.com", password: "test1234")
 
 
 puts "Creating profile for private users..."
+file = URI.open("https://ca.slack-edge.com/T02NE0241-U053J34J604-46a3a9487bb8-512")
 carlos_profile = Profile.new(first_name: "Carlos", last_name: "Peña", username: "carlospa23", address: "C/ del Bruc, 149, 08037 Barcelona", description: "I love playing beach volley, outdoor enthusiast, coding eager learner", is_business: false)
 carlos_profile.user = carlos
+carlos_profile.photo.attach(io: file, filename: "carlos.png", content_type: "image/png")
 carlos_profile.save
+file = URI.open("https://ca.slack-edge.com/T02NE0241-U053ZCNSC0Y-d53f45db6d41-512")
 simon_profile = Profile.new(first_name: "Simon", last_name: "Hu", username: "spicysimonroll", address: "C/ del Bruc, 149, 08037 Barcelona", description: "Passionate adventurer seeking thrilling experiences around the world", is_business: false)
 simon_profile.user = simon
+simon_profile.photo.attach(io: file, filename: "simon.png", content_type: "image/png")
 simon_profile.save
+file = URI.open("https://ca.slack-edge.com/T02NE0241-U05330WCPK8-104b81622270-512")
 harris_profile = Profile.new(first_name: "Harris", last_name: "Grant", username: "harristreen", address: "C/ del Bruc, 149, 08037 Barcelona", description: "Creative problem solver with a knack for innovative solutions", is_business: false)
 harris_profile.user = harris
+harris_profile.photo.attach(io: file, filename: "harris.png", content_type: "image/png")
 harris_profile.save
-marien_profile = Profile.new(first_name: "Marien", last_name: "Irzykiewicz", username: "marienirzyk", address: "C/ del Bruc, 149, 08037 Barcelona", description: "Crypto enthusiast dedicated to exploring the latest advancements in the industry.", is_business: false)
+file = URI.open("https://ca.slack-edge.com/T02NE0241-U05327GTDHU-7e43ec92b17a-512")
+marien_profile = Profile.new(first_name: "Marien", last_name: "I", username: "marienirzyk", address: "C/ del Bruc, 149, 08037 Barcelona", description: "Crypto enthusiast dedicated to exploring the latest advancements in the industry.", is_business: false)
 marien_profile.user = marien
+marien_profile.photo.attach(io: file, filename: "marien.png", content_type: "image/png")
 marien_profile.save
-john_profile = Profile.new(first_name: "John", last_name: "Smith", username: "johnnyS", address: "C/ del Bruc, 149, 08037 Barcelona", description: "Nature lover and environmental advocate striving to protect our planet", is_business: false)
-john_profile.user = john
-john_profile.save
-sophie_profile = Profile.new(first_name: "Sophie", last_name: "Johnson", username: "sophieee", address: "C/ del Bruc, 149, 08037 Barcelona", description: "Curious mind with a passion for unraveling the mysteries of the universe", is_business: false)
-sophie_profile.user = sophie
-sophie_profile.save
-marc_profile = Profile.new(first_name: "Marc", last_name: "Williams", username: "marcWill", address: "C/ del Bruc, 149, 08037 Barcelona", description: "Empathetic listener and compassionate soul, ready to lend an ear", is_business: false)
-marc_profile.user = marc
-marc_profile.save
-jose_profile = Profile.new(first_name: "Jose", last_name: "Rodriguez", username: "elRodrigo", address: "C/ del Bruc, 149, 08037 Barcelona", description: "Fitness enthusiast committed to helping others achieve their wellness goals", is_business: false)
-jose_profile.user = jose
-jose_profile.save
-anna_profile = Profile.new(first_name: "Anna", last_name: "Brown", username: "brownies", address: "C/ del Bruc, 149, 08037 Barcelona", description: "Wordsmith and storyteller, weaving tales to captivate hearts and minds", is_business: false)
-anna_profile.user = anna
-anna_profile.save
-fred_profile = Profile.new(first_name: "Fred", last_name: "Garcia", username: "garcield", address: "C/ del Bruc, 149, 08037 Barcelona", description: "Social justice advocate striving for equality and positive change", is_business: false)
-fred_profile.user = fred
-fred_profile.save
-paul_profile = Profile.new(first_name: "Paul", last_name: "Wilson", username: "wilsoooon", address: "C/ del Bruc, 149, 08037 Barcelona", description: "Food connoisseur with an insatiable appetite for culinary adventures", is_business: false)
-paul_profile.user = paul
-paul_profile.save
-federica_profile = Profile.new(first_name: "Federica", last_name: "Nutella", username: "nutellaLove", address: "C/ del Bruc, 149, 08037 Barcelona", description: "Artistic soul expressing emotions and narratives through various mediums", is_business: false)
-federica_profile.user = federica
-federica_profile.save
-tina_profile = Profile.new(first_name: "Tina", last_name: "Pozzuoli", username: "pozzii", address: "C/ del Bruc, 149, 08037 Barcelona", description: "Lifelong learner passionate about personal growth and expanding horizons", is_business: false)
-tina_profile.user = tina
-tina_profile.save
-andrea_profile = Profile.new(first_name: "Andrea", last_name: "Miller", username: "theMiller", address: "C/ del Bruc, 149, 08037 Barcelona", description: "Aspiring entrepreneur fueled by ambition and driven to create a lasting impact in the business world", is_business: false)
-andrea_profile.user = andrea
-andrea_profile.save
+file = URI.open("https://ca.slack-edge.com/T02NE0241-U052UBBHD1D-1623d72e7c9b-512")
+florian_profile = Profile.new(first_name: "Florian", last_name: "Johnson", username: "flojo", address: "C/ del Bruc, 149, 08037 Barcelona", description: "Nature lover and environmental advocate striving to protect our planet", is_business: false)
+florian_profile.user = florian
+florian_profile.photo.attach(io: file, filename: "florian.png", content_type: "image/png")
+florian_profile.save
+file = URI.open("https://media.licdn.com/dms/image/D4E03AQHTf33RPF6nsg/profile-displayphoto-shrink_400_400/0/1686490715551?e=1692230400&v=beta&t=WTdRljN5KIj1qyj63DXvZviMgkK9Q8YSiTjDUdZ_R1g")
+martin_profile = Profile.new(first_name: "Martin", last_name: "Dabber", username: "mdab", address: "C/ del Bruc, 149, 08037 Barcelona", description: "Curious mind with a passion for unraveling the mysteries of the universe", is_business: false)
+martin_profile.user = martin
+martin_profile.photo.attach(io: file, filename: "martin.png", content_type: "image/png")
+martin_profile.save
+file = URI.open("https://ca.slack-edge.com/T02NE0241-U053BJTT1RA-5da71ecd8aea-512")
+pablo_profile = Profile.new(first_name: "Pablo", last_name: "Williams", username: "pabloWill", address: "C/ del Bruc, 149, 08037 Barcelona", description: "Empathetic listener and compassionate soul, ready to lend an ear", is_business: false)
+pablo_profile.user = pablo
+pablo_profile.photo.attach(io: file, filename: "pablo.png", content_type: "image/png")
+pablo_profile.save
+file = URI.open("https://ca.slack-edge.com/T02NE0241-U053FEREE9Z-46308cbe85b5-512")
+ade_profile = Profile.new(first_name: "ade", last_name: "Rodriguez", username: "alRodrigo", address: "C/ del Bruc, 149, 08037 Barcelona", description: "Fitness enthusiast committed to helping others achieve their wellness goals", is_business: false)
+ade_profile.user = ade
+ade_profile.photo.attach(io: file, filename: "ade.png", content_type: "image/png")
+ade_profile.save
+file = URI.open("https://ca.slack-edge.com/T02NE0241-U053FEUHE3U-df8905ff8dfa-512")
+laure_profile = Profile.new(first_name: "Laure", last_name: "Brown", username: "labrownies", address: "C/ del Bruc, 149, 08037 Barcelona", description: "Wordsmith and storyteller, weaving tales to captivate hearts and minds", is_business: false)
+laure_profile.user = laure
+laure_profile.photo.attach(io: file, filename: "laure.png", content_type: "image/png")
+laure_profile.save
+file = URI.open("https://ca.slack-edge.com/T02NE0241-U05366TF9LM-a8784827c3bf-512")
+nestor_profile = Profile.new(first_name: "Nestor", last_name: "Garcia", username: "nesto", address: "C/ del Bruc, 149, 08037 Barcelona", description: "Social justice advocate striving for equality and positive change", is_business: false)
+nestor_profile.user = nestor
+nestor_profile.photo.attach(io: file, filename: "nestor.png", content_type: "image/png")
+nestor_profile.save
+file = URI.open("https://ca.slack-edge.com/T02NE0241-U053GRXUGLB-b09e64e9310a-512")
+giacomo_profile = Profile.new(first_name: "Giacomo", last_name: "Wilson", username: "wilsoooon", address: "C/ del Bruc, 149, 08037 Barcelona", description: "Food connoisseur with an insatiable appetite for culinary adventures", is_business: false)
+giacomo_profile.user = giacomo
+giacomo_profile.photo.attach(io: file, filename: "giacomo.png", content_type: "image/png")
+giacomo_profile.save
+file = URI.open("https://ca.slack-edge.com/T02NE0241-U03B7TQPXKK-6577b0f4590a-512")
+pato_profile = Profile.new(first_name: "Pato", last_name: "Nutella", username: "🦆", address: "C/ del Bruc, 149, 08037 Barcelona", description: "Artistic soul expressing emotions and narratives through various mediums", is_business: false)
+pato_profile.user = pato
+pato_profile.photo.attach(io: file, filename: "pato.png", content_type: "image/png")
+pato_profile.save
+file = URI.open("https://ca.slack-edge.com/T02NE0241-UFD4SUGBX-a04ddaa08e20-512")
+ben_profile = Profile.new(first_name: "Ben", last_name: "Pozzuoli", username: "bepo", address: "C/ del Bruc, 149, 08037 Barcelona", description: "Lifelong learner passionate about personal growth and expanding horizons", is_business: false)
+ben_profile.user = ben
+ben_profile.photo.attach(io: file, filename: "ben.png", content_type: "image/png")
+ben_profile.save
+file = URI.open("https://ca.slack-edge.com/T02NE0241-U02GDJ2SG69-5cb283eef0c3-512")
+filip_profile = Profile.new(first_name: "Filip", last_name: "Miller", username: "filmil", address: "C/ del Bruc, 149, 08037 Barcelona", description: "Aspiring entrepreneur fueled by ambition and driven to create a lasting impact in the business world", is_business: false)
+filip_profile.photo.attach(io: file, filename: "filip.png", content_type: "image/png")
+filip_profile.user = filip
+filip_profile.save
 
 puts "Creating business users..."
+lewagonbcn = User.create(email: "lewagonbcn@test.com", password: "test1234")
 business1 = User.create(email: "business1@test.com", password: "test1234")
 business2 = User.create(email: "business2@test.com", password: "test1234")
 business3 = User.create(email: "business3@test.com", password: "test1234")
 business4 = User.create(email: "business4@test.com", password: "test1234")
 
 puts "Creating profile for business users..."
+file = URI.open("https://techla.pro/wp-content/uploads/2023/03/Le-Wagon-logo.png")
+lewagonbcn_profile = Profile.new(first_name: "", last_name: "", username: "LeWagonBCN", address: "Carrer de Mallorca, 123, 08036 Barcelona, Spain", is_business: true)
+lewagonbcn_profile.user = lewagonbcn
+lewagonbcn_profile.photo.attach(io: file, filename: "lwbcn.png", content_type: "image/png")
+lewagonbcn_profile.save
+file = URI.open("https://static.wixstatic.com/media/08b213_0d0b53d2e1524a2b993b92bceecb7afe~mv2.jpg/v1/crop/x_102,y_87,w_489,h_287/fill/w_490,h_288,al_c,lg_1,q_80,usm_0.33_1.00_0.00,enc_auto/08b213_0d0b53d2e1524a2b993b92bceecb7afe~mv2.jpg")
 business1_profile = Profile.new(first_name: "", last_name: "", username: "StellarEvents", address: "Carrer de Mallorca, 123, 08036 Barcelona, Spain", is_business: true)
 business1_profile.user = business1
+business1_profile.photo.attach(io: file, filename: "stellar.png", content_type: "image/png")
 business1_profile.save
+file = URI.open("https://www.citysearch.ae/uf/companies/8455/scape.png")
 business2_profile = Profile.new(first_name: "", last_name: "", username: "Dreamscape", address: "Avinguda Diagonal, 456, 08037 Barcelona, Spain", is_business: true)
 business2_profile.user = business2
+business2_profile.photo.attach(io: file, filename: "dreamscape.png", content_type: "image/png")
 business2_profile.save
+file = URI.open("https://www.themoviedb.org/t/p/original/hAuWEVmEq7kD0fXFgvZjVrK9dOX.png")
 business3_profile = Profile.new(first_name: "", last_name: "", username: "EnchantedBCN", address: "Passeig de Gràcia, 789, 08008 Barcelona, Spain", is_business: true)
 business3_profile.user = business3
+business3_profile.photo.attach(io: file, filename: "enchantedbcn", content_type: "image/png")
 business3_profile.save
+file = URI.open("https://images.squarespace-cdn.com/content/v1/5fa064f5ba377a5278be236f/1604360961964-L0ZP8XISJL8OUUXAFZ8Z/Logo_Linear_C_Colour.png?format=1500w")
 business4_profile = Profile.new(first_name: "", last_name: "", username: "SpectraEvents", address: "Plaça de Catalunya, 234, 08002 Barcelona, Spain", is_business: true)
 business4_profile.user = business4
+business4_profile.photo.attach(io: file, filename: "spectra", content_type: "image/png")
 business4_profile.save
 
 puts "Creating public events..."
@@ -114,7 +158,7 @@ public_event1.user = businesses[rand(0..3)]
 public_event1.save
 public_event2 = Event.new(
   title: "Gastronomy Fair",
-  address: "Avinguda de la Reina Maria Cristina, Bilbao",
+  address: "Avinguda de la Reina Maria Crisben, Bilbao",
   description: "tapas tour in Bilbao center.",
   category: "Food",
   start_date: "2023-06-15",
@@ -213,7 +257,7 @@ public_event10.user = businesses[rand(0..3)]
 public_event10.save
 
 puts "Creating private events..."
-private_users = [simon, harris, marien, john, sophie, marc, jose, anna, fred, paul, federica, tina, andrea]
+private_users = [simon, harris, marien, florian, martin, pablo, ade, laure, nestor, giacomo, pato, ben, filip]
 private_event1 = Event.new(
   title: "Midsummer Night Music Festival",
   address: "Plaça del Fòrum, Barcelona",
@@ -223,18 +267,18 @@ private_event1 = Event.new(
   end_date: "2023-06-24",
   is_private: true
 )
-private_event1.user = sophie
+private_event1.user = martin
 private_event1.save
 private_event2 = Event.new(
-  title: "Jane's Birthday Bash",
+  title: "Giac's Birthday Bash",
   address: "Carrer d'Aribau 145, Barcelona",
-  description: "Join us for a night of celebration as we honor Jane's birthday! There will be music, dancing, and lots of fun.",
+  description: "Join us for a night of celebration as we honor me! There will be music, dancing, and lots of fun.",
   category: "Birthday Party",
   start_date: "2023-06-23",
   end_date: "2023-06-23",
   is_private: true
 )
-private_event2.user = paul
+private_event2.user = giacomo
 private_event2.save
 private_event3 = Event.new(
   title: "Barcelona Food Truck Fiesta",
@@ -245,7 +289,7 @@ private_event3 = Event.new(
   end_date: "2023-06-30",
   is_private: true
 )
-private_event3.user = anna
+private_event3.user = laure
 private_event3.save
 private_event4 = Event.new(
   title: "Barcelona Beach Volleyball Championship",
@@ -259,7 +303,7 @@ private_event4 = Event.new(
 private_event4.user = carlos
 private_event4.save
 private_event5 = Event.new(
-  title: "Monte carlo Street Art Festival",
+  title: "Street Art Festival",
   address: "Various Locations, 08906 Monte carlo",
   description: "Experience the vibrant street art scene at the Barcelona Street Art Festival. Discover stunning murals, live art performances, workshops, and immerse yourself in creativity.",
   category: "Art Festival",
@@ -270,7 +314,7 @@ private_event5 = Event.new(
 private_event5.user = harris
 private_event5.save
 private_event6 = Event.new(
-  title: "Barcelona Wine & Tapas Tour",
+  title: "Wine & Tapas Tour",
   address: "Various Venues, Barcelona",
   description: "Embark on a gastronomic adventure through the Barcelona Wine & Tapas Tour. Explore the city's culinary delights with a curated selection of wines and tapas pairings.",
   category: "Food & Drink",
@@ -289,7 +333,7 @@ private_event7 = Event.new(
   end_date: "2023-07-29",
   is_private: true
 )
-private_event7.user = tina
+private_event7.user = ben
 private_event7.save
 private_event8 = Event.new(
   title: "Barcelona Fashion Week",
@@ -340,48 +384,116 @@ friendship3.friend = marien
 friendship3.save
 friendship4 = Friendship.new
 friendship4.user = carlos
-friendship4.friend = john
+friendship4.friend = florian
 friendship4.save
 friendship5 = Friendship.new
 friendship5.user = carlos
-friendship5.friend = sophie
+friendship5.friend = martin
 friendship5.save
 friendship6 = Friendship.new
 friendship6.user = carlos
-friendship6.friend = marc
+friendship6.friend = pablo
 friendship6.save
 friendship7 = Friendship.new
 friendship7.user = carlos
-friendship7.friend = jose
+friendship7.friend = ade
 friendship7.save
 friendship8 = Friendship.new
 friendship8.user = carlos
-friendship8.friend = anna
+friendship8.friend = laure
 friendship8.save
 friendship9 = Friendship.new
 friendship9.user = carlos
-friendship9.friend = fred
+friendship9.friend = nestor
 friendship9.save
 friendship10 = Friendship.new
 friendship10.user = carlos
-friendship10.friend = paul
+friendship10.friend = giacomo
 friendship10.save
 friendship11 = Friendship.new
 friendship11.user = carlos
-friendship11.friend = federica
+friendship11.friend = pato
 friendship11.save
 friendship12 = Friendship.new
 friendship12.user = carlos
-friendship12.friend = tina
+friendship12.friend = ben
 friendship12.save
 friendship13 = Friendship.new
 friendship13.user = carlos
-friendship13.friend = andrea
+friendship13.friend = filip
 friendship13.save
 friendship14 = Friendship.new
-friendship14.user = sophie
+friendship14.user = martin
 friendship14.friend = carlos
 friendship14.save
+friendship15 = Friendship.new
+friendship15.user = lewagonbcn
+friendship15.friend = carlos
+friendship15.save
+friendship16 = Friendship.new
+friendship16.user = lewagonbcn
+friendship16.friend = simon
+friendship16.save
+friendship17 = Friendship.new
+friendship17.user = lewagonbcn
+friendship17.friend = harris
+friendship17.save
+friendship18 = Friendship.new
+friendship18.user = lewagonbcn
+friendship18.friend = marien
+friendship18.save
+friendship19 = Friendship.new
+friendship19.user = lewagonbcn
+friendship19.friend = florian
+friendship19.save
+friendship20 = Friendship.new
+friendship20.user = lewagonbcn
+friendship20.friend = martin
+friendship20.save
+friendship21 = Friendship.new
+friendship21.user = lewagonbcn
+friendship21.friend = pablo
+friendship21.save
+friendship22 = Friendship.new
+friendship22.user = lewagonbcn
+friendship22.friend = ade
+friendship22.save
+friendship23 = Friendship.new
+friendship23.user = lewagonbcn
+friendship23.friend = laure
+friendship23.save
+friendship24 = Friendship.new
+friendship24.user = lewagonbcn
+friendship24.friend = nestor
+friendship24.save
+friendship25 = Friendship.new
+friendship25.user = lewagonbcn
+friendship25.friend = giacomo
+friendship25.save
+friendship26 = Friendship.new
+friendship26.user = lewagonbcn
+friendship26.friend = pato
+friendship26.save
+friendship27 = Friendship.new
+friendship27.user = lewagonbcn
+friendship27.friend = ben
+friendship27.save
+friendship28 = Friendship.new
+friendship28.user = lewagonbcn
+friendship28.friend = filip
+friendship28.save
+friendship29 = Friendship.new
+friendship29.user = simon
+friendship29.friend = carlos
+friendship29.save
+friendship30 = Friendship.new
+friendship30.user = marien
+friendship30.friend = carlos
+friendship30.save
+friendship31 = Friendship.new
+friendship31.user = harris
+friendship31.friend = carlos
+friendship31.save
 
 puts "Creating groups of friends..."
 group1 = Group.create(name: "Best pals")
@@ -399,6 +511,9 @@ group4.save
 group5 = Group.create(name: "Sunday volleyball")
 group5.user = carlos
 group5.save
+group6 = Group.create(name: "batch-#1236-bcn")
+group6.user = lewagonbcn
+group6.save
 
 puts "Creating group of friendships..."
 group_friendships1 = GroupFriendship.new
@@ -453,6 +568,62 @@ group_friendships13 = GroupFriendship.new
 group_friendships13.group = group5
 group_friendships13.friendship = friendship13
 group_friendships13.save
+group_friendships14 = GroupFriendship.new
+group_friendships14.group = group6
+group_friendships14.friendship = friendship15
+group_friendships14.save
+group_friendships15 = GroupFriendship.new
+group_friendships15.group = group6
+group_friendships15.friendship = friendship16
+group_friendships15.save
+group_friendships16 = GroupFriendship.new
+group_friendships16.group = group6
+group_friendships16.friendship = friendship17
+group_friendships16.save
+group_friendships17 = GroupFriendship.new
+group_friendships17.group = group6
+group_friendships17.friendship = friendship18
+group_friendships17.save
+group_friendships18 = GroupFriendship.new
+group_friendships18.group = group6
+group_friendships18.friendship = friendship19
+group_friendships18.save
+group_friendships19 = GroupFriendship.new
+group_friendships19.group = group6
+group_friendships19.friendship = friendship20
+group_friendships19.save
+group_friendships20 = GroupFriendship.new
+group_friendships20.group = group6
+group_friendships20.friendship = friendship21
+group_friendships20.save
+group_friendships21 = GroupFriendship.new
+group_friendships21.group = group6
+group_friendships21.friendship = friendship22
+group_friendships21.save
+group_friendships22 = GroupFriendship.new
+group_friendships22.group = group6
+group_friendships22.friendship = friendship23
+group_friendships22.save
+group_friendships23 = GroupFriendship.new
+group_friendships23.group = group6
+group_friendships23.friendship = friendship24
+group_friendships23.save
+group_friendships24 = GroupFriendship.new
+group_friendships24.group = group6
+group_friendships24.friendship = friendship25
+group_friendships24.save
+group_friendships25 = GroupFriendship.new
+group_friendships25.group = group6
+group_friendships25.friendship = friendship26
+group_friendships25.save
+group_friendships26 = GroupFriendship.new
+group_friendships26.group = group6
+group_friendships26.friendship = friendship27
+group_friendships26.save
+group_friendships27 = GroupFriendship.new
+group_friendships27.group = group6
+group_friendships27.friendship = friendship28
+group_friendships27.save
 
 puts "Creating bookmarks..."
 events = [public_event1, public_event2, public_event3, public_event4, public_event5, public_event6, public_event7, public_event8, public_event9, public_event10, private_event1, private_event2, private_event3, private_event4, private_event5, private_event6, private_event7, private_event8, private_event9, private_event10]
@@ -480,33 +651,33 @@ bookmark5.save
 puts "Creating comments..."
 comment1 = Comment.new(content: "Awesome, let's go together!")
 comment1.event = private_event1
-comment1.user = sophie
+comment1.user = martin
 comment1.save
 comment2 = Comment.new(content: "As a music lover, yes!!!")
 comment2.event = private_event1
-comment2.user = marc
+comment2.user = pablo
 comment2.save
 
 puts "Creating invitations..."
 invitation1 = Invitation.new
 invitation1.event = private_event1
-invitation1.friendship = friendship5
+invitation1.friendship = friendship14
 invitation1.save
 
 invitation2 = Invitation.new
-invitation2.event = private_event2
-invitation2.friendship = friendship10
+invitation2.event = private_event6
+invitation2.friendship = friendship30
 invitation2.save
 
 invitation3 = Invitation.new
-invitation3.event = private_event3
-invitation3.friendship = friendship8
+invitation3.event = private_event8
+invitation3.friendship = friendship31
 invitation3.save
 
-invitation3 = Invitation.new
-invitation3.event = private_event6
-invitation3.friendship = friendship3
-invitation3.save
+invitation4 = Invitation.new
+invitation4.event = private_event10
+invitation4.friendship = friendship29
+invitation4.save
 
 # puts "Creating bookings..."
 # booking1 = Booking.new(status: 0)

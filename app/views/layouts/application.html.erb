@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>GoTogether</title>
+    <title>goTogether: Connecting Events, Friends, and Experiences</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200&display=swap" rel="stylesheet">
@@ -13,13 +13,26 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <%= favicon_link_tag "favicon.png", rel: "icon", type: "image/png" %>
 
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="manifest" href="<%= asset_path 'manifest.json' %>">
+    <%= render 'shared/ios_pwa_links' %>
+
+    <!-- Facebook Open Graph data -->
+    <meta property="og:title" content="goTogether: Connecting Events, Friends, and Experiences" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="<%= request.original_url %>" />
+    <meta property="og:image" content="resized-goTogether.png" />
+    <meta property="og:description" content="Discover, plan, and share events effortlessly with goTogether. Connect with friends, explore exciting activities, and make memories together. Simplify your event planning experience with our all-in-one app. Join the GoTogether community today" />
   </head>
 
   <body
     <% if current_user %>
       <%= "style=padding-bottom:50px;" %>
     <% end %>
+    data-controller="search"
   >
 
     <% unless params[:controller] == "users/registrations" || params[:controller] == "devise/sessions" %>
