@@ -16,4 +16,8 @@ class Event < ApplicationRecord
   def start_time
     self.start_date
   end
+
+  has_one_attached :photo
+# from the lecture
+
 end
