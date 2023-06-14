@@ -27,10 +27,21 @@ class EventsController < ApplicationController
       @public_events = scope.where(is_private: false)
       event_ids = current_user.bookings.pluck(:event_id)
       @booked_events = scope.where(id: event_ids)
+      @friendships = current_user.friendships
+      @friends_bookings = []
+      @friendships.each do |friendship|
+        friendship.friend.bookings.each do |booking|
+          if booking.status == "looking_for_a_buddy"
+            @friends_bookings << booking
+          end
+        end
+      end
     else
       @public_events = scope.where(is_private: false)
       @booked_events = []
     end
+
+
 
     @cities = Event.pluck(:address).map { |address| extract_city_from_address(address) }.compact.uniq.sort
   end
