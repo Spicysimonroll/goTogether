@@ -1,6 +1,12 @@
 <div class="navbar-bottom d-flex justify-content-around align-items-center border-top pt-1 fixed-bottom">
   <%= link_to '<i class="fa-solid fa-house"></i>'.html_safe, events_path %>
-  <i class="fa-solid fa-magnifying-glass"></i>
+  <% if params[:controller] == "events" %>
+    <i class="fa-solid fa-magnifying-glass" data-action="click->search#toggleSearch"></i>
+  <% else %>
+    <%= link_to events_path(redirect: true) do %>
+      <i class="fa-solid fa-magnifying-glass"></i>
+    <% end %>
+  <% end %>
   <%= link_to '<i class="fa-regular fa-square-plus"></i>'.html_safe, new_event_path %>
   <%= link_to '<i class="fa-solid fa-user-group"></i>'.html_safe, friendships_path %>
   <%= link_to user_profile_path(current_user.profile), class: "d-flex" do %>

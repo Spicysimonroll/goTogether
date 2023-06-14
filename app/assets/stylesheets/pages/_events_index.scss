@@ -1,3 +1,36 @@
+.flex-container {
+  display: flex;
+  justify-content: center;
+  overflow-x: auto;
+  padding-top: 10px; /* Adjust the value as needed */
+  padding-bottom: 10px; /* Adjust the value as needed */
+}
+
+.flex-container .form-control {
+  flex: 0 0 auto;
+  margin-right: 10px;
+  width: 150px;
+  padding: 5px;
+  font-size: 14px;
+  border-radius: 20px;
+}
+
+.flex-container .form-control::placeholder {
+  text-align: center;
+}
+
+.flex-container .form-control option {
+  text-align: center;
+}
+
+.form-control {
+  height: 50px;
+}
+
+// .Searchbar {
+//   border-radius: 10px;
+// }
+
 .event-container {
   padding: 0 15px;
 
@@ -9,7 +42,7 @@
     .carousel-item {
       width: 98%;
     }
-    
+
     button {
       height: 50px;
       margin: 12px 0;

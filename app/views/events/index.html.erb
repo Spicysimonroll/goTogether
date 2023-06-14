@@ -2,18 +2,22 @@
 
   <h1 class="text-center">Events</h1>
 
-  <div class="row d-none"> <!-- SEARCH BAR -->
-    <div class="col-12">
+  <% if @session_redirect %>
+    <div class="row" data-search-target="searchBar">
+  <% else %>
+    <div class="row d-none" data-search-target="searchBar">
+  <% end %>
+      <div class="col-12 border">
 
-      <%= form_with(url: events_path, method: :get, local: true, class: "form-inline my-2 my-lg-0", data: { controller: 'flatpickr' }) do |form| %>
-        <%= form.text_field :query, placeholder: "Search events", value: params[:query], class: "form-control mr-sm-2 Searchbar"  %>
+      <%= form_with(url: events_path, method: :get, local: true, class: "form-inline mt-2", data: { controller: 'flatpickr' }) do |form| %>
+        <%= form.text_field :query, placeholder: "Search events", value: params[:query], class: "form-control rounded"  %>
 
-        <div class="form-group flex-container">
-          <%= form.select :city, options_for_select([["Select city", ""]] + @cities, params[:city]), {}, { class: "form-control" } %>
-          <%= form.text_field :dates, as: :string, placeholder: "Pick a date", value: params[:dates], data: { flatpickr_target: "dates" } , class: "form-control" %>
+        <div class="form-group flex-container row">
+          <%= form.select :city, options_for_select([["Select city", ""]] + @cities, params[:city]), {}, { class: "form-control rounded col-6 me-2" } %>
+          <%= form.text_field :dates, as: :string, placeholder: "Date range", value: params[:dates], data: { flatpickr_target: "dates" } , class: "form-control rounded col-6 ms-2" %>
         </div>
-          <div class="text-center">
-          <%= form.submit "Search", class: "button-primary" %>
+        <div class="text-center">
+          <%= form.submit "Search", class: "button-primary mb-2" %>
         </div>
       <% end %>
     </div>
