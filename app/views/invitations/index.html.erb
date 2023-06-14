@@ -1,19 +1,28 @@
-<h1>Invitations</h1>
-
-
-<% @invitations.each do |invitation| %>
-  <div>
-    <h2><%= invitation.event.title %></h2>
-    <p>Invited by: <%= invitation.friendship.friend.profile.first_name %></p>
-
-    <%= form_with url: accept_invitation_path(invitation), method: :patch do |form| %>
-      <%= form.submit 'Accept Invitation' %>
+<div class="container">
+  <h2>Pending event invitations 🗓️</h2>
+  <% current_user.invitations.each do |invitation| %>
+    <% if !current_user.bookings.where(event_id: invitation.event_id).exists? %>
+      <%= link_to event_path(invitation.event_id) do  %>
+      <div class="event-card d-flex">
+        <div class="event-card-left" style="background-image: url('https://images.pexels.com/photos/976866/pexels-photo-976866.jpg'); background-size: cover;">
+          <div class="card-profile-box">
+              <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar" %>
+              <p><%= invitation.friendship.friend.profile.username %></p>
+          </div>
+        </div>
+        <div class="event-card-right">
+          <h5 class="card-title"><%= invitation.event.title %></h5>
+          <div class="event-right-info">
+            <p class="mt-2 mb-2"><i class="fa-solid fa-calendar-days me-2"></i><%= invitation.event.start_date.strftime('%e %B %Y') %></p>
+            <p class="m-0 d-flex"><i class="fa-solid fa-location-dot me-2 pt-1"></i><span class="event-address"><%= invitation.event.address %></span></p>
+          </div>
+          <div class ="booking-icons">
+            <%= link_to '<i class="fa-solid fa-calendar-plus"></i>'.html_safe, event_bookings_path(invitation.event, status: "going"), data: {turbo_method: :post}, class: 'button-primary' %>
+            <%= link_to '<i class="fa-solid fa-calendar-xmark"></i>'.html_safe, delete_invitation_path(invitation),  data: {turbo_method: :delete}, class: 'button-secondary' %>
+          </div>
+        </div>
+      </div>
+      <% end %>
     <% end %>
-
-    <%= form_with url: reject_invitation_path(invitation), method: :patch do |form| %>
-  <%= form.submit 'Reject Invitation' %>
-<% end %>
-
-
-  </div>
-<% end %>
+  <% end %>
+</div>

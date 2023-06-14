@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get "/invitations", to: "invitations#index"
   get "events/:event_id/invitations/new", to: "invitations#new", as: "invitations_new"
   post "/events/:event_id/invitations/", to: "invitations#create", as: "event_invitations"
+  delete "invitation/:id", to: "invitations#destroy", as: "delete_invitation"
   patch '/invitations/:id/accept', to: 'invitations#accept', as: 'accept_invitation'
   patch '/invitations/:id/reject', to: 'invitations#reject', as: 'reject_invitation'
   resources :bookings, only: [:destroy, :update]

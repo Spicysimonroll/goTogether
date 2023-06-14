@@ -223,7 +223,7 @@ private_event1 = Event.new(
   end_date: "2023-06-24",
   is_private: true
 )
-private_event1.user = carlos
+private_event1.user = sophie
 private_event1.save
 private_event2 = Event.new(
   title: "Jane's Birthday Bash",
@@ -234,7 +234,7 @@ private_event2 = Event.new(
   end_date: "2023-06-23",
   is_private: true
 )
-private_event2.user = private_users[rand(0..12)]
+private_event2.user = paul
 private_event2.save
 private_event3 = Event.new(
   title: "Barcelona Food Truck Fiesta",
@@ -245,7 +245,7 @@ private_event3 = Event.new(
   end_date: "2023-06-30",
   is_private: true
 )
-private_event3.user = private_users[rand(0..12)]
+private_event3.user = anna
 private_event3.save
 private_event4 = Event.new(
   title: "Barcelona Beach Volleyball Championship",
@@ -256,7 +256,7 @@ private_event4 = Event.new(
   end_date: "2023-07-09",
   is_private: true
 )
-private_event4.user = private_users[rand(0..12)]
+private_event4.user = carlos
 private_event4.save
 private_event5 = Event.new(
   title: "Monte carlo Street Art Festival",
@@ -267,7 +267,7 @@ private_event5 = Event.new(
   end_date: "2023-07-16",
   is_private: false
 )
-private_event5.user = private_users[rand(0..12)]
+private_event5.user = harris
 private_event5.save
 private_event6 = Event.new(
   title: "Barcelona Wine & Tapas Tour",
@@ -278,7 +278,7 @@ private_event6 = Event.new(
   end_date: "2023-07-21",
   is_private: true
 )
-private_event6.user = private_users[rand(0..12)]
+private_event6.user = marien
 private_event6.save
 private_event7 = Event.new(
   title: "Barcelona Electronic Music Festival",
@@ -289,7 +289,7 @@ private_event7 = Event.new(
   end_date: "2023-07-29",
   is_private: true
 )
-private_event7.user = private_users[rand(0..12)]
+private_event7.user = tina
 private_event7.save
 private_event8 = Event.new(
   title: "Barcelona Fashion Week",
@@ -300,7 +300,7 @@ private_event8 = Event.new(
   end_date: "2023-08-04",
   is_private: true
 )
-private_event8.user = private_users[rand(0..12)]
+private_event8.user = harris
 private_event8.save
 private_event9 = Event.new(
   title: "monaco Film Night",
@@ -311,7 +311,7 @@ private_event9 = Event.new(
   end_date: "2023-08-06",
   is_private: false
 )
-private_event9.user = private_users[rand(0..12)]
+private_event9.user = private_users[rand(1..12)]
 private_event9.save
 private_event10 = Event.new(
   title: "Ruby Meetup",
@@ -322,7 +322,7 @@ private_event10 = Event.new(
   end_date: "2023-06-30",
   is_private: true
 )
-private_event10.user = private_users[rand(0..12)]
+private_event10.user = simon
 private_event10.save
 
 puts "Creating friendships..."
@@ -487,52 +487,31 @@ comment2.event = private_event1
 comment2.user = marc
 comment2.save
 
-puts "Creating bookings..."
-booking1 = Booking.new(status: 1)
-booking1.event = private_event1
-booking1.user = carlos
-booking1.save
-booking2 = Booking.new(status: 0)
-booking2.event = private_event2
-booking2.user = carlos
-booking2.save
-booking3 = Booking.new(status: 0)
-booking3.event = private_event10
-booking3.user = carlos
-booking3.save
-booking4 = Booking.new(status: 0)
-booking4.event = private_event3
-booking4.user = carlos
-booking4.save
-booking5 = Booking.new(status: 1)
-booking5.event = private_event5
-booking5.user = carlos
-booking5.save
-
 puts "Creating invitations..."
 invitation1 = Invitation.new
 invitation1.event = private_event1
 invitation1.friendship = friendship5
 invitation1.save
+
 invitation2 = Invitation.new
-invitation2.event = private_event1
-invitation2.friendship = friendship6
+invitation2.event = private_event2
+invitation2.friendship = friendship10
 invitation2.save
+
 invitation3 = Invitation.new
-invitation3.event = private_event5
-invitation3.friendship = friendship1
+invitation3.event = private_event3
+invitation3.friendship = friendship8
 invitation3.save
-invitation4 = Invitation.new
-invitation4.event = private_event5
-invitation4.friendship = friendship2
-invitation4.save
-invitation5 = Invitation.new
-invitation5.event = private_event5
-invitation5.friendship = friendship3
-invitation5.save
-invitation6 = Invitation.new
-invitation6.event = private_event1
-invitation6.friendship = friendship14
-invitation6.save
+
+invitation3 = Invitation.new
+invitation3.event = private_event6
+invitation3.friendship = friendship3
+invitation3.save
+
+# puts "Creating bookings..."
+# booking1 = Booking.new(status: 0)
+# booking1.event = private_event1
+# booking1.user = carlos
+# booking1.save
 
 puts "Done!"
