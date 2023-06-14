@@ -6,7 +6,7 @@
       <div class="event-card d-flex">
         <div class="event-card-left" style="background-image: url('https://images.pexels.com/photos/976866/pexels-photo-976866.jpg'); background-size: cover;">
           <div class="card-profile-box">
-              <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar" %>
+              <%= cl_image_tag invitation.event.user.profile.photo.key, class: "avatar" %>
               <p><%= invitation.friendship.friend.profile.username %></p>
           </div>
         </div>
