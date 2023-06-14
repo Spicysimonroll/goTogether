@@ -9,7 +9,6 @@
 require "open-uri"
 
 puts "Cleaning database..."
-User.destroy_all
 Profile.destroy_all
 Event.destroy_all
 Friendship.destroy_all
@@ -19,6 +18,8 @@ Comment.destroy_all
 Booking.destroy_all
 Bookmark.destroy_all
 Invitation.destroy_all
+User.destroy_all
+
 
 puts "Creating private users..."
 carlos = User.create(email: "carlos@test.com", password: "test1234")
