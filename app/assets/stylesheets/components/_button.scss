@@ -24,11 +24,37 @@
   border: 2px solid #3860ED;
 }
 
-#btn-homepage {
+#homepage-btn {
   margin: 0 auto;
   display: block;
   height: 45px;
   width: 285px;
   text-align: center;
   padding-top: 7px;
+}
+
+#show-map-btn {
+  width: 43px;
+  margin: 0 auto;
+  font-size: 14px;
+  color: grey;
+  position: relative;
+
+  .fa-caret-up {
+    position: absolute;
+    top: 4px;
+    right: 1px;
+  }
+}
+
+#show-comments-btn {
+  font-size: 14px;
+  color: grey;
+
+
+  // .fa-caret-up {
+  //   position: absolute;
+  //   top: 4px;
+  //   right: 1px;
+  // }
 }

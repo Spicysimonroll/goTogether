@@ -3,9 +3,7 @@
      data-map-markers-value="<%= @markers.to_json %>"
      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
 
-  <div class="back-icon"><%= link_to "<i class='fa-solid fa-chevron-left'></i>".html_safe, events_path %></div>
-
-  <div class="show-event-card row">
+  <div class="show-event-card row mt-3">
     <div class="show-event-card-header d-flex mt-3 mb-3 pt-2 pb-2">
       <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar-large ms-2 me-3" %>
       <div class="header-info-box">
@@ -24,20 +22,22 @@
         <p class="text-center mt-3 mb-2 ms-3 me-3"><%= "From: #{@event.start_date.strftime('%e %B %Y, %H:%M')}" %> <br> <%= "To: #{@event.end_date.strftime('%e %B %Y, %H:%M')}" %></p>
       </div>
 
-      <div class="d-flex align-items-center justify-content-center" data-action="click->event-showpage#toggleMap click->map#resize">
+      <div class="d-flex align-items-center justify-content-center">
         <i class="fa-solid fa-location-dot p-2 m-1"></i>
         <p class="text-center m-1 "><%= @event.address %></p>
       </div>
 
+      <p id="show-map-btn" class="mb-2" data-action="click->event-showpage#toggleMap click->map#resize">Map <i class="fa-solid fa-caret-down"></i></p>
+
       <div
-        class="border d-none"
+        class="border d-none mb-1"
         style="width: 100%; height: 300px;"
         data-map-target="map"
         data-event-showpage-target="location">
       </div>
     </div>
 
-    <div class="d-flex justify-content-between show-event-card-footer mt-3">
+    <div class="d-flex justify-content-between show-event-card-footer mt-2">
 
       <div class="d-flex align-items-center">
         <% if @event.user.profile.is_business %>
@@ -72,7 +72,7 @@
 
       <div class="show-event-icons d-flex">
         <% if !@event.user.profile.is_business %>
-          <div class="d-flex align-items-center p-2"><i class="fa-regular fa-comment p-0"></i></div>
+          <a href="#comment-input" class="d-flex align-items-center p-2"><i class="fa-regular fa-comment p-0"></i></a>
         <% end %>
         <% if Bookmark.find_by(user: current_user, event: @event) %>
           <%= link_to '<i class="fa-solid fa-bookmark p-0"></i>'.html_safe, root_path, class:"d-flex align-items-center p-2" %>
@@ -89,10 +89,11 @@
     <div class="comments-section mb-2">
 
       <div class="show-comments-card">
-        <h2 class="mb-3">Comments</h2>
-        <div id="comments" data-event-showpage-target="comment">
-          <% @event.comments.order(created_at: :asc).each do |comment| %>
-            <%= render "comment", comment: comment %>
+        <div class="d-flex justify-content-between"><h2 class="mb-3">Comments</h2><p id="show-comments-btn" data-action="click->event-showpage#toggleComments">See more <i class="fa-solid fa-caret-down"></i></p></div>
+        <div data-event-showpage-target="comment_section">
+          <% comments_count = @event.comments.count %>
+          <% @event.comments.order(created_at: :asc).each_with_index do |comment, index| %>
+            <%= render "comment", comment: comment, index: index, count: comments_count %>
           <% end %>
         </div>
       </div>

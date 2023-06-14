@@ -1,5 +1,3 @@
-<% if current_user == comment.user %>
-  <div class="current-user-comment"><b><%= current_user.profile.username %>: </b><%= comment.content %></div>
-<% else %>
-  <div class="other-user-comment"><b><%= comment.user.profile.username %>: </b><%= comment.content %></div>
-<% end %>
+<div class="<%= 'd-none' if index < count - 5  %> <%= current_user == comment.user ? 'current-user-comment' : 'other-user-comment' %>" <%= 'data-event-showpage-target=comment' if index < count - 5 %>>
+  <strong><%= comment.user.profile.username %>: </strong><%= comment.content %>
+</div>
