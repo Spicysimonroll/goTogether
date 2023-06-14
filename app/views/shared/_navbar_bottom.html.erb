@@ -3,5 +3,5 @@
   <i class="fa-solid fa-magnifying-glass"></i>
   <%= link_to '<i class="fa-regular fa-square-plus"></i>'.html_safe, new_event_path %>
   <%= link_to '<i class="fa-solid fa-user-group"></i>'.html_safe, friendships_path %>
-  <a href="/myprofile" class="d-flex align-items-center"><%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar" %></a>
+  <a href="/myprofile" class="d-flex align-items-center"><%= cl_image_tag current_user.profile.photo.key, class: "avatar" %></a>
 </div>
