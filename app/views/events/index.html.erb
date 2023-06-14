@@ -42,20 +42,21 @@
     <% end %>
   <% end %>
 
-  <div class="type-of-event">
-    <p class="pt-4 pb-4 text-center">Popular near you</p>
-  </div>
+  <div>
+    <div class="type-of-event">
+      <p class="pt-4 pb-4 text-center">Popular near you</p>
+    </div>
 
-  <% @public_events.each do |event| %>
-    <%= link_to event_path(event) do  %>
-      <div class="event-card d-flex align-items-center justify-content-center mb-4">
-        <div class="card-info d-flex flex-column align-items-center justify-content-around">
-          <p class="event-date mt-2 mb-2 text-center"><i class="fa-solid fa-calendar-days me-2"></i><%= event.start_date.strftime('%e %B %Y') %> - <%= event.end_date.strftime('%e %B %Y') %></p>
-          <h2 class="event-title text-center"><%= event.title %></h2>
-          <p class="event-address m-0 d-flex justify-content-center"><span class="address text-center"><i class="fa-solid fa-location-dot"></i> <%= event.address %></span></p>
+    <% @public_events.each do |event| %>
+      <%= link_to event_path(event) do  %>
+        <div class="event-card d-flex align-items-center justify-content-center mb-4">
+          <div class="card-info d-flex flex-column align-items-center justify-content-around">
+            <p class="event-date mt-2 mb-2 text-center"><i class="fa-solid fa-calendar-days me-2"></i><%= event.start_date.strftime('%e %B %Y') %> - <%= event.end_date.strftime('%e %B %Y') %></p>
+            <h2 class="event-title text-center"><%= event.title %></h2>
+            <p class="event-address m-0 d-flex justify-content-center"><span class="address text-center"><i class="fa-solid fa-location-dot"></i> <%= event.address %></span></p>
+          </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
-  <% end %>
-
+  </div>
 </div>
