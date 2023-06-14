@@ -70,6 +70,7 @@
         <% end %>
       </div>
 
+
       <div class="show-event-icons d-flex">
         <% if !@event.user.profile.is_business %>
           <a href="#comment-input" class="d-flex align-items-center p-2"><i class="fa-regular fa-comment p-0"></i></a>
@@ -83,6 +84,10 @@
 
     </div>
   </div>
+
+  <% @profiles.each do |profile| %>
+    <%= profile.username %>
+  <% end %>
 
   <% if !@event.user.profile.is_business %>
 
