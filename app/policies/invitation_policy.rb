@@ -11,6 +11,10 @@ class InvitationPolicy < ApplicationPolicy
     true
   end
 
+  def destroy?
+    true
+  end
+
   class Scope < Scope
     def resolve
       scope.where(friendship: Friendship.where(friend: user))
