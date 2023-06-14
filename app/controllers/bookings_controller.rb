@@ -11,6 +11,9 @@ class BookingsController < ApplicationController
     authorize @booking
     @booking.save
     redirect_to user_profile_path, status: :see_other
+    flash[:notice] = "Your event was booked successfully!"
+
+
   end
 
   def update
@@ -19,6 +22,8 @@ class BookingsController < ApplicationController
     authorize @booking
     @booking.save
     redirect_to event_path(@booking.event)
+    flash[:notice] = "Your event booking was updated successfully!"
+
   end
 
   def destroy
@@ -29,5 +34,6 @@ class BookingsController < ApplicationController
     end
     @booking.destroy
     redirect_to user_profile_path, status: :see_other
+    flash[:notice] = "Your event booking was deleted successfully!"
   end
 end
