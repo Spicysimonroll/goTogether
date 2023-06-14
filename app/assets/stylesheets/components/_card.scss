@@ -1,35 +1,50 @@
 .event-card {
+  color: $white;
   height: 200px;
   width: 100%;
   border-radius: 20px;
-  margin-bottom: 20px;
   box-shadow: 4px 4px 4px rgba(0,0,0,0.2);
-  background-color: #FFF4F4;
-}
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.pexels.com/photos/976866/pexels-photo-976866.jpeg');
+  background-size: cover;
 
-.event-card-left {
-  width: 40%;
-  flex-shrink: 0;
-  border-radius: 20px 0 0 20px
+  h2 {
+    color: $white;
+    font-size: 30px;
+  }
 
-}
+  .card-info {
+    width: 90%;
+    height: 90%;
 
-.event-card-right {
-  padding: 15px;
+    .event-date, .event-title, .event-address {
+      width: 90%;
+    }
+    .fa-location-dot {
+      height: 25px;
+    }
 
-  .event-right-info {
-    color: $black;
-    height: 110px;
-
-    .event-address {
+    .address {
       overflow: hidden;
       text-overflow: ellipsis;
       display: -webkit-box;
-      -webkit-line-clamp: 2;
+      -webkit-line-clamp: 1;
       -webkit-box-orient: vertical;
     }
   }
 }
+
+// .event-card-right {
+//   padding: 15px;
+
+//   .event-right-info {
+//     color: $black;
+//     height: 110px;
+
+//     .event-address {
+
+//     }
+//   }
+// }
 
 .card-title{
   color: rgb(60, 37, 194);
