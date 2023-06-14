@@ -7,17 +7,17 @@
   <% else %>
     <div class="row d-none" data-search-target="searchBar">
   <% end %>
-      <div class="col-12 border">
+    <div class="border">
 
-      <%= form_with(url: events_path, method: :get, local: true, class: "form-inline mt-2", data: { controller: 'flatpickr' }) do |form| %>
+      <%= form_with(url: events_path, method: :get, local: true, class: "form-inline mt-3 mb-3", data: { controller: 'flatpickr' }) do |form| %>
         <%= form.text_field :query, placeholder: "Search events", value: params[:query], class: "form-control rounded"  %>
 
-        <div class="form-group flex-container row">
-          <%= form.select :city, options_for_select([["Select city", ""]] + @cities, params[:city]), {}, { class: "form-control rounded col-6 me-2" } %>
-          <%= form.text_field :dates, as: :string, placeholder: "Date range", value: params[:dates], data: { flatpickr_target: "dates" } , class: "form-control rounded col-6 ms-2" %>
+        <div class="d-flex mt-2 mb-3">
+          <%= form.select :city, options_for_select([["Select city", ""]] + @cities, params[:city]), {}, { class: "form-control rounded me-2" } %>
+          <%= form.text_field :dates, as: :string, placeholder: "Date range", value: params[:dates], data: { flatpickr_target: "dates" } , class: "form-control rounded ms-2" %>
         </div>
         <div class="text-center">
-          <%= form.submit "Search", class: "button-primary mb-2" %>
+          <%= form.submit "Search", class: "button-primary w-100" %>
         </div>
       <% end %>
     </div>
