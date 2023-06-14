@@ -2,11 +2,11 @@
   <div class="d-flex align-items-center">
     <%= cl_image_tag current_user.profile.photo.key, class: "avatar-medium ms-2 me-2" %>
       <div class="p-2 user-info">
-        <%= current_user.profile.first_name %> <%= current_user.profile.last_name %> <span id="username" class="ms-1">@<%= current_user.profile.username %></span>
+        <%= @user.profile.first_name %> <%= @user.profile.last_name %> <span id="username" class="ms-1">@<%= @user.profile.username %></span>
       </div>
   </div>
   <div class="mt-2 p-1 ps-3 pe-3">
-    <%= current_user.profile.description %>
+    <%= @user.profile.description %>
   </div>
 </div>
 

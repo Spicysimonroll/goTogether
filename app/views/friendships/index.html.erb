@@ -1,9 +1,9 @@
 <div id="friends-title">
-  <h1>Friends</h1>
+  <h1 class="text-center">Friends</h1>
 </div>
 
 <% @friendships.each do |friendship| %>
-  <%= link_to user_profile_path(friendship.friend) do  %>
+  <%= link_to user_profile_path(friendship.friend.profile) do  %>
     <div class="friendships-card">
       <div class="d-flex">
         <%= cl_image_tag friendship.friend.profile.photo.key, class: "avatar-medium ms-2 me-2" %>
