@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
+require "open-uri"
+
 puts "Cleaning database..."
 User.destroy_all
 Profile.destroy_all
@@ -23,7 +25,7 @@ carlos = User.create(email: "carlos@test.com", password: "test1234")
 simon = User.create(email: "simon@test.com", password: "test1234")
 harris = User.create(email: "harris@test.com", password: "test1234")
 marien = User.create(email: "marien@test.com", password: "test1234")
-john = User.create(email: "john@test.com", password: "test1234")
+florian = User.create(email: "florian@test.com", password: "test1234")
 sophie = User.create(email: "sophie@test.com", password: "test1234")
 marc = User.create(email: "marc@test.com", password: "test1234")
 jose = User.create(email: "jose@test.com", password: "test1234")
@@ -36,21 +38,24 @@ andrea = User.create(email: "andrea@test.com", password: "test1234")
 
 
 puts "Creating profile for private users..."
+file = URI.open("https://ca.slack-edge.com/T02NE0241-U053J34J604-46a3a9487bb8-512")
 carlos_profile = Profile.new(first_name: "Carlos", last_name: "Peña", username: "carlospa23", address: "C/ del Bruc, 149, 08037 Barcelona", description: "I love playing beach volley, outdoor enthusiast, coding eager learner", is_business: false)
 carlos_profile.user = carlos
+carlos_profile.photo.attach(io: file, filename: "carlos.png", content_type: "image/png")
 carlos_profile.save
+
 simon_profile = Profile.new(first_name: "Simon", last_name: "Hu", username: "spicysimonroll", address: "C/ del Bruc, 149, 08037 Barcelona", description: "Passionate adventurer seeking thrilling experiences around the world", is_business: false)
 simon_profile.user = simon
 simon_profile.save
-harris_profile = Profile.new(first_name: "Harris", last_name: "Grant", username: "harristreen", address: "C/ del Bruc, 149, 08037 Barcelona", description: "Creative problem solver with a knack for innovative solutions", is_business: false)
+harris_profile = Profile.new(first_name: "Harris", last_name: "G", username: "harristreen", address: "C/ del Bruc, 149, 08037 Barcelona", description: "Creative problem solver with a knack for innovative solutions", is_business: false)
 harris_profile.user = harris
 harris_profile.save
-marien_profile = Profile.new(first_name: "Marien", last_name: "Irzykiewicz", username: "marienirzyk", address: "C/ del Bruc, 149, 08037 Barcelona", description: "Crypto enthusiast dedicated to exploring the latest advancements in the industry.", is_business: false)
+marien_profile = Profile.new(first_name: "Marien", last_name: "I", username: "marienirzyk", address: "C/ del Bruc, 149, 08037 Barcelona", description: "Crypto enthusiast dedicated to exploring the latest advancements in the industry.", is_business: false)
 marien_profile.user = marien
 marien_profile.save
-john_profile = Profile.new(first_name: "John", last_name: "Smith", username: "johnnyS", address: "C/ del Bruc, 149, 08037 Barcelona", description: "Nature lover and environmental advocate striving to protect our planet", is_business: false)
-john_profile.user = john
-john_profile.save
+florian_profile = Profile.new(first_name: "Florian", last_name: "G", username: "flog", address: "C/ del Bruc, 149, 08037 Barcelona", description: "Nature lover and environmental advocate striving to protect our planet", is_business: false)
+florian_profile.user = florian
+florian_profile.save
 sophie_profile = Profile.new(first_name: "Sophie", last_name: "Johnson", username: "sophieee", address: "C/ del Bruc, 149, 08037 Barcelona", description: "Curious mind with a passion for unraveling the mysteries of the universe", is_business: false)
 sophie_profile.user = sophie
 sophie_profile.save
@@ -340,7 +345,7 @@ friendship3.friend = marien
 friendship3.save
 friendship4 = Friendship.new
 friendship4.user = carlos
-friendship4.friend = john
+friendship4.friend = florian
 friendship4.save
 friendship5 = Friendship.new
 friendship5.user = carlos

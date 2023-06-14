@@ -15,7 +15,7 @@
     <p class="text-center"><%= @event.description%></p>
 
     <div>
-      <div class="row show-event-image" style="background-image: url(<%= image_path('Placeholder.png') %>)"></div>
+      <div class="row show-event-image" style="background-image: url(<%= image_path "placeholderimage.jpg" %>)"></div>
 
       <div class="d-flex align-items-center justify-content-center">
         <i class="fa-solid fa-calendar-days p-2"></i>
@@ -56,7 +56,7 @@
           <% if @event.user == current_user %>
               <p>delete event or edit event</p>
           <%else%>
-            <% if @booking.nil? %>
+            <% if @booking.nil? && @event.is_private %>
                 <%= link_to '<i class="fa-solid fa-calendar-plus"></i>'.html_safe, event_bookings_path(@event, status: "going"), data: {turbo_method: :post}, class: 'button-secondary' %>
                 <%= link_to '<i class="fa-solid fa-calendar-xmark"></i>'.html_safe, delete_invitation_path(current_user.invitations.find_by(event: @event)),  data: {turbo_method: :delete}, class: 'button-secondary' %>
             <% else %>
