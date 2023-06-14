@@ -9,7 +9,6 @@
 require "open-uri"
 
 puts "Cleaning database..."
-User.destroy_all
 Profile.destroy_all
 Event.destroy_all
 Friendship.destroy_all
@@ -19,6 +18,7 @@ Comment.destroy_all
 Booking.destroy_all
 Bookmark.destroy_all
 Invitation.destroy_all
+User.destroy_all
 
 puts "Creating private users..."
 carlos = User.create(email: "carlos@test.com", password: "test1234")
@@ -122,22 +122,22 @@ lewagonbcn_profile = Profile.new(first_name: "", last_name: "", username: "LeWag
 lewagonbcn_profile.user = lewagonbcn
 lewagonbcn_profile.photo.attach(io: file, filename: "lwbcn.png", content_type: "image/png")
 lewagonbcn_profile.save
-file = URI.open("")
+file = URI.open("https://static.wixstatic.com/media/08b213_0d0b53d2e1524a2b993b92bceecb7afe~mv2.jpg/v1/crop/x_102,y_87,w_489,h_287/fill/w_490,h_288,al_c,lg_1,q_80,usm_0.33_1.00_0.00,enc_auto/08b213_0d0b53d2e1524a2b993b92bceecb7afe~mv2.jpg")
 business1_profile = Profile.new(first_name: "", last_name: "", username: "StellarEvents", address: "Carrer de Mallorca, 123, 08036 Barcelona, Spain", is_business: true)
-business2_profile.user = business1
-business2_profile.photo.attach(io: file, filename: "stellar.png", content_type: "image/png")
+business1_profile.user = business1
+business1_profile.photo.attach(io: file, filename: "stellar.png", content_type: "image/png")
 business1_profile.save
-file = URI.open("")
+file = URI.open("https://www.citysearch.ae/uf/companies/8455/scape.png")
 business2_profile = Profile.new(first_name: "", last_name: "", username: "Dreamscape", address: "Avinguda Diagonal, 456, 08037 Barcelona, Spain", is_business: true)
 business2_profile.user = business2
 business2_profile.photo.attach(io: file, filename: "dreamscape.png", content_type: "image/png")
 business2_profile.save
-file = URI.open("")
+file = URI.open("https://www.themoviedb.org/t/p/original/hAuWEVmEq7kD0fXFgvZjVrK9dOX.png")
 business3_profile = Profile.new(first_name: "", last_name: "", username: "EnchantedBCN", address: "Passeig de Gràcia, 789, 08008 Barcelona, Spain", is_business: true)
 business3_profile.user = business3
 business3_profile.photo.attach(io: file, filename: "enchantedbcn", content_type: "image/png")
 business3_profile.save
-file = URI.open("")
+file = URI.open("https://images.squarespace-cdn.com/content/v1/5fa064f5ba377a5278be236f/1604360961964-L0ZP8XISJL8OUUXAFZ8Z/Logo_Linear_C_Colour.png?format=1500w")
 business4_profile = Profile.new(first_name: "", last_name: "", username: "SpectraEvents", address: "Plaça de Catalunya, 234, 08002 Barcelona, Spain", is_business: true)
 business4_profile.user = business4
 business4_profile.photo.attach(io: file, filename: "spectra", content_type: "image/png")
@@ -426,6 +426,63 @@ friendship14 = Friendship.new
 friendship14.user = martin
 friendship14.friend = carlos
 friendship14.save
+friendship15 = Friendship.new
+friendship15.user = lewagonbcn
+friendship15.friend = carlos
+friendship15.save
+friendship16 = Friendship.new
+friendship16.user = lewagonbcn
+friendship16.friend = simon
+friendship16.save
+friendship17 = Friendship.new
+friendship17.user = lewagonbcn
+friendship17.friend = harris
+friendship17.save
+friendship18 = Friendship.new
+friendship18.user = lewagonbcn
+friendship18.friend = marien
+friendship18.save
+friendship19 = Friendship.new
+friendship19.user = lewagonbcn
+friendship19.friend = florian
+friendship19.save
+friendship20 = Friendship.new
+friendship20.user = lewagonbcn
+friendship20.friend = martin
+friendship20.save
+friendship21 = Friendship.new
+friendship21.user = lewagonbcn
+friendship21.friend = pablo
+friendship21.save
+friendship22 = Friendship.new
+friendship22.user = lewagonbcn
+friendship22.friend = ade
+friendship22.save
+friendship23 = Friendship.new
+friendship23.user = lewagonbcn
+friendship23.friend = laure
+friendship23.save
+friendship24 = Friendship.new
+friendship24.user = lewagonbcn
+friendship24.friend = nestor
+friendship24.save
+friendship25 = Friendship.new
+friendship25.user = lewagonbcn
+friendship25.friend = giacomo
+friendship25.save
+friendship26 = Friendship.new
+friendship26.user = lewagonbcn
+friendship26.friend = pato
+friendship26.save
+friendship27 = Friendship.new
+friendship27.user = lewagonbcn
+friendship27.friend = ben
+friendship27.save
+friendship28 = Friendship.new
+friendship28.user = lewagonbcn
+friendship28.friend = filip
+friendship28.save
+
 
 puts "Creating groups of friends..."
 group1 = Group.create(name: "Best pals")
@@ -443,6 +500,9 @@ group4.save
 group5 = Group.create(name: "Sunday volleyball")
 group5.user = carlos
 group5.save
+group6 = Group.create(name: "batch-#1236-bcn")
+group6.user = lewagonbcn
+group6.save
 
 puts "Creating group of friendships..."
 group_friendships1 = GroupFriendship.new
@@ -497,6 +557,62 @@ group_friendships13 = GroupFriendship.new
 group_friendships13.group = group5
 group_friendships13.friendship = friendship13
 group_friendships13.save
+group_friendships14 = GroupFriendship.new
+group_friendships14.group = group6
+group_friendships14.friendship = friendship15
+group_friendships14.save
+group_friendships15 = GroupFriendship.new
+group_friendships15.group = group6
+group_friendships15.friendship = friendship16
+group_friendships15.save
+group_friendships16 = GroupFriendship.new
+group_friendships16.group = group6
+group_friendships16.friendship = friendship17
+group_friendships16.save
+group_friendships17 = GroupFriendship.new
+group_friendships17.group = group6
+group_friendships17.friendship = friendship18
+group_friendships17.save
+group_friendships18 = GroupFriendship.new
+group_friendships18.group = group6
+group_friendships18.friendship = friendship19
+group_friendships18.save
+group_friendships19 = GroupFriendship.new
+group_friendships19.group = group6
+group_friendships19.friendship = friendship20
+group_friendships19.save
+group_friendships20 = GroupFriendship.new
+group_friendships20.group = group6
+group_friendships20.friendship = friendship21
+group_friendships20.save
+group_friendships21 = GroupFriendship.new
+group_friendships21.group = group6
+group_friendships21.friendship = friendship22
+group_friendships21.save
+group_friendships22 = GroupFriendship.new
+group_friendships22.group = group6
+group_friendships22.friendship = friendship23
+group_friendships22.save
+group_friendships23 = GroupFriendship.new
+group_friendships23.group = group6
+group_friendships23.friendship = friendship24
+group_friendships23.save
+group_friendships24 = GroupFriendship.new
+group_friendships24.group = group6
+group_friendships24.friendship = friendship25
+group_friendships24.save
+group_friendships25 = GroupFriendship.new
+group_friendships25.group = group6
+group_friendships25.friendship = friendship26
+group_friendships25.save
+group_friendships26 = GroupFriendship.new
+group_friendships26.group = group6
+group_friendships26.friendship = friendship27
+group_friendships26.save
+group_friendships27 = GroupFriendship.new
+group_friendships27.group = group6
+group_friendships27.friendship = friendship28
+group_friendships27.save
 
 puts "Creating bookmarks..."
 events = [public_event1, public_event2, public_event3, public_event4, public_event5, public_event6, public_event7, public_event8, public_event9, public_event10, private_event1, private_event2, private_event3, private_event4, private_event5, private_event6, private_event7, private_event8, private_event9, private_event10]
