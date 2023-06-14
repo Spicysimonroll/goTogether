@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     end
   end
 
-  get "/myprofile", to: "profiles#show", as: "user_profile"
+  get "/profiles/:id", to: "profiles#show", as: "user_profile"
   get "/invitations", to: "invitations#index"
   get "events/:event_id/invitations/new", to: "invitations#new", as: "invitations_new"
   post "/events/:event_id/invitations/", to: "invitations#create", as: "event_invitations"
