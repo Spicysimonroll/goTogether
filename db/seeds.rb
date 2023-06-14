@@ -68,7 +68,7 @@ martin_profile = Profile.new(first_name: "Martin", last_name: "Dabber", username
 martin_profile.user = martin
 martin_profile.photo.attach(io: file, filename: "martin.png", content_type: "image/png")
 martin_profile.save
-file = URI.open("https://ca.slack-edge.com/T02NE0241-U053FEREE9Z-46308cbe85b5-512")
+file = URI.open("https://ca.slack-edge.com/T02NE0241-U053BJTT1RA-5da71ecd8aea-512")
 pablo_profile = Profile.new(first_name: "Pablo", last_name: "Williams", username: "pabloWill", address: "C/ del Bruc, 149, 08037 Barcelona", description: "Empathetic listener and compassionate soul, ready to lend an ear", is_business: false)
 pablo_profile.user = pablo
 pablo_profile.photo.attach(io: file, filename: "pablo.png", content_type: "image/png")
@@ -117,20 +117,30 @@ business3 = User.create(email: "business3@test.com", password: "test1234")
 business4 = User.create(email: "business4@test.com", password: "test1234")
 
 puts "Creating profile for business users..."
+file = URI.open("https://techla.pro/wp-content/uploads/2023/03/Le-Wagon-logo.png")
 lewagonbcn_profile = Profile.new(first_name: "", last_name: "", username: "LeWagonBCN", address: "Carrer de Mallorca, 123, 08036 Barcelona, Spain", is_business: true)
 lewagonbcn_profile.user = lewagonbcn
+lewagonbcn_profile.photo.attach(io: file, filename: "lwbcn.png", content_type: "image/png")
 lewagonbcn_profile.save
+file = URI.open("")
 business1_profile = Profile.new(first_name: "", last_name: "", username: "StellarEvents", address: "Carrer de Mallorca, 123, 08036 Barcelona, Spain", is_business: true)
-business1_profile.user = business1
+business2_profile.user = business1
+business2_profile.photo.attach(io: file, filename: "stellar.png", content_type: "image/png")
 business1_profile.save
+file = URI.open("")
 business2_profile = Profile.new(first_name: "", last_name: "", username: "Dreamscape", address: "Avinguda Diagonal, 456, 08037 Barcelona, Spain", is_business: true)
 business2_profile.user = business2
+business2_profile.photo.attach(io: file, filename: "dreamscape.png", content_type: "image/png")
 business2_profile.save
+file = URI.open("")
 business3_profile = Profile.new(first_name: "", last_name: "", username: "EnchantedBCN", address: "Passeig de Gràcia, 789, 08008 Barcelona, Spain", is_business: true)
 business3_profile.user = business3
+business3_profile.photo.attach(io: file, filename: "enchantedbcn", content_type: "image/png")
 business3_profile.save
+file = URI.open("")
 business4_profile = Profile.new(first_name: "", last_name: "", username: "SpectraEvents", address: "Plaça de Catalunya, 234, 08002 Barcelona, Spain", is_business: true)
 business4_profile.user = business4
+business4_profile.photo.attach(io: file, filename: "spectra", content_type: "image/png")
 business4_profile.save
 
 puts "Creating public events..."
