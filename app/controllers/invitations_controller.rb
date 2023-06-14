@@ -42,7 +42,13 @@ class InvitationsController < ApplicationController
     authorize @invitation, :reject?
     @invitation.reject
     redirect_to invitations_path, notice: 'Invitation was successfully rejected.'
+  end
 
+  def destroy
+    @invitation = Invitation.find(params[:id])
+    authorize @invitation
+    @invitation.destroy
+    redirect_to invitations_path, status: :see_other
   end
 
   private

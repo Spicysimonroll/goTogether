@@ -3,6 +3,7 @@
 @import "events_index";
 @import "profile_show";
 @import "friendships_index";
+@import "invitations_index";
 
 .flex-container {
   display: flex;
@@ -32,3 +33,4 @@
 .Searchbar {
   border-radius: 10px;
 }
+
