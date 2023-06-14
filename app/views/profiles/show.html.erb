@@ -1,6 +1,6 @@
 <div class="user-profile p-4 border-bottom">
   <div class="d-flex align-items-center">
-    <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar-medium ms-2 me-2" %>
+    <%= cl_image_tag @user.profile.photo.key, class: "avatar-medium ms-2 me-2" %>
       <div class="p-2 user-info">
         <%= @user.profile.first_name %> <%= @user.profile.last_name %> <span id="username" class="ms-1">@<%= @user.profile.username %></span>
       </div>
