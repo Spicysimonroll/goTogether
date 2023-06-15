@@ -36,6 +36,7 @@ pato = User.create(email: "pato@test.com", password: "test1234")
 ben = User.create(email: "ben@test.com", password: "test1234")
 filip = User.create(email: "filip@test.com", password: "test1234")
 
+private_users = [simon, harris, marien, florian, martin, pablo, ade, laure, nestor, giacomo, pato, ben, filip]
 
 puts "Creating profile for private users..."
 file = URI.open("https://ca.slack-edge.com/T02NE0241-U053J34J604-46a3a9487bb8-512")
@@ -256,8 +257,9 @@ public_event10 = Event.new(
 public_event10.user = businesses[rand(0..3)]
 public_event10.save
 
+
+
 puts "Creating private events..."
-private_users = [simon, harris, marien, florian, martin, pablo, ade, laure, nestor, giacomo, pato, ben, filip]
 private_event1 = Event.new(
   title: "Midsummer Night Music Festival",
   address: "Plaça del Fòrum, Barcelona",
@@ -291,8 +293,9 @@ private_event3 = Event.new(
 )
 private_event3.user = laure
 private_event3.save
+file = URI.open("https://dxbhsrqyrr690.cloudfront.net/sidearm.nextgen.sites/tarletonsports.com/images/2023/4/24/Beach_Volleyball_Home_Page_Image.png")
 private_event4 = Event.new(
-  title: "Barcelona Beach Volleyball Championship",
+  title: "Beach Volleyball Championship",
   address: "Nova Icaria Beach, Barcelona",
   description: "Witness the thrilling Barcelona Beach Volleyball Championship as top teams compete for glory on the sandy shores. Cheer for your favorites and soak up the beach vibes.",
   category: "Sports Event",
@@ -301,6 +304,7 @@ private_event4 = Event.new(
   is_private: true
 )
 private_event4.user = carlos
+private_event4.photo.attach(io: file, filename: "beachvolley.png", content_type: "image/png")
 private_event4.save
 private_event5 = Event.new(
   title: "Street Art Festival",
@@ -325,7 +329,7 @@ private_event6 = Event.new(
 private_event6.user = marien
 private_event6.save
 private_event7 = Event.new(
-  title: "Barcelona Electronic Music Festival",
+  title: "Electronic Music Festival",
   address: "Poble Espanyol, Barcelona",
   description: "Immerse yourself in the world of electronic music at the Barcelona Electronic Music Festival. Experience electrifying DJ sets, immersive light shows, and dance all night long.",
   category: "Music Festival",
@@ -347,7 +351,7 @@ private_event8 = Event.new(
 private_event8.user = harris
 private_event8.save
 private_event9 = Event.new(
-  title: "monaco Film Night",
+  title: "Ping Pong",
   address: "Cinema Comedia, Monte carlo",
   description: "Cinema monaco.",
   category: "Film Screening",
@@ -358,9 +362,9 @@ private_event9 = Event.new(
 private_event9.user = private_users[rand(1..12)]
 private_event9.save
 private_event10 = Event.new(
-  title: "Ruby Meetup",
+  title: "Improve your Front-end",
   address: "Carrer del Bruc 149, Barcelona",
-  description: "Join us for an evening of Ruby programming discussions and networking. Whether you're a beginner or an experienced Ruby developer, this meetup is a great opportunity to learn, share ideas, and meet fellow Ruby enthusiasts. We'll have guest speakers, lightning talks, and plenty of time for Q&A. Don't forget to bring your laptops and questions!",
+  description: "Join me for an evening of front-end programming practise and networking. Whether you're a beginner or an experienced Ruby developer, this meetup is a great opportunity to learn, share ideas, and meet fellow Ruby enthusiasts. We'll have guest speakers, lightning talks, and plenty of time for Q&A. Don't forget to bring your laptops and questions!",
   category: "Technology",
   start_date: "2023-06-28",
   end_date: "2023-06-30",
