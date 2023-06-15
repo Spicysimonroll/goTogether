@@ -33,19 +33,6 @@
   }
 }
 
-// .event-card-right {
-//   padding: 15px;
-
-//   .event-right-info {
-//     color: $black;
-//     height: 110px;
-
-//     .event-address {
-
-//     }
-//   }
-// }
-
 .card-title{
   color: rgb(60, 37, 194);
 }
@@ -55,37 +42,22 @@
   font-weight: bold;
 }
 
-.show-event-card {
-  box-shadow: 4px 4px 4px rgba(0,0,0,0.2);
-  border-radius: 15px;
-  padding: 5px;
-  margin: 5px;
-  background-color: $pink;
-  justify-content: center;
-}
-
-.show-event-card-header {
-  align-items: center;
-
-  .header-info-box {
-    height: 70px;
-    width: 215px;
-
-    h2 {
-      font-size: 20px;
-    }
-  }
-}
-
 .show-event-image {
-  display: flex;
   background-size: cover;
   background-position: center;
-  height: 200px;
-  position: relative;
-  margin: 0 auto;
-
+  height: 300px;
+  width: 100vw;
 }
+
+.event-user-info {
+  height: 85px;
+  width: 85px;
+  font-size: 13px;
+}
+  // h2 {
+  //   font-size: 20px;
+  // }
+
 
 .show-event-card-footer {
   margin: 5px;
