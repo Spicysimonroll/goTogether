@@ -11,6 +11,7 @@
 }
 
 .simple-calendar {
+  border-radius: 15px;
   width: 85vw;
   height: auto;
   border: 1px solid $black;
@@ -20,6 +21,8 @@
   }
 
   .calendar-heading {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
     display: flex;
     justify-content: space-around;
     padding: 10px;
@@ -33,9 +36,28 @@
 
   .table {
     margin-bottom: 0;
+    border: none !important;
 
     th, td {
       text-align: center;
+    }
+
+    tbody {
+
+      tr:last-child {
+
+        td:first-child {
+          border-bottom: none !important;
+          border-left: none !important;
+          border-bottom-left-radius: 15px;
+        }
+
+        td:last-child {
+          border-bottom: none !important;
+          border-bottom-right-radius: 15px;
+          border-right: none !important;
+        }
+      }
     }
   }
 }

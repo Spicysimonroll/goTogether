@@ -36,83 +36,12 @@
   color: rgb(60, 37, 194);
 }
 
-.show-event-image-container {
-  width: 100vw;
-  position: relative;
-
-  .event-img {
-    height: 300px;
-    width: 100%;
-    object-fit: cover;
-    object-position: center;
-    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7));
-  }
-
-  .event-user-info {
-    height: 70px;
-    width: 100%;
-    position: absolute;
-    bottom: -35px;
-    left: 15px;
-
-    .border-white {
-      border: 3px solid $white;
-    }
-
-    .event-user-username {
-      position: relative;
-
-      p {
-        position: absolute;
-        bottom: 2px;
-        left: 10px;
-        font-size: 18px;
-      }
-    }
-  }
-}
-
-.date-place {
-  p {
-    font-size: 1.1em;
-  }
-}
-
 .event-title-btn {
   font-size: 18px;
 }
 
 .show-event-card-actions {
   margin: 5px;
-}
-
-.show-event-icons {
-  justify-content: flex-end;
-  font-size: 26px;
-  padding: 0px;
-
-  i {
-    padding-left: 20px;
-    color: $black;
-  }
-}
-
-.show-comments-card {
-  padding: 5px;
-  margin-top: 30px;
-}
-
-.current-user-comment, .other-user-comment {
-  background-color: $mainblue;
-  color: $white;
-  padding: 10px 20px;
-  margin-top: 10px;
-  border-radius: 20px;
-}
-
-.other-user-comment {
-  background-color: $secondblue;
-  color: $white;
 }
 
 .fa-chevron-left::before {
@@ -123,7 +52,7 @@
   margin-bottom: 10px;
 }
 
-.fa-bookmark, .fa-comment {
+.fa-bookmark {
   font-size: 30px;
 }
 

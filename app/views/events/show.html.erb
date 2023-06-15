@@ -1,20 +1,13 @@
 <div class="show-event-image-container mb-5">
   <%= cl_image_tag @event.photo.key, class: "event-img" %>
-  <div class="event-user-info d-flex">
-    <%= cl_image_tag @event.user.profile.photo.key, class: "avatar-large border-white" %>
-    <div class="event-user-username"><p class="m-0">@<%= @event.user.profile.username %></p></div>
+  <div class="event-user-info d-flex justify-content-between">
+    <a href="#" class="d-flex">
+      <%= cl_image_tag @event.user.profile.photo.key, class: "avatar-large border-white" %>
+      <div class="event-user-username text-black"><p class="m-0">@<%= @event.user.profile.username %></p></div>
+    </a>
   </div>
+  <%# <div><i class="fa-solid fa-ellipsis"></i></div> %>
 </div>
-
-<div>
-    <% if @event.user != current_user %>
-      <% if Bookmark.find_by(user: current_user, event: @event) %>
-        <%= link_to '<i class="fa-solid fa-bookmark p-0"></i>'.html_safe, root_path, class:"d-flex align-items-center p-2" %>
-      <% else %>
-        <%= link_to '<i class="fa-regular fa-bookmark p-0"></i>'.html_safe, root_path, class:"d-flex align-items-center p-2" %>
-      <% end %>
-    <% end %>
-  </div>
 
 <div class="container"
      data-controller="event-showpage map"
@@ -23,15 +16,39 @@
 
   <div class="row">
 
-    <h1 class="text-center flex-grow-1 m-0 pt-3 pb-3">
-      <%= @event.title %>
-      <%# if @event.user == current_user %>
-        <%#= link_to '<i class="fa-solid fa-pen"></i>'.html_safe, "#", class: "event-title-btn"%>
-        <%#= link_to '<i class="fa-solid fa-trash-can"></i>'.html_safe, "#", class: "event-title-btn"%>
-      <%# end %>
-    </h1>
 
-    <div class="d-flex justify-content-center show-event-card-actions mt-2">
+    <div class="d-flex align-items-center justify-content-center">
+      <h1 class="d-flex align-items-center text-center m-0 pt-2 pb-2">
+        <%= @event.title %>
+        <%# if @event.user != current_user %>
+          <%# if Bookmark.find_by(user: current_user, event: @event) %>
+            <%#= link_to '<i class="fa-solid fa-bookmark text-black mt-1 p-0"></i>'.html_safe, root_path, class:"d-flex align-items-center p-2" %>
+          <%# else %>
+            <%#= link_to '<i class="fa-regular fa-bookmark text-black mt-1 p-0"></i>'.html_safe, root_path, class:"d-flex align-items-center p-2" %>
+          <%# end %>
+        <%# end %>
+        
+        <%# if @event.user == current_user %>
+          <%#= link_to '<i class="fa-solid fa-pen"></i>'.html_safe, "#", class: "event-title-btn"%>
+          <%#= link_to '<i class="fa-solid fa-trash-can"></i>'.html_safe, "#", class: "event-title-btn"%>
+        <%# end %>
+      </h1>
+
+
+    </div>
+
+
+    <div class="d-flex justify-content-center">
+      <% if !@event.user.profile.is_business %>
+        <a href="#comment-input" class="d-flex align-items-center text-black"><%= @event.comments.count %> <%= @event.comments.count != 1 ? "comments" : "comment" %></a>
+      <% end %>
+    </div>
+
+    <% if @event.user == current_user %>
+      <div class="d-none d-flex justify-content-center show-event-card-actions m-0 mt-3">
+    <% else %>
+      <div class="d-flex justify-content-center show-event-card-actions m-0 mt-3">
+    <% end %>
 
       <div class="d-flex align-items-center">
         <% if @event.user.profile.is_business %>
@@ -63,26 +80,26 @@
         <% end %>
       </div>
 
-
-      <div class="show-event-icons d-flex">
-        <% if !@event.user.profile.is_business %>
-          <a href="#comment-input" class="d-flex align-items-center p-2"><i class="fa-regular fa-comment p-0"></i></a>
-        <% end %>
-      </div>
-
     </div>
 
     <div>
 
-      <div class="date-place">
-        <div class="d-flex align-items-center justify-content-center">
+      <div class="date-place mt-3">
+        <% if @event.start_date.strftime('%e %B %Y') != @event.end_date.strftime('%e %B %Y') %>
+          <div class="d-flex align-items-center justify-content-center mb-2">
+            <i class="fa-solid fa-calendar-days p-2"></i>
+            <p class="text-center m-0 ms-3 me-3"><%= "#{@event.start_date.strftime('%e %B %Y, %H:%M')} to" %> <br> <%= "#{@event.end_date.strftime('%e %B %Y, %H:%M')}" %></p>
+          </div>
+        <% else %>
+        <div class="d-flex align-items-center justify-content-center mb-2">
           <i class="fa-solid fa-calendar-days p-2"></i>
-          <p class="text-center mt-3 mb-2 ms-3 me-3"><%= "#{@event.start_date.strftime('%e %B %Y, %H:%M')} to" %> <br> <%= "#{@event.end_date.strftime('%e %B %Y, %H:%M')}" %></p>
+          <p class="text-center m-0 ms-3 me-3"><%= "#{@event.start_date.strftime('%e %B %Y, %H:%M')} - " %><%= "#{@event.end_date.strftime('%H:%M')}" %></p>
         </div>
+        <% end %>
 
         <div class="d-flex align-items-center justify-content-center">
           <i class="fa-solid fa-location-dot p-2 m-1"></i>
-          <p class="text-center m-1 "><%= @event.address %></p>
+          <div class="location"><p class="text-center m-1 "><%= @event.address %></p></div>
         </div>
       </div>
 
@@ -111,8 +128,13 @@
 
     <div class="comments-section mb-2">
 
-      <div class="show-comments-card">
-        <div class="d-flex justify-content-between"><h2 class="mb-3">Comments</h2><p id="show-comments-btn" data-action="click->event-showpage#toggleComments">See more <i class="fa-solid fa-caret-down"></i></p></div>
+      <div class="users-comments">
+        <div class="d-flex justify-content-between">
+          <h2 class="mb-3">Comments</h2>
+          <% if @event.comments.count > 5 %>
+            <p id="users-comments-btn" data-action="click->event-showpage#toggleComments">See more <i class="fa-solid fa-caret-down"></i></p>
+          <% end %>
+        </div>
         <div data-event-showpage-target="commentSection">
           <% comments_count = @event.comments.count %>
           <% @event.comments.order(created_at: :asc).each_with_index do |comment, index| %>
