@@ -746,7 +746,7 @@ group_friendships27.friendship = friendship28
 group_friendships27.save
 
 puts "Creating bookmarks..."
-events = [public_event1, public_event2, public_event3, public_event4, public_event5, public_event6, public_event7, public_event8, public_event9, public_event10, private_event1, private_event2, private_event3, private_event4, private_event5, private_event6, private_event7, private_event8, private_event9, private_event10]
+events = [public_event1, public_event2, public_event3, public_event4, public_event5, public_event6, public_event7, public_event8, public_event9, public_event10, private_event2, private_event3, private_event4, private_event5, private_event6, private_event7, private_event8, private_event9, private_event10]
 bookmark1 = Bookmark.new
 bookmark1.user = carlos
 bookmark1.event = events[rand(0..19)]
