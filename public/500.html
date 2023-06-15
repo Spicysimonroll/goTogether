@@ -4,17 +4,44 @@
   <title>We're sorry, but something went wrong (500)</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
+    @import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
+
+    body {
+      background-color: #FEF7F7;
+      font-family: 'Work Sans', sans-serif;
+    }
+    .dialog {
+      width: 300px;
+      margin: 0 auto;
+      text-align: center;
+      margin: 190px auto;
+    }
+
+    .dialog p {
+      line-height: 1.8;
+    }
+
+    .dialog h1 {
+      font-family: 'Nunito', sans-serif;
+      color: #3860ED;
+    }
+
+    .dialog h2 {
+      font-family: 'Nunito', sans-serif;
+      color: #3860ED;
+    }
   </style>
 </head>
 
-<body class="rails-default-error-page">
+<body>
   <!-- This file lives in public/500.html -->
   <div class="dialog">
     <div>
-      <h1>We're sorry, but something went wrong.</h1>
+      <h1>Oops! 500 error</h1>
+      <h2>Our server is having a momentary dance-off.</h2>
     </div>
-    <p>If you are the application owner check the logs for more information. If not, no worries, we will fix it in a bit</p>
-    <p>Namaste</p>
+    <p>We apologize for the inconvenience and assure you we're working hard to bring the rhythm back. Stay tuned, and we'll have the beats flowing again in no time!</p>
+    <p>Namaste.</p>
   </div>
 </body>
 </html>
