@@ -8,10 +8,28 @@
     color: $black;
   }
 }
+.notification-box {
+  position: relative;
 
-.red-dot{
-  color: red;
-  font-size: 10px !important;
+
+    .blue-dot {
+      position: absolute;
+      color: $mainblue;
+      font-size: 10px;
+      top: 5px;
+      left: -3px;
+      z-index: 1;
+    }
+
+    .white-dot {
+      position: absolute;
+      color: white;
+      font-size: 13px;
+      left: -5px;
+      top: 4px;
+    }
+
+
 }
 
 .navbar-lewagon .navbar-collapse {

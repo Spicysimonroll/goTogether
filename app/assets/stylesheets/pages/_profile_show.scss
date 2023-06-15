@@ -34,6 +34,25 @@
     }
   }
 
+  .prev-month, .next-month {
+    background: #FFF4F4;
+  }
+
+  .today {
+    background: none;
+    border: 2px solid $mainblue;
+  }
+
+  // .table-striped {
+  //   tbody {
+  //     tr:nth-child(odd) {
+  //       background-color: inherit;
+  //     }
+  //   }
+
+
+  // }
+
   .table {
     margin-bottom: 0;
     border: none !important;
