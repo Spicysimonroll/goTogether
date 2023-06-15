@@ -58,3 +58,10 @@
   //   right: 1px;
   // }
 }
+
+
+// ... Other styles ...
+
+[data-action="click->search#toggleSearch"]:hover {
+  cursor: pointer;
+}
