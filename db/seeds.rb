@@ -143,6 +143,7 @@ business4_profile.photo.attach(io: file, filename: "spectra", content_type: "ima
 business4_profile.save
 
 puts "Creating public events..."
+file = URI.open("https://sivoris.com/wp-content/uploads/2019/05/bbf-lasexta-com.jpg")
 businesses = [business1, business2, business3, business4]
 public_event1 = Event.new(
   title: "Summer Music Festival",
@@ -154,7 +155,7 @@ public_event1 = Event.new(
   is_private: false
 )
 public_event1.user = businesses[rand(0..3)]
-public_event1.photo.attach.(io: file, filename: "gastro.jpg", content_type: "image/jpg")
+public_event1.photo.attach(io: file, filename: "gastro.jpg", content_type: "image/jpg")
 public_event1.save
 
 file = URI.open("https://www.thedailymeal.com/img/gallery/the-most-iconic-dishes-of-molecular-gastronomy/main_0.jpg")
@@ -168,7 +169,7 @@ public_event2 = Event.new(
   is_private: false
 )
 public_event2.user = businesses[rand(0..3)]
-public_event2.photo.attach.(io: file, filename: "gastro.jpg", content_type: "image/jpg")
+public_event2.photo.attach(io: file, filename: "gastro.jpg", content_type: "image/jpg")
 public_event2.save
 
 file = URI.open("https://observer.com/wp-content/uploads/sites/2/2020/03/Screen-Shot-2020-03-13-at-2.12.14-PM.png")
@@ -182,7 +183,7 @@ public_event3 = Event.new(
   is_private: false
 )
 public_event3.user = businesses[rand(0..3)]
-public_event3.photo.attach.(io: file, filename: "artex.png", content_type: "image/png")
+public_event3.photo.attach(io: file, filename: "artex.png", content_type: "image/png")
 public_event3.save
 
 file = URI.open("https://media.wonderlandmagazine.com/uploads/2020/09/61b6ad3fbafc10cdb9800de6159a11eb1600361039959.jpg")
@@ -196,7 +197,7 @@ public_event4 = Event.new(
   is_private: false
 )
 public_event4.user = businesses[rand(0..3)]
-public_event4.photo.attach.(io: file, filename: "fashion.jpg", content_type: "image/jpg")
+public_event4.photo.attach(io: file, filename: "fashion.jpg", content_type: "image/jpg")
 public_event4.save
 
 file = URI.open("https://images.squarespace-cdn.com/content/v1/5630f90ee4b032072583da6d/1578579143682-CRRIIIEU5WPPNUHED7B0/runners.jpg?format=1500w")
@@ -210,7 +211,7 @@ public_event5 = Event.new(
   is_private: false
 )
 public_event5.user = businesses[rand(0..3)]
-public_event5.photo.attach.(io: file, filename: "run.jpg", content_type: "image/jpg")
+public_event5.photo.attach(io: file, filename: "run.jpg", content_type: "image/jpg")
 public_event5.save
 
 file = URI.open("https://media-edg.barcelona.cat/wp-content/uploads/2021/07/08140623/Sala_Montjuic_05-1024x683.jpeg")
@@ -224,7 +225,7 @@ public_event6 = Event.new(
   is_private: false
 )
 public_event6.user = businesses[rand(0..3)]
-public_event6.photo.attach.(io: file, filename: "cinemastars.jpg", content_type: "image/jpg")
+public_event6.photo.attach(io: file, filename: "cinemastars.jpg", content_type: "image/jpg")
 public_event6.save
 
 file = URI.open("https://www.travelperk.com/wp-content/uploads/alexandre-pellaes-6vAjp0pscX0-unsplash-1-1.jpg")
@@ -238,7 +239,7 @@ public_event7 = Event.new(
   is_private: false
 )
 public_event7.user = businesses[rand(0..3)]
-public_event7.photo.attach.(io: file, filename: "tech.jpg", content_type: "image/jpg")
+public_event7.photo.attach(io: file, filename: "tech.jpg", content_type: "image/jpg")
 public_event7.save
 
 file = URI.open("https://res.cloudinary.com/hz3gmuqw6/image/upload/c_fill,f_auto,q_60,w_750/v1/goldenapron/62321f5b3f382")
@@ -252,7 +253,7 @@ public_event8 = Event.new(
   is_private: false
 )
 public_event8.user = businesses[rand(0..3)]
-public_event8.photo.attach.(io: file, filename: "salsa.png", content_type: "image/jpg")
+public_event8.photo.attach(io: file, filename: "salsa.png", content_type: "image/png")
 public_event8.save
 
 file = URI.open("https://www.tastingtable.com/img/gallery/everything-you-need-to-know-when-having-a-wine-tasting-party/l-intro-1658767989.jpg")
@@ -266,7 +267,7 @@ public_event9 = Event.new(
   is_private: false
 )
 public_event9.user = businesses[rand(0..3)]
-public_event9.photo.attach(io: file, filename: "wine.png", content_type: "image/jpg")
+public_event9.photo.attach(io: file, filename: "wine.jpg", content_type: "image/jpg")
 public_event9.save
 
 file = URI.open("https://www.shbarcelona.com/blog/en/wp-content/uploads/2015/05/5-days-transformative-yoga-retreat-in-barcelona.jpg")
@@ -280,7 +281,7 @@ public_event10 = Event.new(
   is_private: false
 )
 public_event10.user = businesses[rand(0..3)]
-public_event10.photo.attach(io: file, filename: "yoga.png", content_type: "image/jpg")
+public_event10.photo.attach(io: file, filename: "yoga.jpg", content_type: "image/jpg")
 public_event10.save
 
 file = URI.open("https://www.theolivepress.es/wp-content/uploads/2022/11/Largest-immersive-exhibition-in-Spain-celebrates-legendary-artist-Pablo-Picasso.jpg?width=1200&enable=upscale")
@@ -294,7 +295,7 @@ public_event11 = Event.new(
   is_private: false
 )
 public_event11.user = business1
-public_event11.photo.attach(io: file, filename: "picasso.png", content_type: "image/png")
+public_event11.photo.attach(io: file, filename: "picasso.jpg", content_type: "image/png")
 public_event11.save
 
 file = URI.open("https://media.istockphoto.com/id/1148471940/photo/confetti-fireworks-above-the-crowd-on-music-festival.jpg?s=612x612&w=0&k=20&c=qM4xEbpIqqTli5oXq-oddPvFWW9IPAXKnPhcGQYn8qo=")
