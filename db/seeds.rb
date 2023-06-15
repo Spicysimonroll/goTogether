@@ -53,7 +53,7 @@ harris_profile.user = harris
 harris_profile.photo.attach(io: file, filename: "harris.png", content_type: "image/png")
 harris_profile.save
 file = URI.open("https://ca.slack-edge.com/T02NE0241-U05327GTDHU-7e43ec92b17a-512")
-marien_profile = Profile.new(first_name: "Marien", last_name: "I", username: "marienirzyk", address: "C/ del Bruc, 149, 08037 Barcelona", description: "Crypto enthusiast dedicated to exploring the latest advancements in the industry.", is_business: false)
+marien_profile = Profile.new(first_name: "Marien", last_name: "Irzyk", username: "marienirzyk", address: "C/ del Bruc, 149, 08037 Barcelona", description: "Crypto enthusiast dedicated to exploring the latest advancements in the industry.", is_business: false)
 marien_profile.user = marien
 marien_profile.photo.attach(io: file, filename: "marien.png", content_type: "image/png")
 marien_profile.save
@@ -116,7 +116,7 @@ business3 = User.create(email: "business3@test.com", password: "test1234")
 business4 = User.create(email: "business4@test.com", password: "test1234")
 
 puts "Creating profile for business users..."
-file = URI.open("https://techla.pro/wp-content/uploads/2023/03/Le-Wagon-logo.png")
+file = URI.open("https://coursereport-s3-production.global.ssl.fastly.net/uploads/school/logo/153/original/Icon_Red.png")
 lewagonbcn_profile = Profile.new(first_name: "", last_name: "", username: "LeWagonBCN", address: "Carrer de Mallorca, 123, 08036 Barcelona, Spain", is_business: true)
 lewagonbcn_profile.user = lewagonbcn
 lewagonbcn_profile.photo.attach(io: file, filename: "lwbcn.png", content_type: "image/png")
@@ -314,63 +314,63 @@ public_event12.save
 
 puts "Creating private events..."
 private_users = [simon, harris, marien, florian, martin, pablo, ade, laure, nestor, giacomo, pato, ben, filip]
-private_event1 = Event.new(
-  title: "Midsummer Night Music Festival",
-  address: "Plaça del Fòrum, Barcelona",
-  description: "Celebrate the enchanting Midsummer Night with a music festival under the starry sky. Enjoy performances by renowned artists, mesmerizing light shows, and a magical atmosphere.",
-  category: "Music Festival",
-  start_date: "2023-06-21",
-  end_date: "2023-06-24",
-  is_private: true
-)
-private_event1.user = nestor
-private_event1.save
+
+file = URI.open("https://ksassets.timeincuk.net/wp/uploads/sites/55/2012/03/DavidGuettaPA200111-2.jpg")
 private_event2 = Event.new(
-  title: "Giac's Birthday Bash",
+  title: "Superstar DJ",
   address: "Carrer d'Aribau 145, Barcelona",
-  description: "Join us for a night of celebration as we honor me! There will be music, dancing, and lots of fun.",
-  category: "Birthday Party",
-  start_date: "2023-06-23",
-  end_date: "2023-06-23",
+  description: "Guys I'm DJ'ing at a club next week and would love if you guys could join.",
+  category: "Party",
+  start_date: "2023-06-23T19:00:00",
+  end_date: "2023-06-24T02:00:00",
   is_private: true
 )
 private_event2.user = giacomo
+private_event2.photo.attach(io: file, filename: "superstar.jpg", content_type: "image/jpg")
 private_event2.save
+
+file = URI.open("https://www.cocinassobreruedas.com/wp-content/uploads/2022/05/los-mejores-food-trucks-en-Cataluna-2022.jpg")
 private_event3 = Event.new(
-  title: "Barcelona Food Truck Fiesta",
+  title: "Food Truck Fiesta",
   address: "Parc de la Ciutadella, Barcelona",
-  description: "Indulge in a culinary adventure at the Food Truck Fiesta. Discover a variety of mouth-watering cuisines from food trucks, enjoy live music, and soak in the vibrant ambiance.",
+  description: "Lets go to the Foodtruck Fiesta, if you want to come join the booking and I'll see you there!",
   category: "Food Festival",
-  start_date: "2023-06-27",
-  end_date: "2023-06-30",
+  start_date: "2023-06-27T20:00:00",
+  end_date: "2023-06-27T20:00:00",
   is_private: true
 )
 private_event3.user = laure
+private_event3.photo.attach(io: file, filename: "foodtruck.jpg", content_type: "image/jpg")
 private_event3.save
+
 file = URI.open("https://dxbhsrqyrr690.cloudfront.net/sidearm.nextgen.sites/tarletonsports.com/images/2023/4/24/Beach_Volleyball_Home_Page_Image.png")
 private_event4 = Event.new(
-  title: "Beach Volleyball Championship",
+  title: "Beach Volleyball Evening",
   address: "Nova Icaria Beach, Barcelona",
-  description: "Witness the thrilling Barcelona Beach Volleyball Championship as top teams compete for glory on the sandy shores. Cheer for your favorites and soak up the beach vibes.",
-  category: "Sports Event",
-  start_date: "2023-07-05",
-  end_date: "2023-07-09",
+  description: "Come join for an evening of volleyball, maybe we can grab some beers after."
+  start_date: "2023-06-25T18:00:00",
+  end_date: "2023-06-25T22:00:00",
   is_private: true
 )
 private_event4.user = carlos
 private_event4.photo.attach(io: file, filename: "beachvolley.png", content_type: "image/png")
 private_event4.save
+
+file = URI.open("")
 private_event5 = Event.new(
-  title: "Street Art Festival",
-  address: "Various Locations, 08906 Monte carlo",
-  description: "Experience the vibrant street art scene at the Barcelona Street Art Festival. Discover stunning murals, live art performances, workshops, and immerse yourself in creativity.",
-  category: "Art Festival",
-  start_date: "2023-07-10",
-  end_date: "2023-07-16",
+  title: "5-aside Football",
+  address: "Av. del Litoral, 85, 08005 Barcelona",
+  description: "Let me know if you want to come to 5-aside football this week. Join the event if you want to come and bring 5 EUR!!!",
+  category: "Sport",
+  start_date: "2023-06-22T19:00:00",
+  end_date: "2023-6-22T20:00:00",
   is_private: false
 )
 private_event5.user = harris
+private_event5.photo.attach(io: file, filename: "streetart.jpg", content_type: "image/jpg")
 private_event5.save
+
+file = URI.open("https://withlocals-com-res.cloudinary.com/image/upload/c_fill,f_auto,fl_progressive,g_auto,q_auto,w_500/6272d956f46cadbd0fb39c8085509aa5")
 private_event6 = Event.new(
   title: "Wine & Tapas Tour",
   address: "Various Venues, Barcelona",
@@ -381,29 +381,38 @@ private_event6 = Event.new(
   is_private: true
 )
 private_event6.user = marien
+private_event6.photo.attach(io: file, filename: "winetapas.jpg", content_type: "image/jpg")
 private_event6.save
+
+file = URI.open("https://img.freepik.com/premium-photo/happy-family-eating-barbecue-home-party-dinner_166273-398.jpg?w=2000")
 private_event7 = Event.new(
-  title: "Electronic Music Festival",
+  title: "BBQ & Flat Party",
   address: "Poble Espanyol, Barcelona",
-  description: "Immerse yourself in the world of electronic music at the Barcelona Electronic Music Festival. Experience electrifying DJ sets, immersive light shows, and dance all night long.",
+  description: "Join me for a bbq at my flat, bring some 🍷 and I'll bring the food.",
   category: "Music Festival",
-  start_date: "2023-07-25",
-  end_date: "2023-07-29",
+  start_date: "2023-07-25T19:00:00",
+  end_date: "2023-07-25T23:00:00",
   is_private: true
 )
 private_event7.user = ben
+private_event7.photo.attach(io: file, filename: "bbq.jpg", content_type: "image/jpg")
 private_event7.save
+
+file = URI.open("https://www.ethicalglobe.com/storage/images/entities/small/XVnSlLm9JqVTP0CmWLbzbW6L3VKWLsyqlPHUjBUY.png")
 private_event8 = Event.new(
-  title: "Barcelona Fashion Week",
+  title: "treen Sample Sale",
   address: "Fira Barcelona Montjuïc, Barcelona",
-  description: "Discover the latest trends and styles at Barcelona Fashion Week. Experience captivating runway shows, designer exhibitions, and be inspired by the world of fashion.",
+  description: "Grab your favourite treen items and a massive discount.",
   category: "Fashion Event",
-  start_date: "2023-07-31",
-  end_date: "2023-08-04",
+  start_date: "2023-06-30T18:00:00",
+  end_date: "2023-06-30T22:00:00",
   is_private: true
 )
 private_event8.user = harris
+private_event8.photo.attach(io: file, filename: "treen.png", content_type: "image/png")
 private_event8.save
+
+file.URI.open("https://media.istockphoto.com/id/108348650/es/foto/ping-pong-acci%C3%B3n.jpg?s=612x612&w=0&k=20&c=BGgvV6TOLn3AK5JgsI4nzf5-qLUeD9bQu-1krQjbpYc=")
 private_event9 = Event.new(
   title: "Ultimate Ping Pong",
   address: "C/ del Bruc, 149, 08037 Barcelona",
@@ -414,17 +423,21 @@ private_event9 = Event.new(
   is_private: false
 )
 private_event9.user = martin
+private_event9.photo.attach(io: file, filename: "pingpong.jpg", content_type: "image/jpg")
 private_event9.save
+
+file URI.open("https://img.freepik.com/premium-photo/man-climbing-gear-is-holding-laptop-mountains-alpinism-highrise-works-industrial-mountaineering-high_722504-1680.jpg?w=2000")
 private_event10 = Event.new(
-  title: "Improve your Front-end",
+  title: "Coding 💻 & Climbing 🧗‍♂️",
   address: "Carrer del Bruc 149, Barcelona",
-  description: "Join me for an evening of front-end programming practise and networking. Whether you're a beginner or an experienced Ruby developer, this meetup is a great opportunity to learn, share ideas, and meet fellow Ruby enthusiasts. We'll have guest speakers, lightning talks, and plenty of time for Q&A. Don't forget to bring your laptops and questions!",
+  description: "I like coding and climbing, so now I want to do both at the same time. Join me for some CSS 20 meters up 😬",
   category: "Technology",
-  start_date: "2023-06-28",
-  end_date: "2023-06-30",
+  start_date: "2023-06-28T19:00:00",
+  end_date: "2023-06-28T22:00:00",
   is_private: true
 )
 private_event10.user = simon
+private_event10.photo.attach(io: file, filename: "climbing.jpg", content_type: "image/jpg")
 private_event10.save
 
 puts "Creating friendships..."
@@ -552,6 +565,54 @@ friendship31 = Friendship.new
 friendship31.user = harris
 friendship31.friend = carlos
 friendship31.save
+friendship32 = Friendship.new
+friendship32.user = simon
+friendship32.friend = harris
+friendship32.save
+friendship33 = Friendship.new
+friendship33.user = simon
+friendship33.friend = marien
+friendship33.save
+friendship34 = Friendship.new
+friendship34.user = simon
+friendship34.friend = florian
+friendship34.save
+friendship35 = Friendship.new
+friendship35.user = simon
+friendship35.friend = martin
+friendship35.save
+friendship36 = Friendship.new
+friendship36.user = simon
+friendship36.friend = pablo
+friendship36.save
+friendship37 = Friendship.new
+friendship37.user = simon
+friendship37.friend = ade
+friendship37.save
+friendship38 = Friendship.new
+friendship38.user = simon
+friendship38.friend = laure
+friendship38.save
+friendship39 = Friendship.new
+friendship39.user = simon
+friendship39.friend = nestor
+friendship39.save
+friendship40 = Friendship.new
+friendship40.user = simon
+friendship40.friend = giacomo
+friendship40.save
+friendship41 = Friendship.new
+friendship41.user = simon
+friendship41.friend = pato
+friendship41.save
+friendship42 = Friendship.new
+friendship42.user = simon
+friendship42.friend = ben
+friendship42.save
+friendship43 = Friendship.new
+friendship43.user = simon
+friendship43.friend = filip
+friendship43.save
 
 puts "Creating groups of friends..."
 group1 = Group.create(name: "Best pals")
@@ -706,16 +767,6 @@ bookmark5.user = carlos
 bookmark5.event = events[rand(0..19)]
 bookmark5.save
 
-puts "Creating comments..."
-comment1 = Comment.new(content: "Awesome, let's go together!")
-comment1.event = private_event1
-comment1.user = martin
-comment1.save
-comment2 = Comment.new(content: "As a music lover, yes!!!")
-comment2.event = private_event1
-comment2.user = pablo
-comment2.save
-
 puts "Creating invitations..."
 invitation1 = Invitation.new
 invitation1.event = private_event9
@@ -747,5 +798,71 @@ booking2 = Booking.new(status: 1)
 booking2.event = public_event12
 booking2.user = simon
 booking2.save
+
+booking3 = Booking.new(status: 0)
+booking3.event = private_event10
+booking3.user = harris
+booking3.save
+
+booking4 = Booking.new(status: 0)
+booking4.event = private_event10
+booking4.user = marien
+booking4.save
+
+booking5 = Booking.new(status: 0)
+booking5.event = private_event10
+booking5.user = martin
+booking5.save
+
+booking6 = Booking.new(status: 0)
+booking6.event = private_event10
+booking6.user = florian
+booking6.save
+
+booking7 = Booking.new(status: 0)
+booking7.event = private_event10
+booking7.user = pablo
+booking7.save
+
+booking8 = Booking.new(status: 0)
+booking8.event = private_event10
+booking8.user = laure
+booking8.save
+
+booking9 = Booking.new(status: 0)
+booking9.event = private_event10
+booking9.user = ade
+booking9.save
+
+booking10 = Booking.new(status: 0)
+booking10.event = private_event10
+booking10.user = nestor
+booking10.save
+
+booking11 = Booking.new(status: 0)
+booking11.event = private_event10
+booking11.user = giacomo
+booking11.save
+
+puts "Creating comments..."
+comment1 = Comment.new(content: "Awesome, let's go together!")
+comment1.event = private_event10
+comment1.user = martin
+comment1.save
+
+comment2 = Comment.new(content: "I hate climbing, but love coding!!!")
+comment2.event = private_event10
+comment2.user = pablo
+comment2.save
+
+comment3 = Comment.new(content: "👍")
+comment3.event = private_event10
+comment3.user = florian
+comment3.save
+
+comment4 = Comment.new(content: "Nice. See you guys there")
+comment4.event = private_event10
+comment4.user = simon
+comment4.save
 
 puts "Done!"
