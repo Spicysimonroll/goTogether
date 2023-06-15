@@ -413,21 +413,21 @@ private_event8.user = harris
 private_event8.photo.attach(io: file, filename: "treen.png", content_type: "image/png")
 private_event8.save
 
-# file.URI.open("https://i.ytimg.com/vi/mSFTtTOGi4g/maxresdefault.jpg")
-# private_event9 = Event.new(
-#   title: "Ultimate Ping Pong",
-#   address: "C/ del Bruc, 149, 08037 Barcelona",
-#   description: "Calling all ping pong enthusiasts! Get ready for an adrenaline-fueled battle on the table as friends gather for the ultimate Ping Pong Championship. Prepare to showcase your skills, strategy, and lightning-fast reflexes in this exciting tournament.",
-#   category: "Sports",
-#   start_date: "2023-08-06T19:00:00",
-#   end_date: "2023-08-06T22:00:00",
-#   is_private: false
-# )
-# private_event9.user = martin
-# private_event9.photo.attach(io: file, filename: "pingpong.jpg", content_type: "image/jpg")
-# private_event9.save
+file = URI.open("https://i.ytimg.com/vi/mSFTtTOGi4g/maxresdefault.jpg")
+private_event9 = Event.new(
+  title: "Ultimate Ping Pong",
+  address: "C/ del Bruc, 149, 08037 Barcelona",
+  description: "Calling all ping pong enthusiasts! Get ready for an adrenaline-fueled battle on the table as friends gather for the ultimate Ping Pong Championship. Prepare to showcase your skills, strategy, and lightning-fast reflexes in this exciting tournament.",
+  category: "Sports",
+  start_date: "2023-08-06T19:00:00",
+  end_date: "2023-08-06T22:00:00",
+  is_private: false
+)
+private_event9.user = martin
+private_event9.photo.attach(io: file, filename: "pingpong.jpg", content_type: "image/jpg")
+private_event9.save
 
-file URI.open("https://upload.wikimedia.org/wikipedia/commons/2/26/Heinz_Zak%2C_Separate_Reality_5%2C11d%2C_Free_Solo%2C_Yosemite-Nationalpark%2C_Kalifornien%2C_USA.jpg")
+file = URI.open("https://upload.wikimedia.org/wikipedia/commons/2/26/Heinz_Zak%2C_Separate_Reality_5%2C11d%2C_Free_Solo%2C_Yosemite-Nationalpark%2C_Kalifornien%2C_USA.jpg")
 private_event10 = Event.new(
   title: "Coding 💻 & Climbing 🧗‍♂️",
   address: "Carrer del Bruc 149, Barcelona",
