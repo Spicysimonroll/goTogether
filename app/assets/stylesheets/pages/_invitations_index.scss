@@ -1,3 +1,9 @@
-.booking-icons {
-  float: right;
+.invitation {
+  position: relative;
+
+  .booking-icons {
+    position: absolute;
+    right: 13px;
+    bottom: -14px;
+  }
 }

@@ -28,7 +28,8 @@ class EventsController < ApplicationController
     end
 
     if user_signed_in?
-      @public_events = scope.where(is_private: false)
+      @public_events = scope.joins(user: :profile).where(is_private: false, profiles: {is_business: true})
+      @public_friends_events = scope.joins(user: [:profile, :friendships]).where(is_private: false, profiles: { is_business: false }, friendships: { friend: current_user } )
       event_ids = current_user.bookings.pluck(:event_id)
       @booked_events = scope.where(id: event_ids)
       @friendships = current_user.friendships

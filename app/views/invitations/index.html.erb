@@ -1,28 +1,32 @@
-<div class="container">
-  <h2>Pending event invitations 🗓️</h2>
-  <% current_user.received_invitations.each do |invitation| %>
-    <% if current_user != invitation.event.user && !current_user.bookings.where(event: invitation.event).exists? %>
-      <%= link_to event_path(invitation.event_id) do  %>
-      <div class="event-card d-flex">
-        <div class="event-card-left" style="background-image: url('https://images.pexels.com/photos/976866/pexels-photo-976866.jpg'); background-size: cover;">
-          <div class="card-profile-box">
-              <%= cl_image_tag invitation.event.user.profile.photo.key, class: "avatar" %>
-              <p><%= invitation.friendship.user.profile.username %></p>
+<div class="event-container mt-4 ms-1 me-1">
+  <h1 class="text-center">Pending invitations 🗓️</h1>
+  <div class="mt-4">
+    <% current_user.received_invitations.each do |invitation| %>
+      <% if current_user != invitation.event.user && !current_user.bookings.where(event: invitation.event).exists? %>
+
+        <%= link_to user_profile_path(invitation.event.user), class: "d-flex justify-content-center align-items-center mb-2" do %>
+              <%= cl_image_tag invitation.event.user.profile.photo.key, class: "avatar-medium border" %> <span class="ms-2 me-2 booking-user">@<%= invitation.friendship.user.profile.username %></span>
+        <% end %>
+
+        <%= link_to event_path(invitation.event_id) do %>
+
+          <div class="invitation">
+            <div class="event-card d-flex align-items-center justify-content-center mb-5">
+              <div class="card-info d-flex flex-column align-items-center justify-content-around">
+                <p class="event-date mt-2 mb-2 text-center"><i class="fa-solid fa-calendar-days me-2"></i><%= invitation.event.start_date.strftime('%e %B %Y') %></p>
+                <h2 class="event-title text-center"><%= invitation.event.title %></h2>
+                <p class="event-address m-0 d-flex justify-content-center"><span class="address text-center"><i class="fa-solid fa-location-dot"></i> <%= invitation.event.address %></span></p>
+              </div>
+            </div>
+            <div class ="booking-icons">
+              <%= link_to '<i class="fa-solid fa-calendar-plus"></i>'.html_safe, event_bookings_path(invitation.event, status: "going"), data: {turbo_method: :post}, class: 'button-primary' %>
+              <%= link_to '<i class="fa-solid fa-calendar-xmark"></i>'.html_safe, delete_invitation_path(invitation),  data: {turbo_method: :delete}, class: 'button-secondary' %>
+            </div>
           </div>
-        </div>
-        <div class="event-card-right">
-          <h5 class="card-title"><%= invitation.event.title %></h5>
-          <div class="event-right-info">
-            <p class="mt-2 mb-2"><i class="fa-solid fa-calendar-days me-2"></i><%= invitation.event.start_date.strftime('%e %B %Y') %></p>
-            <p class="m-0 d-flex"><i class="fa-solid fa-location-dot me-2 pt-1"></i><span class="event-address"><%= invitation.event.address %></span></p>
-          </div>
-          <div class ="booking-icons">
-            <%= link_to '<i class="fa-solid fa-calendar-plus"></i>'.html_safe, event_bookings_path(invitation.event, status: "going"), data: {turbo_method: :post}, class: 'button-primary' %>
-            <%= link_to '<i class="fa-solid fa-calendar-xmark"></i>'.html_safe, delete_invitation_path(invitation),  data: {turbo_method: :delete}, class: 'button-secondary' %>
-          </div>
-        </div>
-      </div>
+
+        <% end %>
+
       <% end %>
     <% end %>
-  <% end %>
+  </div>
 </div>
