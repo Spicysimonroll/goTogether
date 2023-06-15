@@ -413,19 +413,19 @@ private_event8.user = harris
 private_event8.photo.attach(io: file, filename: "treen.png", content_type: "image/png")
 private_event8.save
 
-file.URI.open("https://i.ytimg.com/vi/mSFTtTOGi4g/maxresdefault.jpg")
-private_event9 = Event.new(
-  title: "Ultimate Ping Pong",
-  address: "C/ del Bruc, 149, 08037 Barcelona",
-  description: "Calling all ping pong enthusiasts! Get ready for an adrenaline-fueled battle on the table as friends gather for the ultimate Ping Pong Championship. Prepare to showcase your skills, strategy, and lightning-fast reflexes in this exciting tournament.",
-  category: "Film Screening",
-  start_date: "2023-08-06T19:00:00",
-  end_date: "2023-08-06T22:00:00",
-  is_private: false
-)
-private_event9.user = martin
-private_event9.photo.attach(io: file, filename: "pingpong.jpg", content_type: "image/jpg")
-private_event9.save
+# file.URI.open("https://i.ytimg.com/vi/mSFTtTOGi4g/maxresdefault.jpg")
+# private_event9 = Event.new(
+#   title: "Ultimate Ping Pong",
+#   address: "C/ del Bruc, 149, 08037 Barcelona",
+#   description: "Calling all ping pong enthusiasts! Get ready for an adrenaline-fueled battle on the table as friends gather for the ultimate Ping Pong Championship. Prepare to showcase your skills, strategy, and lightning-fast reflexes in this exciting tournament.",
+#   category: "Sports",
+#   start_date: "2023-08-06T19:00:00",
+#   end_date: "2023-08-06T22:00:00",
+#   is_private: false
+# )
+# private_event9.user = martin
+# private_event9.photo.attach(io: file, filename: "pingpong.jpg", content_type: "image/jpg")
+# private_event9.save
 
 file URI.open("https://img.freepik.com/premium-photo/man-climbing-gear-is-holding-laptop-mountains-alpinism-highrise-works-industrial-mountaineering-high_722504-1680.jpg?w=2000")
 private_event10 = Event.new(
