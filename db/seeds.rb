@@ -347,11 +347,12 @@ file = URI.open("https://dxbhsrqyrr690.cloudfront.net/sidearm.nextgen.sites/tarl
 private_event4 = Event.new(
   title: "Beach Volleyball Evening",
   address: "Nova Icaria Beach, Barcelona",
-  description: "Come join for an evening of volleyball, maybe we can grab some beers after."
+  description: "Come join for an evening of volleyball, maybe we can grab some beers after.",
   start_date: "2023-06-25T18:00:00",
   end_date: "2023-06-25T22:00:00",
   is_private: true
 )
+
 private_event4.user = carlos
 private_event4.photo.attach(io: file, filename: "beachvolley.png", content_type: "image/png")
 private_event4.save
