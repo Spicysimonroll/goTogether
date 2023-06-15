@@ -79,19 +79,6 @@
   padding-top: 7px;
 }
 
-#show-map-btn {
-  width: 43px;
-  margin: 0 auto;
-  font-size: 14px;
-  color: grey;
-  position: relative;
-
-  .fa-caret-up {
-    position: absolute;
-    top: 4px;
-    right: 1px;
-  }
-}
 
 #show-comments-btn {
   font-size: 14px;
@@ -108,6 +95,3 @@
 
 // ... Other styles ...
 
-// [data-action="click->search#toggleSearch"]:hover {
-//   cursor: pointer;
-// }

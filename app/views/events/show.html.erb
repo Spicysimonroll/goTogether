@@ -6,6 +6,16 @@
   </div>
 </div>
 
+<div>
+    <% if @event.user != current_user %>
+      <% if Bookmark.find_by(user: current_user, event: @event) %>
+        <%= link_to '<i class="fa-solid fa-bookmark p-0"></i>'.html_safe, root_path, class:"d-flex align-items-center p-2" %>
+      <% else %>
+        <%= link_to '<i class="fa-regular fa-bookmark p-0"></i>'.html_safe, root_path, class:"d-flex align-items-center p-2" %>
+      <% end %>
+    <% end %>
+  </div>
+
 <div class="container"
      data-controller="event-showpage map"
      data-map-markers-value="<%= @markers.to_json %>"
@@ -21,7 +31,7 @@
       <%# end %>
     </h1>
 
-    <div class="d-flex justify-content-between show-event-card-actions mt-2">
+    <div class="d-flex justify-content-center show-event-card-actions mt-2">
 
       <div class="d-flex align-items-center">
         <% if @event.user.profile.is_business %>
@@ -58,11 +68,6 @@
         <% if !@event.user.profile.is_business %>
           <a href="#comment-input" class="d-flex align-items-center p-2"><i class="fa-regular fa-comment p-0"></i></a>
         <% end %>
-        <% if Bookmark.find_by(user: current_user, event: @event) %>
-          <%= link_to '<i class="fa-solid fa-bookmark p-0"></i>'.html_safe, root_path, class:"d-flex align-items-center p-2" %>
-        <% else %>
-          <%= link_to '<i class="fa-regular fa-bookmark p-0"></i>'.html_safe, root_path, class:"d-flex align-items-center p-2" %>
-        <% end %>
       </div>
 
     </div>
@@ -81,7 +86,9 @@
         </div>
       </div>
 
-      <p id="show-map-btn" class="mb-2 mt-2" data-action="click->event-showpage#toggleMap click->map#resize">Map <i class="fa-solid fa-caret-down"></i></p>
+      <div class="d-flex justify-content-center mt-1 mb-1">
+        <p class="text-center mb-2 mt-2 button-secondary" data-action="click->event-showpage#toggleMap click->map#resize">Map <i class="fa-solid fa-caret-down"></i></p>
+      </div>
 
       <div
         class="border d-none mb-1"
@@ -92,7 +99,7 @@
 
     </div>
 
-    <p class="text-center mt-4"><%= @event.description%></p>
+    <p class="text-center mt-2"><%= @event.description%></p>
 
   </div>
 
