@@ -22,7 +22,7 @@
 </div>
 
 <div class="event-container mt-3 ms-1 me-1">
-  <h2 class="mb-4 text-center">My upcoming events</h2>
+  <p class="type-of-event text-center">My upcoming events</p>
   <% @all.each do |event| %>
     <%= link_to event_path(event) do  %>
       <div class="event-card d-flex align-items-center justify-content-center mb-4">

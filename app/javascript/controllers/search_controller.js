@@ -9,6 +9,7 @@ export default class extends Controller {
   }
 
   toggleSearch() {
+    window.scrollTo(0, 0);
     this.searchBarTarget.classList.toggle("d-none")
   }
 }
