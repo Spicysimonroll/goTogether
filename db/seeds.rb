@@ -36,8 +36,6 @@ pato = User.create(email: "pato@test.com", password: "test1234")
 ben = User.create(email: "ben@test.com", password: "test1234")
 filip = User.create(email: "filip@test.com", password: "test1234")
 
-private_users = [simon, harris, marien, florian, martin, pablo, ade, laure, nestor, giacomo, pato, ben, filip]
-
 puts "Creating profile for private users..."
 file = URI.open("https://ca.slack-edge.com/T02NE0241-U053J34J604-46a3a9487bb8-512")
 carlos_profile = Profile.new(first_name: "Carlos", last_name: "Peña", username: "carlospa23", address: "C/ del Bruc, 149, 08037 Barcelona", description: "I love playing beach volley, outdoor enthusiast, coding eager learner", is_business: false)
@@ -145,29 +143,36 @@ business4_profile.photo.attach(io: file, filename: "spectra", content_type: "ima
 business4_profile.save
 
 puts "Creating public events..."
+file = URI.open("https://sivoris.com/wp-content/uploads/2019/05/bbf-lasexta-com.jpg")
 businesses = [business1, business2, business3, business4]
 public_event1 = Event.new(
   title: "Summer Music Festival",
-  address: "Plaça del Fòrum 1, Torino",
-  description: "Italien fiesta.",
+  address: "Plaça de Catalunya, 5, Barcelona",
+  description: "Get ready for an electrifying celebration of music at the Barcelona Summer Sounds Festival! Immerse yourself in the vibrant atmosphere of this unforgettable outdoor event set against the backdrop of Barcelona's stunning landscapes. From pulsating beats to soulful melodies, this festival brings together an eclectic lineup of local and international artists from various genres, including rock, pop, electronic, and more.",
   category: "Music",
   start_date: "2023-07-15",
   end_date: "2023-07-17",
   is_private: false
 )
 public_event1.user = businesses[rand(0..3)]
+public_event1.photo.attach(io: file, filename: "gastro.jpg", content_type: "image/jpg")
 public_event1.save
+
+file = URI.open("https://www.thedailymeal.com/img/gallery/the-most-iconic-dishes-of-molecular-gastronomy/main_0.jpg")
 public_event2 = Event.new(
   title: "Gastronomy Fair",
   address: "Avinguda de la Reina Maria Crisben, Bilbao",
-  description: "tapas tour in Bilbao center.",
+  description: "Indulge your taste buds and embark on a culinary adventure at the Barcelona Gastronomy Fair! This delectable event brings together the finest flavors, aromas, and culinary traditions from Catalonia and beyond. Get ready to savor an array of mouthwatering dishes, sample exquisite wines, and immerse yourself in the vibrant food culture of Barcelona.",
   category: "Food",
   start_date: "2023-06-15",
   end_date: "2023-06-20",
   is_private: false
 )
 public_event2.user = businesses[rand(0..3)]
+public_event2.photo.attach(io: file, filename: "gastro.jpg", content_type: "image/jpg")
 public_event2.save
+
+file = URI.open("https://observer.com/wp-content/uploads/sites/2/2020/03/Screen-Shot-2020-03-13-at-2.12.14-PM.png")
 public_event3 = Event.new(
   title: "Art Exhibition: Urban Perspectives",
   address: "Carrer de Montcada 15, Barcelona",
@@ -178,7 +183,10 @@ public_event3 = Event.new(
   is_private: false
 )
 public_event3.user = businesses[rand(0..3)]
+public_event3.photo.attach(io: file, filename: "artex.png", content_type: "image/png")
 public_event3.save
+
+file = URI.open("https://media.wonderlandmagazine.com/uploads/2020/09/61b6ad3fbafc10cdb9800de6159a11eb1600361039959.jpg")
 public_event4 = Event.new(
   title: "Barcelona Fashion Week",
   address: "Recinte Modernista de Sant Pau, Carrer de Sant Quintí, Barcelona",
@@ -189,7 +197,10 @@ public_event4 = Event.new(
   is_private: false
 )
 public_event4.user = businesses[rand(0..3)]
+public_event4.photo.attach(io: file, filename: "fashion.jpg", content_type: "image/jpg")
 public_event4.save
+
+file = URI.open("https://images.squarespace-cdn.com/content/v1/5630f90ee4b032072583da6d/1578579143682-CRRIIIEU5WPPNUHED7B0/runners.jpg?format=1500w")
 public_event5 = Event.new(
   title: "Sports Charity Run",
   address: "Parc de la Ciutadella, Barcelona",
@@ -200,7 +211,10 @@ public_event5 = Event.new(
   is_private: false
 )
 public_event5.user = businesses[rand(0..3)]
+public_event5.photo.attach(io: file, filename: "run.jpg", content_type: "image/jpg")
 public_event5.save
+
+file = URI.open("https://media-edg.barcelona.cat/wp-content/uploads/2021/07/08140623/Sala_Montjuic_05-1024x683.jpeg")
 public_event6 = Event.new(
   title: "Cinema Under the Stars",
   address: "Plaça dels Àngels, 1, Barcelona",
@@ -211,7 +225,10 @@ public_event6 = Event.new(
   is_private: false
 )
 public_event6.user = businesses[rand(0..3)]
+public_event6.photo.attach(io: file, filename: "cinemastars.jpg", content_type: "image/jpg")
 public_event6.save
+
+file = URI.open("https://www.travelperk.com/wp-content/uploads/alexandre-pellaes-6vAjp0pscX0-unsplash-1-1.jpg")
 public_event7 = Event.new(
   title: "Tech Conference: Innovate Barcelona",
   address: "Fira Barcelona Montjuïc, Barcelona",
@@ -222,7 +239,10 @@ public_event7 = Event.new(
   is_private: false
 )
 public_event7.user = businesses[rand(0..3)]
+public_event7.photo.attach(io: file, filename: "tech.jpg", content_type: "image/jpg")
 public_event7.save
+
+file = URI.open("https://res.cloudinary.com/hz3gmuqw6/image/upload/c_fill,f_auto,q_60,w_750/v1/goldenapron/62321f5b3f382")
 public_event8 = Event.new(
   title: "Dance Workshop: Salsa Fiesta",
   address: "Carrer de Balmes, Barcelona",
@@ -233,7 +253,10 @@ public_event8 = Event.new(
   is_private: false
 )
 public_event8.user = businesses[rand(0..3)]
+public_event8.photo.attach(io: file, filename: "salsa.png", content_type: "image/png")
 public_event8.save
+
+file = URI.open("https://www.tastingtable.com/img/gallery/everything-you-need-to-know-when-having-a-wine-tasting-party/l-intro-1658767989.jpg")
 public_event9 = Event.new(
   title: "Wine Tasting Evening",
   address: "Carrer de Roger de Llúria, Barcelona",
@@ -244,7 +267,10 @@ public_event9 = Event.new(
   is_private: false
 )
 public_event9.user = businesses[rand(0..3)]
+public_event9.photo.attach(io: file, filename: "wine.jpg", content_type: "image/jpg")
 public_event9.save
+
+file = URI.open("https://www.shbarcelona.com/blog/en/wp-content/uploads/2015/05/5-days-transformative-yoga-retreat-in-barcelona.jpg")
 public_event10 = Event.new(
   title: "Yoga Retreat: Mindful Escapes",
   address: "Carrer del Rosselló 56, Barcelona",
@@ -255,11 +281,39 @@ public_event10 = Event.new(
   is_private: false
 )
 public_event10.user = businesses[rand(0..3)]
+public_event10.photo.attach(io: file, filename: "yoga.jpg", content_type: "image/jpg")
 public_event10.save
 
+file = URI.open("https://www.theolivepress.es/wp-content/uploads/2022/11/Largest-immersive-exhibition-in-Spain-celebrates-legendary-artist-Pablo-Picasso.jpg?width=1200&enable=upscale")
+public_event11 = Event.new(
+  title: "Picasso's Barcelona: A Journey Through Art",
+  address: "C/ de Montcada, 15-23, 08003 Barcelona",
+  description: "An art exhibition showcasing a collection of Pablo Picasso's early works and his artistic journey in Barcelona.",
+  category: "Art Exhibition",
+  start_date: "2023-06-30T09:00:00",
+  end_date: "2023-06-30T17:00:00",
+  is_private: false
+)
+public_event11.user = business1
+public_event11.photo.attach(io: file, filename: "picasso.jpg", content_type: "image/png")
+public_event11.save
 
+file = URI.open("https://media.istockphoto.com/id/1148471940/photo/confetti-fireworks-above-the-crowd-on-music-festival.jpg?s=612x612&w=0&k=20&c=qM4xEbpIqqTli5oXq-oddPvFWW9IPAXKnPhcGQYn8qo=")
+public_event12 = Event.new(
+  title: "Barcelona Beats Festival",
+  address: "Passeig Olímpic, 15-17, 08038 Barcelona",
+  description: "An outdoor music festival featuring popular local and international artists from various genres.",
+  category: "Music Concert",
+  start_date: "2023-06-28T16:00:00",
+  end_date: "2023-06-29T00:00:00",
+  is_private: false
+)
+public_event12.user = business4
+public_event12.photo.attach(io: file, filename: "beats.png", content_type: "image/png")
+public_event12.save
 
 puts "Creating private events..."
+private_users = [simon, harris, marien, florian, martin, pablo, ade, laure, nestor, giacomo, pato, ben, filip]
 private_event1 = Event.new(
   title: "Midsummer Night Music Festival",
   address: "Plaça del Fòrum, Barcelona",
@@ -269,7 +323,7 @@ private_event1 = Event.new(
   end_date: "2023-06-24",
   is_private: true
 )
-private_event1.user = martin
+private_event1.user = nestor
 private_event1.save
 private_event2 = Event.new(
   title: "Giac's Birthday Bash",
@@ -351,15 +405,15 @@ private_event8 = Event.new(
 private_event8.user = harris
 private_event8.save
 private_event9 = Event.new(
-  title: "Ping Pong",
-  address: "Cinema Comedia, Monte carlo",
-  description: "Cinema monaco.",
+  title: "Ultimate Ping Pong",
+  address: "C/ del Bruc, 149, 08037 Barcelona",
+  description: "Calling all ping pong enthusiasts! Get ready for an adrenaline-fueled battle on the table as friends gather for the ultimate Ping Pong Championship. Prepare to showcase your skills, strategy, and lightning-fast reflexes in this exciting tournament.",
   category: "Film Screening",
-  start_date: "2023-08-06",
-  end_date: "2023-08-06",
+  start_date: "2023-08-06T19:00:00",
+  end_date: "2023-08-06T22:00:00",
   is_private: false
 )
-private_event9.user = private_users[rand(1..12)]
+private_event9.user = martin
 private_event9.save
 private_event10 = Event.new(
   title: "Improve your Front-end",
@@ -664,7 +718,7 @@ comment2.save
 
 puts "Creating invitations..."
 invitation1 = Invitation.new
-invitation1.event = private_event1
+invitation1.event = private_event9
 invitation1.friendship = friendship14
 invitation1.save
 
@@ -683,10 +737,15 @@ invitation4.event = private_event10
 invitation4.friendship = friendship29
 invitation4.save
 
-# puts "Creating bookings..."
-# booking1 = Booking.new(status: 0)
-# booking1.event = private_event1
-# booking1.user = carlos
-# booking1.save
+puts "Creating bookings..."
+booking1 = Booking.new(status: 1)
+booking1.event = public_event11
+booking1.user = harris
+booking1.save
+
+booking2 = Booking.new(status: 1)
+booking2.event = public_event12
+booking2.user = simon
+booking2.save
 
 puts "Done!"
