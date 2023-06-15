@@ -413,7 +413,7 @@ private_event8.user = harris
 private_event8.photo.attach(io: file, filename: "treen.png", content_type: "image/png")
 private_event8.save
 
-file.URI.open("https://media.istockphoto.com/id/108348650/es/foto/ping-pong-acci%C3%B3n.jpg?s=612x612&w=0&k=20&c=BGgvV6TOLn3AK5JgsI4nzf5-qLUeD9bQu-1krQjbpYc=")
+file.URI.open("https://i.ytimg.com/vi/mSFTtTOGi4g/maxresdefault.jpg")
 private_event9 = Event.new(
   title: "Ultimate Ping Pong",
   address: "C/ del Bruc, 149, 08037 Barcelona",
