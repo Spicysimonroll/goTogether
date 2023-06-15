@@ -365,7 +365,7 @@ private_event5 = Event.new(
   category: "Sport",
   start_date: "2023-06-22T19:00:00",
   end_date: "2023-6-22T20:00:00",
-  is_private: false
+  is_private: true
 )
 private_event5.user = harris
 private_event5.photo.attach(io: file, filename: "football.jpg", content_type: "image/jpg")
@@ -421,7 +421,7 @@ private_event9 = Event.new(
   category: "Sports",
   start_date: "2023-08-06T19:00:00",
   end_date: "2023-08-06T22:00:00",
-  is_private: false
+  is_private: true
 )
 private_event9.user = martin
 private_event9.photo.attach(io: file, filename: "pingpong.jpg", content_type: "image/jpg")

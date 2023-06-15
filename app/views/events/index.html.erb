@@ -36,7 +36,7 @@
 
         <% @public_events.each do |event| %>
           <%= link_to event_path(event) do  %>
-            <div class="event-card d-flex align-items-center justify-content-center mb-4">
+            <div class="event-card d-flex align-items-center justify-content-center mb-4" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(<%= cl_image_path event.photo.key %>);">
               <div class="card-info d-flex flex-column align-items-center justify-content-around">
                 <p class="event-date mt-2 mb-2 text-center"><i class="fa-solid fa-calendar-days me-2"></i><%= event.start_date.strftime('%e %B %Y') %> - <%= event.end_date.strftime('%e %B %Y') %></p>
                 <h2 class="event-title text-center"><%= event.title %></h2>
@@ -62,7 +62,7 @@
 
           <%= link_to event_path(booking.event) do  %>
             <div>
-              <div class="event-card d-flex align-items-center justify-content-center mb-4">
+              <div class="event-card d-flex align-items-center justify-content-center mb-4" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(<%= cl_image_path booking.event.photo.key %>);">
                 <div class="card-info d-flex flex-column align-items-center justify-content-around">
                   <p class="event-date mt-2 mb-2 text-center"><i class="fa-solid fa-calendar-days me-2"></i><%= booking.event.start_date.strftime('%e %B %Y') %> - <%= booking.event.end_date.strftime('%e %B %Y') %></p>
                   <h2 class="event-title text-center"><%= booking.event.title %></h2>
@@ -84,7 +84,7 @@
 
         <% @public_friends_events.each do |event| %>
           <%= link_to event_path(event) do  %>
-            <div class="event-card d-flex align-items-center justify-content-center mb-4">
+            <div class="event-card d-flex align-items-center justify-content-center mb-4" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(<%= cl_image_path event.photo.key %>);">
               <div class="card-info d-flex flex-column align-items-center justify-content-around">
                 <p class="event-date mt-2 mb-2 text-center"><i class="fa-solid fa-calendar-days me-2"></i><%= event.start_date.strftime('%e %B %Y') %> - <%= event.end_date.strftime('%e %B %Y') %></p>
                 <h2 class="event-title text-center"><%= event.title %></h2>
