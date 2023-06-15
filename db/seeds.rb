@@ -427,7 +427,7 @@ private_event8.save
 # private_event9.photo.attach(io: file, filename: "pingpong.jpg", content_type: "image/jpg")
 # private_event9.save
 
-file URI.open("https://img.freepik.com/premium-photo/man-climbing-gear-is-holding-laptop-mountains-alpinism-highrise-works-industrial-mountaineering-high_722504-1680.jpg?w=2000")
+file URI.open("https://upload.wikimedia.org/wikipedia/commons/2/26/Heinz_Zak%2C_Separate_Reality_5%2C11d%2C_Free_Solo%2C_Yosemite-Nationalpark%2C_Kalifornien%2C_USA.jpg")
 private_event10 = Event.new(
   title: "Coding 💻 & Climbing 🧗‍♂️",
   address: "Carrer del Bruc 149, Barcelona",
