@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="event-showpage"
 export default class extends Controller {
-  static targets = ["location", "comment_section", "form", "comment"]
+  static targets = ["location", "commentSection", "form", "comment", "allComments"]
 
   connect() {
     console.log("event showpage controller connected!");
@@ -29,7 +29,7 @@ export default class extends Controller {
       .then(response => response.json())
       .then((data) => {
         if (data.inserted_item) {
-          this.comment_sectionTarget.insertAdjacentHTML("beforeend", data.inserted_item)
+          this.commentSectionTarget.insertAdjacentHTML("beforeend", data.inserted_item)
         }
         this.formTarget.outerHTML = data.form
         window.scrollTo(0, document.body.scrollHeight);
