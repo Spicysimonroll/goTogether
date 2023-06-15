@@ -2,13 +2,10 @@
   justify-content: space-between;
   background: white;
   margin: 0;
+  height: 65px;
 
   a {
     color: $black;
-  }
-
-  .fa-solid {
-    font-size: 22px;
   }
 }
 
@@ -36,11 +33,22 @@
 
 .navbar-bottom {
   background-color: $white;
-  height: 50px;
-  font-size: 22px;
+  height: 65px;
+  font-size: 24px;
 
   a {
     color: $black;
-    height: 30px;
+    height: 35px;
+  }
+}
+
+#navbar-icons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 24px;
+
+  i {
+    padding: 0 10px;
   }
 }

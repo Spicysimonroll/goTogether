@@ -4,7 +4,7 @@
 // <%= link_to "Press me", "#", class: "button-primary" %>
 // <%= link_to "Secondary button", "#", class: "button-secondary" %>
 
-.button-primary, .button-secondary {
+.button-primary, .button-secondary, .button-accept, .button-reject, .button-buddy, .button-unbuddy {
   background-color: #3860ED;
   color: #ffffff;
   height: 41px;
@@ -23,6 +23,52 @@
   transition: background-color 0.1s;
   border: 2px solid #3860ED;
 }
+
+.button-accept {
+  background-color: rgb(13, 182, 13)
+}
+
+.button-reject {
+  background-color: rgb(220, 8, 8)
+}
+
+.button-buddy {
+  background-color: rgb(253, 193, 80);
+}
+
+.button-unbuddy {
+  background-color: #ffffff;
+  color: rgb(253, 193, 80);
+  transition: background-color 0.1s;
+  border: 2px solid rgb(253, 193, 80);;
+}
+
+.invite-button-accept {
+  display: inline-block;
+  background-color: rgb(13, 182, 13);
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  color: #ffffff;
+  padding: 7px;
+  font-size: 17px;
+  border: 2px solid;
+}
+
+.invite-button-reject {
+  display: inline-block;
+  background-color: rgb(220, 8, 8);
+  height: 40px !important;
+  width: 40px !important;
+  border-radius: 50%;
+  color: #ffffff;
+  padding: 7px;
+  font-size: 17px;
+  text-decoration: none;
+  border: 2px solid;
+  text-align: center;
+}
+
 
 #homepage-btn {
   margin: 0 auto;
@@ -62,6 +108,6 @@
 
 // ... Other styles ...
 
-[data-action="click->search#toggleSearch"]:hover {
-  cursor: pointer;
-}
+// [data-action="click->search#toggleSearch"]:hover {
+//   cursor: pointer;
+// }
