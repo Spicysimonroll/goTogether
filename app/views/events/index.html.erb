@@ -15,7 +15,7 @@
 
         <div class="d-flex mt-2 mb-3">
           <%= form.select :city, options_for_select([["Select city", ""]] + @cities, params[:city]), {}, { class: "form-control rounded me-2" } %>
-          <%= form.text_field :dates, as: :string, placeholder: "Date range", value: params[:dates], data: { flatpickr_target: "dates" } , class: "form-control rounded ms-2" %>
+          <%= form.text_field :dates, as: :string, placeholder: "Select dates", value: params[:dates], data: { flatpickr_target: "dates" } , class: "form-control rounded ms-2" %>
         </div>
         <div class="text-center">
           <%= form.submit "Search", class: "button-primary w-100" %>
