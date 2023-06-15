@@ -357,7 +357,7 @@ private_event4.user = carlos
 private_event4.photo.attach(io: file, filename: "beachvolley.png", content_type: "image/png")
 private_event4.save
 
-file = URI.open("")
+file = URI.open("https://wp.inews.co.uk/wp-content/uploads/2017/03/five-a-side.jpg")
 private_event5 = Event.new(
   title: "5-aside Football",
   address: "Av. del Litoral, 85, 08005 Barcelona",
@@ -368,7 +368,7 @@ private_event5 = Event.new(
   is_private: false
 )
 private_event5.user = harris
-private_event5.photo.attach(io: file, filename: "streetart.jpg", content_type: "image/jpg")
+private_event5.photo.attach(io: file, filename: "football.jpg", content_type: "image/jpg")
 private_event5.save
 
 file = URI.open("https://withlocals-com-res.cloudinary.com/image/upload/c_fill,f_auto,fl_progressive,g_auto,q_auto,w_500/6272d956f46cadbd0fb39c8085509aa5")
