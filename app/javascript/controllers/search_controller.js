@@ -10,5 +10,6 @@ export default class extends Controller {
 
   toggleSearch() {
     this.searchBarTarget.classList.toggle("d-none")
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }
