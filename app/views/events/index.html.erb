@@ -54,68 +54,68 @@
         <% end %>
 
       </div>
+      <% if user_signed_in? %>
+        <div class="carousel-item">
 
-      <div class="carousel-item">
+          <div class="type-of-event">
+            <p class="pt-4 pb-4 text-center">go Together?</p>
+          </div>
 
-        <div class="type-of-event">
-          <p class="pt-4 pb-4 text-center">go Together?</p>
+          <% @friends_bookings.each do |booking| %>
+
+            <div class="looking-for-buddy-container mt-5">
+              <%= link_to user_profile_path(booking.user), class: "d-flex justify-content-center buddy-up" do %>
+                <%= cl_image_tag booking.user.profile.photo.key, class: "avatar-medium border-white" %> <span class="ms-2 me-2 booking-user">@<%= booking.user.profile.username %></span>
+              <% end %>
+              <%= link_to event_path(booking.event) do  %>
+                <div class="event-card d-flex align-items-center justify-content-center mb-4" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(<%= cl_image_path booking.event.photo.key %>);">
+                  <div class="card-info d-flex flex-column align-items-center justify-content-around">
+                    <p class="event-date mt-2 mb-2 text-center">
+                      <i class="fa-solid fa-calendar-days me-2"></i>
+                      <% if booking.event.start_date.strftime('%e %B %Y') != booking.event.end_date.strftime('%e %B %Y') %>
+                        <%= booking.event.start_date.strftime('%e %B %Y') %> - <%= booking.event.end_date.strftime('%e %B %Y') %>
+                      <% else %>
+                        <%= booking.event.end_date.strftime('%e %B %Y') %>
+                      <% end %>
+                    </p>
+                    <h2 class="event-title text-center"><%= booking.event.title %></h2>
+                    <p class="event-address m-0 d-flex justify-content-center"><span class="address text-center"><i class="fa-solid fa-location-dot"></i> <%= booking.event.address %></span></p>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+
+          <% end %>
+
         </div>
 
-        <% @friends_bookings.each do |booking| %>
+        <div class="carousel-item">
 
-          <div class="looking-for-buddy-container mt-5">
-            <%= link_to user_profile_path(booking.user), class: "d-flex justify-content-center buddy-up" do %>
-              <%= cl_image_tag booking.user.profile.photo.key, class: "avatar-medium border-white" %> <span class="ms-2 me-2 booking-user">@<%= booking.user.profile.username %></span>
-            <% end %>
-            <%= link_to event_path(booking.event) do  %>
-              <div class="event-card d-flex align-items-center justify-content-center mb-4" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(<%= cl_image_path booking.event.photo.key %>);">
+          <div class="type-of-event">
+            <p class="pt-4 pb-4 text-center">Friends' events</p>
+          </div>
+
+          <% @public_friends_events.each do |event| %>
+            <%= link_to event_path(event) do  %>
+              <div class="event-card d-flex align-items-center justify-content-center mb-4" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(<%= cl_image_path event.photo.key %>);">
                 <div class="card-info d-flex flex-column align-items-center justify-content-around">
                   <p class="event-date mt-2 mb-2 text-center">
                     <i class="fa-solid fa-calendar-days me-2"></i>
-                    <% if booking.event.start_date.strftime('%e %B %Y') != booking.event.end_date.strftime('%e %B %Y') %>
-                      <%= booking.event.start_date.strftime('%e %B %Y') %> - <%= booking.event.end_date.strftime('%e %B %Y') %>
+                    <% if event.start_date.strftime('%e %B %Y') != event.end_date.strftime('%e %B %Y') %>
+                      <%= event.start_date.strftime('%e %B %Y') %> - <%= event.end_date.strftime('%e %B %Y') %>
                     <% else %>
-                      <%= booking.event.end_date.strftime('%e %B %Y') %>
+                      <%= event.start_date.strftime('%e %B %Y') %>
                     <% end %>
                   </p>
-                  <h2 class="event-title text-center"><%= booking.event.title %></h2>
-                  <p class="event-address m-0 d-flex justify-content-center"><span class="address text-center"><i class="fa-solid fa-location-dot"></i> <%= booking.event.address %></span></p>
+                  <h2 class="event-title text-center"><%= event.title %></h2>
+                  <p class="event-address m-0 d-flex justify-content-center"><span class="address text-center"><i class="fa-solid fa-location-dot"></i> <%= event.address %></span></p>
                 </div>
               </div>
             <% end %>
-          </div>
-
-        <% end %>
-
-      </div>
-
-      <div class="carousel-item">
-
-        <div class="type-of-event">
-          <p class="pt-4 pb-4 text-center">Friends' events</p>
-        </div>
-
-        <% @public_friends_events.each do |event| %>
-          <%= link_to event_path(event) do  %>
-            <div class="event-card d-flex align-items-center justify-content-center mb-4" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(<%= cl_image_path event.photo.key %>);">
-              <div class="card-info d-flex flex-column align-items-center justify-content-around">
-                <p class="event-date mt-2 mb-2 text-center">
-                  <i class="fa-solid fa-calendar-days me-2"></i>
-                  <% if event.start_date.strftime('%e %B %Y') != event.end_date.strftime('%e %B %Y') %>
-                    <%= event.start_date.strftime('%e %B %Y') %> - <%= event.end_date.strftime('%e %B %Y') %>
-                  <% else %>
-                    <%= event.start_date.strftime('%e %B %Y') %>
-                  <% end %>
-                </p>
-                <h2 class="event-title text-center"><%= event.title %></h2>
-                <p class="event-address m-0 d-flex justify-content-center"><span class="address text-center"><i class="fa-solid fa-location-dot"></i> <%= event.address %></span></p>
-              </div>
-            </div>
           <% end %>
-        <% end %>
 
-      </div>
-
+        </div>
+      <% end %>
     </div>
 
     <button class="carousel-control-prev ms-3" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
