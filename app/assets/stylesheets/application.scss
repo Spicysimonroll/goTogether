@@ -49,3 +49,14 @@ h3 {
 .border-white {
   border: 3px solid $white;
 }
+
+.looking-for-buddy-container {
+  position: relative;
+
+  .buddy-up {
+    position: absolute;
+    top: -28px;
+    left: 10px;
+    z-index: 1;
+  }
+}
