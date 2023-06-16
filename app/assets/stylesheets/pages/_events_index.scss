@@ -32,3 +32,13 @@
     opacity: 0.6;
   }
 }
+
+.looking-for-buddy-container {
+  position: relative;
+
+  .buddy-up {
+    position: absolute;
+    top: -28px;
+    left: 10px;
+  }
+}

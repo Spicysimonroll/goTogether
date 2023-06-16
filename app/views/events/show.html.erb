@@ -27,7 +27,7 @@
             <%#= link_to '<i class="fa-regular fa-bookmark text-black mt-1 p-0"></i>'.html_safe, root_path, class:"d-flex align-items-center p-2" %>
           <%# end %>
         <%# end %>
-        
+
         <%# if @event.user == current_user %>
           <%#= link_to '<i class="fa-solid fa-pen"></i>'.html_safe, "#", class: "event-title-btn"%>
           <%#= link_to '<i class="fa-solid fa-trash-can"></i>'.html_safe, "#", class: "event-title-btn"%>
@@ -40,7 +40,7 @@
 
     <div class="d-flex justify-content-center">
       <% if !@event.user.profile.is_business %>
-        <a href="#comment-input" class="d-flex align-items-center text-black"><%= @event.comments.count %> <%= @event.comments.count != 1 ? "comments" : "comment" %></a>
+        <a href="#comment-input" class="d-flex align-items-center text-black underlined"><%= @event.comments.count %> <%= @event.comments.count != 1 ? "comments" : "comment" %></a>
       <% end %>
     </div>
 
@@ -120,8 +120,26 @@
 
   </div>
 
-  <% @profiles.each do |profile| %>
-    <%= profile.username %>
+  <% if @profiles.count > 0 %>
+    <div class="text-center">
+      <h2 class="mb-2">Who else is going?</h2>
+      <div class="d-flex justify-content-center">
+        <% @profiles.first(5).each do |profile| %>
+          <% if profile != current_user.profile %>
+            <%= link_to user_profile_path(profile) do %>
+              <%= cl_image_tag profile.photo.key, class: "avatar-medium border ms-2" %>
+            <% end %>
+          <% end %>
+        <% end %>
+
+        <% if @profiles.count > 5 %>
+          <% blurred_profile = @profiles[5] %>
+          <% if blurred_profile != current_user.profile %>
+            <%= cl_image_tag blurred_profile.photo.key, class: "avatar-medium avatar-blurred border ms-2" %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
   <% end %>
 
   <% if !@event.user.profile.is_business %>

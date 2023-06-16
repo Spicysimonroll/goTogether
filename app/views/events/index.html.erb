@@ -63,12 +63,11 @@
 
         <% @friends_bookings.each do |booking| %>
 
-          <%= link_to user_profile_path(booking.user), class: "d-flex justify-content-center align-items-center mb-2" do %>
-            <%= cl_image_tag booking.user.profile.photo.key, class: "avatar-medium border" %> <span class="ms-2 me-2 booking-user">@<%= booking.user.profile.username %></span>
-          <% end %>
-
-          <%= link_to event_path(booking.event) do  %>
-            <div>
+          <div class="looking-for-buddy-container mt-5">
+            <%= link_to user_profile_path(booking.user), class: "d-flex justify-content-center buddy-up" do %>
+              <%= cl_image_tag booking.user.profile.photo.key, class: "avatar-medium border-white" %> <span class="ms-2 me-2 booking-user">@<%= booking.user.profile.username %></span>
+            <% end %>
+            <%= link_to event_path(booking.event) do  %>
               <div class="event-card d-flex align-items-center justify-content-center mb-4" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(<%= cl_image_path booking.event.photo.key %>);">
                 <div class="card-info d-flex flex-column align-items-center justify-content-around">
                   <p class="event-date mt-2 mb-2 text-center">
@@ -83,8 +82,8 @@
                   <p class="event-address m-0 d-flex justify-content-center"><span class="address text-center"><i class="fa-solid fa-location-dot"></i> <%= booking.event.address %></span></p>
                 </div>
               </div>
-            </div>
-          <% end %>
+            <% end %>
+          </div>
 
         <% end %>
 

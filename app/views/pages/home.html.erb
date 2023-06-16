@@ -1,6 +1,12 @@
 <div id="banner">
-  <%= image_tag "concert2.jpg", id: "homepage-img" %>
-  <p>Share, enjoy, feel alive.</p>
+  <figure>
+    <div style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(<%= asset_path 'banner1' %>);"></div>
+    <div style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(<%= asset_path 'banner2' %>);"></div>
+    <div style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(<%= asset_path 'banner3' %>);"></div>
+    <div style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(<%= asset_path 'banner4' %>);"></div>
+    <div style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(<%= asset_path 'banner1' %>);"></div>
+  </figure>
+  <p data-controller="typed-js"></p>
 </div>
 
 <%# <p class="phrase">Changing the way people connect.</p> %>

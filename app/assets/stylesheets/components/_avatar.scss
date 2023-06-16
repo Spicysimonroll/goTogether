@@ -16,6 +16,11 @@
   border-radius: 50%;
 }
 
+.avatar-blurred {
+  filter: blur(4px);
+  -webkit-filter: blur(4px);
+}
+
 .avatar-bordered {
   width: 40px;
   border-radius: 50%;
