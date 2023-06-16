@@ -12,7 +12,7 @@
               <% if current_user.received_invitations.count > 0%>
                 <div class="notification-box">
                   <%= link_to '<i class="fa-solid fa-bell"></i>'.html_safe, invitations_path %>
-                  <%= link_to '<i class="fa-solid fa-circle blue-dot"></i>'.html_safe, invitations_path %>
+                  <%= link_to '<i class="fa-solid fa-circle red-dot"></i>'.html_safe, invitations_path %>
                   <%= link_to '<i class="fa-solid fa-circle white-dot"></i>'.html_safe, invitations_path %>
                 </div>
               <% else %>
