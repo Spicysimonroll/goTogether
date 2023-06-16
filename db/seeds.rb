@@ -659,6 +659,19 @@ group6 = Group.create(name: "batch-#1236-bcn")
 group6.user = lewagonbcn
 group6.save
 
+group7 = Group.create(name: "batch-#1237-bcn")
+group7.user = lewagonbcn
+group7.save
+group8 = Group.create(name: "top-secret-group")
+group8.user = lewagonbcn
+group8.save
+group9 = Group.create(name: "teachers-TAs-bcn")
+group9.user = lewagonbcn
+group9.save
+group10 = Group.create(name: "alumni-bcn")
+group10.user = lewagonbcn
+group10.save
+
 puts "Creating group of friendships..."
 group_friendships1 = GroupFriendship.new
 group_friendships1.group = group1

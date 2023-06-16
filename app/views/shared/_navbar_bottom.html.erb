@@ -1,4 +1,4 @@
-<div class="navbar-bottom d-flex justify-content-around align-items-center border-top pt-1 fixed-bottom">
+<div class="navbar-bottom d-flex justify-content-around align-items-center border-top pt-1 pb-1 fixed-bottom">
   <%= link_to '<i class="fa-solid fa-house"></i>'.html_safe, events_path %>
 
   <% if params[:controller] == "events" && params[:action] == "index" %>
@@ -9,7 +9,7 @@
     <% end %>
   <% end %>
 
-  <%= link_to '<i class="fa-regular fa-square-plus"></i>'.html_safe, new_event_path %>
+  <%= link_to '<i class="fa-regular fa-plus add-icon"></i>'.html_safe, new_event_path, id: "add-btn", class: "d-flex justify-content-center align-items-center" %>
   <%= link_to '<i class="fa-solid fa-user-group"></i>'.html_safe, friendships_path %>
   <%= link_to user_profile_path(current_user.profile), class: "d-flex" do %>
     <%= cl_image_tag current_user.profile.photo.key, class: "avatar" %>
