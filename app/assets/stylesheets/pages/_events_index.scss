@@ -33,7 +33,12 @@
   }
 }
 
-.booking-user {
-  color: $black;
-  font-size: 18px;
+.looking-for-buddy-container {
+  position: relative;
+
+  .buddy-up {
+    position: absolute;
+    top: -28px;
+    left: 10px;
+  }
 }

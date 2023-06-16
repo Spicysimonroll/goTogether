@@ -1,3 +1,6 @@
 <div class="<%= 'd-none' if index < count - 5  %> <%= current_user == comment.user ? 'current-user-comment' : 'other-user-comment' %>" <%= 'data-event-showpage-target=comment' if index < count - 5 %>>
-  <strong><%= comment.user.profile.username %>: </strong><%= comment.content %>
+  <div>
+    <%= cl_image_tag comment.user.profile.photo.key, class: "avatar" %>
+    <strong><%= comment.user.profile.username %>: </strong><span class="comment-text pt-2"><%= comment.content %></span class="comment-text">
+  </div>
 </div>

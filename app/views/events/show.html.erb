@@ -1,9 +1,12 @@
 <div class="show-event-image-container mb-5">
   <%= cl_image_tag @event.photo.key, class: "event-img" %>
-  <div class="event-user-info d-flex">
-    <%= cl_image_tag @event.user.profile.photo.key, class: "avatar-large border-white" %>
-    <div class="event-user-username"><p class="m-0">@<%= @event.user.profile.username %></p></div>
+  <div class="event-user-info d-flex justify-content-between">
+    <a href="#" class="d-flex">
+      <%= cl_image_tag @event.user.profile.photo.key, class: "avatar-large border-white" %>
+      <div class="event-user-username text-black"><p class="m-0">@<%= @event.user.profile.username %></p></div>
+    </a>
   </div>
+  <%# <div><i class="fa-solid fa-ellipsis"></i></div> %>
 </div>
 
 <div class="container"
@@ -13,29 +16,96 @@
 
   <div class="row">
 
-    <h1 class="text-center flex-grow-1 m-0 pt-3 pb-3">
-      <%= @event.title %>
-      <% if @event.user == current_user %>
-        <%= link_to '<i class="fa-solid fa-pen"></i>'.html_safe, "#", class: "event-title-btn"%>
-        <%= link_to '<i class="fa-solid fa-trash-can"></i>'.html_safe, "#", class: "event-title-btn"%>
+
+    <div class="d-flex align-items-center justify-content-center">
+      <h1 class="d-flex align-items-center text-center m-0 pt-2 pb-2">
+        <%= @event.title %>
+        <%# if @event.user != current_user %>
+          <%# if Bookmark.find_by(user: current_user, event: @event) %>
+            <%#= link_to '<i class="fa-solid fa-bookmark text-black mt-1 p-0"></i>'.html_safe, root_path, class:"d-flex align-items-center p-2" %>
+          <%# else %>
+            <%#= link_to '<i class="fa-regular fa-bookmark text-black mt-1 p-0"></i>'.html_safe, root_path, class:"d-flex align-items-center p-2" %>
+          <%# end %>
+        <%# end %>
+
+        <%# if @event.user == current_user %>
+          <%#= link_to '<i class="fa-solid fa-pen"></i>'.html_safe, "#", class: "event-title-btn"%>
+          <%#= link_to '<i class="fa-solid fa-trash-can"></i>'.html_safe, "#", class: "event-title-btn"%>
+        <%# end %>
+      </h1>
+
+
+    </div>
+
+
+    <div class="d-flex justify-content-center">
+      <% if !@event.user.profile.is_business %>
+        <a href="#comment-input" class="d-flex align-items-center text-black underlined"><%= @event.comments.count %> <%= @event.comments.count != 1 ? "comments" : "comment" %></a>
       <% end %>
-    </h1>
+    </div>
+
+    <% if @event.user == current_user %>
+      <div class="d-none d-flex justify-content-center show-event-card-actions m-0 mt-3">
+    <% else %>
+      <div class="d-flex justify-content-center show-event-card-actions m-0 mt-3">
+    <% end %>
+
+      <div class="d-flex align-items-center">
+        <% if @event.user.profile.is_business %>
+          <% if @booking && @booking.status == "going" %>
+            <%= link_to '<i class="fa-solid fa-xmark"></i>'.html_safe, booking_path(@booking), class: 'button-reject', data: {turbo_method: :delete} %>
+            <%= link_to '<i class="fa-solid fa-people-pulling"></i>'.html_safe, booking_path(@booking, status: :looking_for_a_buddy), data: {turbo_method: :patch}, class: 'button-buddy' %>
+          <% elsif @booking && @booking.status == "looking_for_a_buddy" %>
+            <%= link_to '<i class="fa-solid fa-check"></i>'.html_safe, booking_path(@booking, status: :going), data: {turbo_method: :patch}, class: 'button-accept' %>
+            <%= link_to '<i class="fa-solid fa-person-walking"></i>'.html_safe, booking_path(@booking), data: {turbo_method: :delete}, class: 'button-unbuddy' %>
+          <% else %>
+            <%= link_to '<i class="fa-solid fa-check"></i>'.html_safe, event_bookings_path(@event, status: :going), data: {turbo_method: :post}, class: 'button-accept' %>
+            <%= link_to '<i class="fa-solid fa-people-pulling"></i>'.html_safe, event_bookings_path(@event, status: :looking_for_a_buddy), data: {turbo_method: :post}, class: 'button-buddy' %>
+          <% end %>
+
+        <% else %>
+          <% if @event.user == current_user %>
+          <%else%>
+            <% if @booking.nil? && @event.is_private %>
+                <%= link_to '<i class="fa-solid fa-calendar-plus"></i>'.html_safe, event_bookings_path(@event, status: "going"), data: {turbo_method: :post}, class: 'button-accept' %>
+                <%= link_to '<i class="fa-solid fa-calendar-xmark"></i>'.html_safe, delete_invitation_path(current_user.received_invitations.find_by(event: @event)),  data: {turbo_method: :delete}, class: 'button-reject' %>
+            <% else %>
+              <% if @booking && @booking.status == "going" %>
+                <%= link_to '<i class="fa-solid fa-calendar-xmark"></i>'.html_safe, booking_path(@booking), data: {turbo_method: :delete}, class: 'button-reject' %>
+              <% else %>
+                <%= link_to '<i class="fa-solid fa-calendar-plus"></i>'.html_safe, event_bookings_path(@event, status: "going"), data: {turbo_method: :post}, class: 'button-accept' %>
+              <% end %>
+            <% end %>
+          <% end%>
+        <% end %>
+      </div>
+
+    </div>
 
     <div>
 
-      <div class="date-place">
-        <div class="d-flex align-items-center justify-content-center">
+      <div class="date-place mt-3">
+        <% if @event.start_date.strftime('%e %B %Y') != @event.end_date.strftime('%e %B %Y') %>
+          <div class="d-flex align-items-center justify-content-center mb-2">
+            <i class="fa-solid fa-calendar-days p-2"></i>
+            <p class="text-center m-0 ms-3 me-3"><%= "#{@event.start_date.strftime('%e %B %Y, %H:%M')} to" %> <br> <%= "#{@event.end_date.strftime('%e %B %Y, %H:%M')}" %></p>
+          </div>
+        <% else %>
+        <div class="d-flex align-items-center justify-content-center mb-2">
           <i class="fa-solid fa-calendar-days p-2"></i>
-          <p class="text-center mt-3 mb-2 ms-3 me-3"><%= "#{@event.start_date.strftime('%e %B %Y, %H:%M')} to" %> <br> <%= "#{@event.end_date.strftime('%e %B %Y, %H:%M')}" %></p>
+          <p class="text-center m-0 ms-3 me-3"><%= "#{@event.start_date.strftime('%e %B %Y, %H:%M')} - " %><%= "#{@event.end_date.strftime('%H:%M')}" %></p>
         </div>
+        <% end %>
 
         <div class="d-flex align-items-center justify-content-center">
           <i class="fa-solid fa-location-dot p-2 m-1"></i>
-          <p class="text-center m-1 "><%= @event.address %></p>
+          <div class="location"><p class="text-center m-1 "><%= @event.address %></p></div>
         </div>
       </div>
 
-      <p id="show-map-btn" class="mb-2 mt-2" data-action="click->event-showpage#toggleMap click->map#resize">Map <i class="fa-solid fa-caret-down"></i></p>
+      <div class="d-flex justify-content-center mt-1 mb-1">
+        <p class="text-center mb-2 mt-2 button-secondary" data-action="click->event-showpage#toggleMap click->map#resize">Map <i class="fa-solid fa-caret-down"></i></p>
+      </div>
 
       <div
         class="border d-none mb-1"
@@ -46,65 +116,43 @@
 
     </div>
 
-    <p class="text-center mt-4"><%= @event.description%></p>
+    <p class="text-center mt-2"><%= @event.description%></p>
 
-    <div class="d-flex justify-content-between show-event-card-footer mt-2">
-
-      <div class="d-flex align-items-center">
-        <% if @event.user.profile.is_business %>
-          <% if @booking && @booking.status == "going" %>
-            <%= link_to '<i class="fa-solid fa-xmark"></i>'.html_safe, booking_path(@booking), class: 'button-secondary', data: {turbo_method: :delete}, id: "button-unattend" %>
-            <%= link_to '<i class="fa-solid fa-people-pulling"></i>'.html_safe, booking_path(@booking, status: :looking_for_a_buddy), data: {turbo_method: :patch}, class: 'button-primary' %>
-          <% elsif @booking && @booking.status == "looking_for_a_buddy" %>
-            <%= link_to '<i class="fa-solid fa-check"></i>'.html_safe, booking_path(@booking, status: :going), data: {turbo_method: :patch}, class: 'button-primary' %>
-            <%= link_to '<i class="fa-solid fa-person-walking"></i>'.html_safe, booking_path(@booking), data: {turbo_method: :delete}, class: 'button-secondary' %>
-          <% else %>
-            <%= link_to '<i class="fa-solid fa-check"></i>'.html_safe, event_bookings_path(@event, status: :going), data: {turbo_method: :post}, class: 'button-primary' %>
-            <%= link_to '<i class="fa-solid fa-people-pulling"></i>'.html_safe, event_bookings_path(@event, status: :looking_for_a_buddy), data: {turbo_method: :post}, class: 'button-primary' %>
-          <% end %>
-
-        <% else %>
-          <% if @event.user == current_user %>
-          <%else%>
-            <% if @booking.nil? && @event.is_private %>
-                <%= link_to '<i class="fa-solid fa-calendar-plus"></i>'.html_safe, event_bookings_path(@event, status: "going"), data: {turbo_method: :post}, class: 'button-secondary' %>
-                <%= link_to '<i class="fa-solid fa-calendar-xmark"></i>'.html_safe, delete_invitation_path(current_user.received_invitations.find_by(event: @event)),  data: {turbo_method: :delete}, class: 'button-secondary' %>
-            <% else %>
-              <% if @booking && @booking.status == "going" %>
-                <%= link_to '<i class="fa-solid fa-calendar-xmark"></i>'.html_safe, booking_path(@booking), data: {turbo_method: :delete}, class: 'button-secondary' %>
-              <% else %>
-                <%= link_to '<i class="fa-solid fa-calendar-plus"></i>'.html_safe, event_bookings_path(@event, status: "going"), data: {turbo_method: :post}, class: 'button-secondary' %>
-              <% end %>
-            <% end %>
-          <% end%>
-        <% end %>
-      </div>
-
-
-      <div class="show-event-icons d-flex">
-        <% if !@event.user.profile.is_business %>
-          <a href="#comment-input" class="d-flex align-items-center p-2"><i class="fa-regular fa-comment p-0"></i></a>
-        <% end %>
-        <% if Bookmark.find_by(user: current_user, event: @event) %>
-          <%= link_to '<i class="fa-solid fa-bookmark p-0"></i>'.html_safe, root_path, class:"d-flex align-items-center p-2" %>
-        <% else %>
-          <%= link_to '<i class="fa-regular fa-bookmark p-0"></i>'.html_safe, root_path, class:"d-flex align-items-center p-2" %>
-        <% end %>
-      </div>
-
-    </div>
   </div>
 
-  <% @profiles.each do |profile| %>
-    <%= profile.username %>
+  <% if @profiles.count > 0 %>
+    <div class="text-center">
+      <h2 class="mb-2">Who else is going?</h2>
+      <div class="d-flex justify-content-center">
+        <% @profiles.first(5).each do |profile| %>
+          <% if profile != current_user.profile %>
+            <%= link_to user_profile_path(profile) do %>
+              <%= cl_image_tag profile.photo.key, class: "avatar-medium border ms-2" %>
+            <% end %>
+          <% end %>
+        <% end %>
+
+        <% if @profiles.count > 5 %>
+          <% blurred_profile = @profiles[5] %>
+          <% if blurred_profile != current_user.profile %>
+            <%= cl_image_tag blurred_profile.photo.key, class: "avatar-medium avatar-blurred border ms-2" %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
   <% end %>
 
   <% if !@event.user.profile.is_business %>
 
     <div class="comments-section mb-2">
 
-      <div class="show-comments-card">
-        <div class="d-flex justify-content-between"><h2 class="mb-3">Comments</h2><p id="show-comments-btn" data-action="click->event-showpage#toggleComments">See more <i class="fa-solid fa-caret-down"></i></p></div>
+      <div class="users-comments">
+        <div class="d-flex justify-content-between">
+          <h2 class="mb-3">Comments</h2>
+          <% if @event.comments.count > 5 %>
+            <p id="users-comments-btn" data-action="click->event-showpage#toggleComments">See more <i class="fa-solid fa-caret-down"></i></p>
+          <% end %>
+        </div>
         <div data-event-showpage-target="commentSection">
           <% comments_count = @event.comments.count %>
           <% @event.comments.order(created_at: :asc).each_with_index do |comment, index| %>

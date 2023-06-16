@@ -30,7 +30,7 @@
 
   <body
     <% if current_user %>
-      <%= "style=padding-bottom:50px;" %>
+      <%= "style=padding-bottom:80px;" %>
     <% end %>
     data-controller="search"
   >
@@ -42,6 +42,13 @@
       <% end %>
     <% end %>
     <%= render "shared/flashes" %>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        $('.table-striped').removeClass('table-striped');
+      });
+    </script>
 
     <%= yield %>
   </body>

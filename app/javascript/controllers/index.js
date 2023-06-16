@@ -21,3 +21,6 @@ application.register("map", MapController)
 
 import SearchController from "./search_controller"
 application.register("search", SearchController)
+
+import TypedJsController from "./typed_js_controller"
+application.register("typed-js", TypedJsController)

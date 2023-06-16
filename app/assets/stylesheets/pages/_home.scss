@@ -1,32 +1,67 @@
 // Specific CSS for your home-page
 #banner {
+  overflow-x: hidden;
   position: relative;
+
+  figure {
+    position: relative;
+    height: 30vh;
+    width: 1000%;
+    margin: 0;
+    left: 0;
+    animation: 15s banner infinite;
+
+    div {
+      height: 30vh;
+      background-size: cover;
+      background-position: center;
+      float: left;
+      width: 100vw;
+    }
+  }
+
+  @keyframes banner {
+    0% {
+      left: 0;
+    }
+    20% {
+      left: 0;
+    }
+    25% {
+      left: -100%;
+    }
+    45% {
+      left: -100%;
+    }
+    50% {
+      left: -200%;
+    }
+    70% {
+      left: -200%;
+    }
+    75% {
+      left: -300%;
+    }
+    95% {
+      left: -300%;
+    }
+    100% {
+      left: -400%;
+    }
+  }
+
   p {
     position: absolute;
     color: white;
+    text-shadow: 4px 3px 9px rgba(0, 0, 0, 1);
     margin: 0;
-    bottom: 18px;
+    top: 60px;
     left: 85px;
-    font-size: 20px;
+    font-size: 23px;
     font-weight: bold;
   }
 }
 
-#homepage-img {
-  // height: 275px;
-  width: 100%;
-  object-fit: cover;
-}
-
 .phrase {
   color: #3860ED;
-}
-
-#navbar-icons {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  i {
-    padding: 0 10px;
-  }
 }
