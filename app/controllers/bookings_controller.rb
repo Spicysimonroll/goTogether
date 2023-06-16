@@ -30,7 +30,7 @@ class BookingsController < ApplicationController
       current_user.invitations.find_by(event: @booking.event).destroy
     end
     @booking.destroy
-    redirect_to user_profile_path, status: :see_other
+    redirect_to event_path(@booking.event)
     flash[:notice] = "Your event booking was deleted successfully!"
   end
 
