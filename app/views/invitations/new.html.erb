@@ -1,5 +1,6 @@
 <div class="container">
-  <div class="form container">
+  <h1 class="pt-4 pb-4 text-center">Send invites</h1>
+  <div class="form">
     <% friend_groups = []%>
     <% friend_groups = current_user.groups.each do |group| %>
       <% friend_groups << group.name %>
@@ -11,7 +12,7 @@
                   placeholder: "Invite some friends!",
                   autofocus: true,
                   input_html: { autocomplete: "friendship_id" }%>
-      <%= f.submit "Invite", class: "button-primary" %>
+      <%= f.submit "Invite", class: "button-primary w-100" %>
     <% end %>
   </div>
 </div>

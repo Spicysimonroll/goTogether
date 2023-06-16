@@ -220,8 +220,8 @@ public_event6 = Event.new(
   address: "Plaça dels Àngels, 1, Barcelona",
   description: "Enjoy classic movies under the starry sky. Grab your blankets and popcorn, and immerse yourself in the magic of cinema in a unique open-air setting.",
   category: "Film",
-  start_date: "2023-07-28",
-  end_date: "2023-07-30",
+  start_date: "2023-07-28T20:00:00",
+  end_date: "2023-07-28T20:00:00",
   is_private: false
 )
 public_event6.user = businesses[rand(0..3)]
@@ -248,8 +248,8 @@ public_event8 = Event.new(
   address: "Carrer de Balmes, Barcelona",
   description: "Put on your dancing shoes and join us for an exciting salsa workshop. Learn new moves, enjoy energetic music, and dance the night away with fellow enthusiasts.",
   category: "Dance",
-  start_date: "2023-06-20",
-  end_date: "2023-07-31",
+  start_date: "2023-06-20T22:00:00",
+  end_date: "2023-06-20T19:00:00",
   is_private: false
 )
 public_event8.user = businesses[rand(0..3)]
@@ -844,6 +844,21 @@ booking11 = Booking.new(status: 0)
 booking11.event = private_event10
 booking11.user = giacomo
 booking11.save
+
+booking12 = Booking.new(status: 0)
+booking12.event = public_event8
+booking12.user = carlos
+booking12.save
+
+booking13 = Booking.new(status: 0)
+booking13.event = public_event10
+booking13.user = marien
+booking13.save
+
+booking14 = Booking.new(status: 0)
+booking14.event = public_event6
+booking14.user = simon
+booking14.save
 
 puts "Creating comments..."
 comment1 = Comment.new(content: "Awesome, let's go together!")
