@@ -22,7 +22,11 @@
 </div>
 
 <div class="event-container mt-3 ms-1 me-1">
-  <p class="type-of-event text-center">My upcoming events</p>
+  <% if params[:id].to_i == current_user.id %>
+    <p class="type-of-event text-center">My upcoming events</p>
+  <% else %>
+    <p class="type-of-event text-center"><%= @user.profile.first_name %> upcoming events</p>
+  <% end %>
   <% @all.each do |event| %>
     <%= link_to event_path(event) do  %>
       <div class="event-card d-flex align-items-center justify-content-center mb-4" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(<%= cl_image_path event.photo.key %>);">
